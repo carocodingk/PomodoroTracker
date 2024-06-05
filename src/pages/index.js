@@ -41,8 +41,8 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
   })
 
   return(
-    <div>
-      <div>
+    <div className="flexBox flexRow">
+      <div className="flexBox flexColumn">
         <label>Task description: </label>
         <input type="text" onChange={
           (e) => 
@@ -53,7 +53,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
           )}
         />
       </div>
-      <div>
+      <div className="flexBox flexColumn">
         <label>Expected Cycles:</label>
         <input type="text" onChange={
           (e) =>
@@ -82,7 +82,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
 }
 
 export default function Home() {
-  // const [taskKeys, setTaskKey] = useState(2)
   const [taskInProgress, setTaskInProgress] = useState({
     taskId: -1,
     taskName: ""

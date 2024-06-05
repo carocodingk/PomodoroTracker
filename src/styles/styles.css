@@ -1,0 +1,12 @@
+.flexBox {
+    display: flex;
+    background-color: red;
+}
+
+.flexColumn {
+    flex-direction: column;
+}
+
+.flexRow {
+    flex-direction: row;
+}
