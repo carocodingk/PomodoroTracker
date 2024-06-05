@@ -10,8 +10,10 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
 
 
 function TaskManager(){
+  const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
 
+  console.log(taskList)
   return(
     <div>
       <ul>
@@ -24,13 +26,63 @@ function TaskManager(){
           </li>
         ))}
       </ul>
+      <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
     </div>
   );
 }
 
+function NewTask({taskKeys, setTaskKey, setTaskList}){
+  const [newTask, setNewTask] = useState({
+    key: null, 
+    taskName: "", 
+    expectedCycles: 1, 
+    actualTime: 0, 
+    finished: false
+  })
+
+  return(
+    <div>
+      <div>
+        <label>Task description: </label>
+        <input type="text" onChange={
+          (e) => 
+            setNewTask((prevState) => ({
+              ...prevState, 
+              taskName: e.target.value
+            })
+          )}
+        />
+      </div>
+      <div>
+        <label>Expected Cycles:</label>
+        <input type="text" onChange={
+          (e) =>
+            e.target.value.length > 0 && setNewTask((prevState) => ({
+              ...prevState,
+              expectedCycles: e.target.value
+            })
+          )}
+        />
+      </div>
+      <input type="button" value="+" onClick={()=> {
+        setTaskList((prevTaskList) => [
+          ...prevTaskList,{
+          key: taskKeys, 
+          taskName: newTask.taskName, 
+          expectedCycles: newTask.expectedCycles, 
+          actualTime: 0, 
+          finished: false}
+        ]);
+        setTaskKey((prevKey) => prevKey+1)}
+      }/>
+             
+    </div>
+    
+  );
+}
 
 export default function Home() {
-  const [taskKeys, setTaskKey] = useState(2)
+  // const [taskKeys, setTaskKey] = useState(2)
   const [taskInProgress, setTaskInProgress] = useState({
     taskId: -1,
     taskName: ""
