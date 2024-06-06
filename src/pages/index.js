@@ -38,7 +38,7 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCheck
       </ul>
       <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
       {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} taskList={taskList} setTaskList={setTaskList} setCheckedTask={setCheckedTask}/>}
-      {console.log('inside task manager ', taskInProgress.taskName)}
+      {/* {console.log('inside task manager ', taskInProgress.taskName)} */}
     </div>
   );
 }
@@ -50,7 +50,7 @@ function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask})
     taskList.map((task) => {
       if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
         if (completed){
-          console.log('task completed')
+          // console.log('task completed')
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime,
@@ -58,7 +58,7 @@ function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask})
           }
         }
         else{
-          console.log('task not completed')
+          // console.log('task not completed')
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime
@@ -74,11 +74,11 @@ function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask})
 
   return(
     <div>
-      {console.log('here ', taskInProgress)}
+      {/* {console.log('here ', taskInProgress)} */}
       <h2>{`Have you finished with task: ${taskInProgress.taskName}?`}</h2>
       <input type="button" value="YES" onClick={()=>updateTaskInProgress(true)} />
       <input type="button" value="NO" onClick={()=>updateTaskInProgress(false)}/>
-      {console.log('theeeree', taskInProgress.taskName)}
+      {/* {console.log('theeeree', taskInProgress.taskName)} */}
     </div>
   );
 }
@@ -92,11 +92,11 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
   //  Verifies if the input entered by user are valid: task description is not empty and 
   //  assigns a default of 1 to expected number of cycles when not specified
   const inputVerification = () => {
-    console.log(newTask)
+    // console.log(newTask)
     if (newTask.taskName.length > 0){
-      console.log('greater than zero')
+      // console.log('greater than zero')
       if (newTask.expectedCycles.length >0){
-        console.log('expected greater than zero')
+        // console.log('expected greater than zero')
         setTaskList((prevTaskList) => ([
           ...prevTaskList, {
             key: taskKeys,
@@ -108,7 +108,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
         ]))
       }
       else{
-        console.log('expected is lesser or equal than zero')
+        // console.log('expected is lesser or equal than zero')
         setTaskList((prevTaskList) => ([
           ...prevTaskList, {
             key: taskKeys,
@@ -118,7 +118,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
             finished: false
           }
         ]))
-        console.log("another checkpoint")
+        // console.log("another checkpoint")
       }
     }
     else
@@ -161,7 +161,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       {/* Add to list button */}
       <input type="button" value="+" onClick={()=> {  
         inputVerification()
-        console.log("submit new task")
+        // console.log("submit new task")
       }
       }/>      
     </div>
@@ -177,8 +177,8 @@ export default function Home() {
   const [cycleComplete, setCycleComplete] = useState(true) //state indicates when a pomodoro cycle has been completed
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
 
-  console.log('first ', taskInProgress)
-  console.log('checkedTask ', checkedTask)
+  // console.log('first ', taskInProgress)
+  // console.log('checkedTask ', checkedTask)
 
   return (
     <div>
