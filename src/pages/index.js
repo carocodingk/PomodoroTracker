@@ -7,7 +7,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
 
 
-function TaskManager({taskInProgress, setTaskInProgress, cycleComplete}){
+function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCheckedTask}){
   const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
   console.log(taskList)
@@ -37,18 +37,18 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete}){
         ))}
       </ul>
       <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
-      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} taskList={taskList} setTaskList={setTaskList}/>}
+      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} taskList={taskList} setTaskList={setTaskList} setCheckedTask={setCheckedTask}/>}
       {console.log('inside task manager ', taskInProgress.taskName)}
     </div>
   );
 }
 
-function TaskCompletion({taskInProgress, taskList, setTaskList}){
+function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask}){
 
   const updateTaskInProgress = (completed) => {
     let updatedTask
     taskList.map((task) => {
-      if (task.key === taskInProgress.key && !task.finished){
+      if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
         if (completed){
           console.log('task completed')
           updatedTask = {
@@ -66,6 +66,7 @@ function TaskCompletion({taskInProgress, taskList, setTaskList}){
         }
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
         setTaskList(updatedTaskList)
+        setCheckedTask(true)
       }
     })
 
@@ -174,12 +175,14 @@ export default function Home() {
     taskName: ""
   })
   const [cycleComplete, setCycleComplete] = useState(true) //state indicates when a pomodoro cycle has been completed
+  const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
 
   console.log('first ', taskInProgress)
+  console.log('checkedTask ', checkedTask)
 
   return (
     <div>
-      <TaskManager taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} cycleComplete={cycleComplete}/>
+      <TaskManager taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} cycleComplete={cycleComplete} setCheckedTask={setCheckedTask} />
     </div>
   );
 }
