@@ -48,7 +48,7 @@ function TaskCompletion({taskInProgress, taskList, setTaskList}){
   const updateTaskInProgress = (completed) => {
     let updatedTask
     taskList.map((task) => {
-      if (task.key === taskInProgress.key){
+      if (task.key === taskInProgress.key && !task.finished){
         if (completed){
           console.log('task completed')
           updatedTask = {
@@ -64,10 +64,11 @@ function TaskCompletion({taskInProgress, taskList, setTaskList}){
             actualTime: task.actualTime + workTime
           }
         }
+        const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
+        setTaskList(updatedTaskList)
       }
     })
-    const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
-    setTaskList(updatedTaskList)
+
   }
 
   return(
