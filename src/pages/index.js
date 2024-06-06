@@ -7,8 +7,6 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
 
 
-
-
 function TaskManager(){
   const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
@@ -33,15 +31,55 @@ function TaskManager(){
 
 function NewTask({taskKeys, setTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
-    key: null, 
     taskName: "", 
-    expectedCycles: 1, 
-    actualTime: 0, 
-    finished: false
+    expectedCycles: "", 
   })
+
+  // Verifies if the input entered by user are valid: task description is not empty and 
+  //assigns a default of 1 to expected number of cycles when not specified
+  const inputVerification = () => {
+    console.log(newTask)
+    if (newTask.taskName.length > 0){
+      console.log('greater than zero')
+      if (newTask.expectedCycles.length >0){
+        console.log('expected greater than zero')
+        setTaskList((prevTaskList) => ([
+          ...prevTaskList, {
+            key: taskKeys,
+            taskName: newTask.taskName,
+            expectedCycles: newTask.expectedCycles,
+            actualTime: 0,
+            finished: false
+          }
+        ]))
+      }
+      else{
+        console.log('expected is lesser or equal than zero')
+        setTaskList((prevTaskList) => ([
+          ...prevTaskList, {
+            key: taskKeys,
+            taskName: newTask.taskName,
+            expectedCycles: 1,
+            actualTime: 0,
+            finished: false
+          }
+        ]))
+        console.log("another checkpoint")
+      }
+    }
+    else
+      console.log('Please enter a task!')
+    setTaskKey((prevTaskKey) => prevTaskKey+1)  //Updates the key manager
+    setNewTask({                                //Resets the input field to blank
+      taskName: "",
+      expectedCycles: ""
+    })
+  }
 
   return(
     <div className="flexBox flexRow">
+
+      {/* Task description field */}
       <div className="flexBox flexColumn">
         <label>Task description: </label>
         <input type="text" onChange={
@@ -51,29 +89,29 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
               taskName: e.target.value
             })
           )}
+          value={newTask.taskName}
         />
       </div>
+
+      {/* Task expected cycles field */}
       <div className="flexBox flexColumn">
         <label>Expected Cycles:</label>
         <input type="text" onChange={
-          (e) =>
-            e.target.value.length > 0 && setNewTask((prevState) => ({
+          (e) => 
+            setNewTask((prevState) => ({
               ...prevState,
               expectedCycles: e.target.value
-            })
-          )}
+            }))
+          }
+          value={newTask.expectedCycles}
         />
       </div>
-      <input type="button" value="+" onClick={()=> {
-        setTaskList((prevTaskList) => [
-          ...prevTaskList,{
-          key: taskKeys, 
-          taskName: newTask.taskName, 
-          expectedCycles: newTask.expectedCycles, 
-          actualTime: 0, 
-          finished: false}
-        ]);
-        setTaskKey((prevKey) => prevKey+1)}
+
+      {/* Add to list button */}
+      <input type="button" value="+" onClick={()=> {  
+        inputVerification()
+        console.log("submit new task")
+      }
       }/>
              
     </div>
