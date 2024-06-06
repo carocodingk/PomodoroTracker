@@ -6,6 +6,31 @@ const breakTime = 2;
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
 
+function PomodoroTimer({setCycleComplete, checkedTask}){
+  const [workTimer, setWorkTimer] = useState(workTime);
+  const [workTimerRun, setWorkTimerRun] = useState(false);
+  const [breakTimer, setBreakTimer] = useState(breakTime);
+  const [breakTimerRun, setBreakTimerRun] = useState(false);
+
+  return(
+    <div>
+      <div>
+        <div>
+          <h2>Work Time</h2>
+          <h1>time1</h1>
+        </div>
+        <div>
+          <h2>Break Time</h2>
+          <h1>time2</h1>
+        </div>
+        <div>
+          <input type="button" value={workTimerRun || breakTimerRun? 'START':'PAUSE'} />
+          <input type="button" value='RESET' />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCheckedTask}){
   const [taskKeys, setTaskKey] = useState(2)
@@ -182,6 +207,7 @@ export default function Home() {
 
   return (
     <div>
+      <PomodoroTimer setCycleComplete={setCycleComplete} checkedTask={checkedTask} />
       <TaskManager taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} cycleComplete={cycleComplete} setCheckedTask={setCheckedTask} />
     </div>
   );
