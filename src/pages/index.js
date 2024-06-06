@@ -7,7 +7,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
 
 
-function TaskManager({setTaskInProgress}){
+function TaskManager({taskInProgress, setTaskInProgress, cycleComplete}){
   const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
   console.log(taskList)
@@ -18,7 +18,6 @@ function TaskManager({setTaskInProgress}){
         key: task.key,
         taskName: task.taskName
       })
-      // console.log(task.taskName)
     }
     else{
       console.log("This task has been resolved")
@@ -38,6 +37,46 @@ function TaskManager({setTaskInProgress}){
         ))}
       </ul>
       <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
+      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} taskList={taskList} setTaskList={setTaskList}/>}
+      {console.log('inside task manager ', taskInProgress.taskName)}
+    </div>
+  );
+}
+
+function TaskCompletion({taskInProgress, taskList, setTaskList}){
+
+  const updateTaskInProgress = (completed) => {
+    let updatedTask
+    taskList.map((task) => {
+      if (task.key === taskInProgress.key){
+        if (completed){
+          console.log('task completed')
+          updatedTask = {
+            ...task,
+            actualTime: task.actualTime + workTime,
+            finished: completed
+          }
+        }
+        else{
+          console.log('task not completed')
+          updatedTask = {
+            ...task,
+            actualTime: task.actualTime + workTime
+          }
+        }
+      }
+    })
+    const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
+    setTaskList(updatedTaskList)
+  }
+
+  return(
+    <div>
+      {console.log('here ', taskInProgress)}
+      <h2>{`Have you finished with task: ${taskInProgress.taskName}?`}</h2>
+      <input type="button" value="YES" onClick={()=>updateTaskInProgress(true)} />
+      <input type="button" value="NO" onClick={()=>updateTaskInProgress(false)}/>
+      {console.log('theeeree', taskInProgress.taskName)}
     </div>
   );
 }
@@ -130,15 +169,16 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
 
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
-    taskId: -1,
+    key: -1,
     taskName: ""
   })
+  const [cycleComplete, setCycleComplete] = useState(true) //state indicates when a pomodoro cycle has been completed
 
-  console.log(taskInProgress)
+  console.log('first ', taskInProgress)
 
   return (
     <div>
-      <TaskManager setTaskInProgress={setTaskInProgress} />
+      <TaskManager taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} cycleComplete={cycleComplete}/>
     </div>
   );
 }
