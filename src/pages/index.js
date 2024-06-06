@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Initial values
 const workTime = 5;
@@ -11,6 +11,10 @@ function PomodoroTimer({setCycleComplete, checkedTask}){
   const [workTimerRun, setWorkTimerRun] = useState(false);
   const [breakTimer, setBreakTimer] = useState(breakTime);
   const [breakTimerRun, setBreakTimerRun] = useState(false);
+
+  useEffect(() => {
+
+  },[workTimer, workTimerRun, breakTimer, breakTimerRun]);
 
   return(
     <div>
@@ -62,13 +66,13 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCheck
         ))}
       </ul>
       <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
-      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} taskList={taskList} setTaskList={setTaskList} setCheckedTask={setCheckedTask}/>}
+      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} taskList={taskList} setTaskList={setTaskList} setCheckedTask={setCheckedTask}/>}
       {/* {console.log('inside task manager ', taskInProgress.taskName)} */}
     </div>
   );
 }
 
-function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask}){
+function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCheckedTask}){
 
   const updateTaskInProgress = (completed) => {
     let updatedTask
@@ -92,6 +96,10 @@ function TaskCompletion({taskInProgress, taskList, setTaskList, setCheckedTask})
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
         setTaskList(updatedTaskList)
         setCheckedTask(true)
+        setTaskInProgress({
+          key: -1, 
+          taskName: ""
+        })
       }
     })
 
@@ -200,15 +208,25 @@ export default function Home() {
     taskName: ""
   })
   const [cycleComplete, setCycleComplete] = useState(true) //state indicates when a pomodoro cycle has been completed
+  // const [choseTask, setChoseTask] = useState(false)
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
-
   // console.log('first ', taskInProgress)
   // console.log('checkedTask ', checkedTask)
+  console.log('task in progress ', taskInProgress)
 
   return (
     <div>
-      <PomodoroTimer setCycleComplete={setCycleComplete} checkedTask={checkedTask} />
-      <TaskManager taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} cycleComplete={cycleComplete} setCheckedTask={setCheckedTask} />
+      <PomodoroTimer 
+        setCycleComplete={setCycleComplete} 
+        checkedTask={checkedTask} 
+      />
+      <TaskManager 
+        taskInProgress={taskInProgress} 
+        setTaskInProgress={setTaskInProgress} 
+        cycleComplete={cycleComplete} 
+        setCheckedTask={setCheckedTask} 
+        // choseTask={choseTask} 
+      />
     </div>
   );
 }
