@@ -116,8 +116,19 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
           </li>
         ))}
       </ul>
-      <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
-      {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} taskList={taskList} setTaskList={setTaskList} setCycleComplete={setCycleComplete} setCheckedTask={setCheckedTask}/>}
+      <NewTask 
+        taskKeys={taskKeys} 
+        setTaskKey={setTaskKey} 
+        setTaskList={setTaskList} 
+      />
+      {cycleComplete && 
+      <TaskCompletion 
+        taskInProgress={taskInProgress} 
+        setTaskInProgress={setTaskInProgress} 
+        taskList={taskList} setTaskList={setTaskList} 
+        setCycleComplete={setCycleComplete} 
+        setCheckedTask={setCheckedTask}
+      />}
     </div>
   );
 }
