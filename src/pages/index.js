@@ -250,7 +250,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       }
       }/>      
     </div>
-    
   );
 }
 
