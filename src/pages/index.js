@@ -34,7 +34,6 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
   useEffect(() => {
     let timer1, timer2
     if (workTimerRun){
-      console.log('case1')
       timer1 = setTimeout(() => {
         setWorkTimer((prevTime) => prevTime-1)
       }, 1000);
@@ -51,6 +50,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
       if (breakTimer === 0){
         setBreakTimerRun(false) //Stop break timer
         setCycleComplete(true)  //Indicates a pomodoro cycle (work + break) is complete
+        resetTimer()
       }
     }
 
@@ -81,7 +81,6 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
         </div>
         <div>
           <input type="button" value={workTimerRun || breakTimerRun? 'PAUSE':'START'} onClick={() => startTimer(taskInProgress)} />
-          {/* <input type="button" value={workTimerRun || breakTimerRun? 'PAUSE':'START'} onClick={() => setWorkTimerRun(!workTimerRun)} /> */}
           <input type="button" value='RESET' onClick={() => resetTimer()} />
         </div>
       </div>
@@ -92,7 +91,6 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
 function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, setCheckedTask}){
   const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
-  // console.log(taskList)
 
   const chooseTask = (task) => {
     if (!task.finished){
@@ -120,7 +118,6 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
       </ul>
       <NewTask taskKeys={taskKeys} setTaskKey={setTaskKey} setTaskList={setTaskList} />
       {cycleComplete && <TaskCompletion taskInProgress={taskInProgress} setTaskInProgress={setTaskInProgress} taskList={taskList} setTaskList={setTaskList} setCycleComplete={setCycleComplete} setCheckedTask={setCheckedTask}/>}
-      {/* {console.log('inside task manager ', taskInProgress.taskName)} */}
     </div>
   );
 }
@@ -132,7 +129,6 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
     taskList.map((task) => {
       if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
         if (completed){
-          // console.log('task completed')
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime,
@@ -140,7 +136,6 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
           }
         }
         else{
-          // console.log('task not completed')
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime
@@ -148,7 +143,7 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
         }
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
         setTaskList(updatedTaskList)
-        setCheckedTask(true)
+        setCheckedTask(true) //
         setCycleComplete(false) //removes the box asking if the task was completed
         setTaskInProgress({ //Resets task in progress to default
           key: -1, 
@@ -161,11 +156,9 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
 
   return(
     <div>
-      {/* {console.log('here ', taskInProgress)} */}
       <h2>{`Have you finished with task: ${taskInProgress.taskName}?`}</h2>
       <input type="button" value="YES" onClick={()=>updateTaskInProgress(true)} />
       <input type="button" value="NO" onClick={()=>updateTaskInProgress(false)}/>
-      {/* {console.log('theeeree', taskInProgress.taskName)} */}
     </div>
   );
 }
@@ -179,11 +172,8 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
   //  Verifies if the input entered by user are valid: task description is not empty and 
   //  assigns a default of 1 to expected number of cycles when not specified
   const inputVerification = () => {
-    // console.log(newTask)
     if (newTask.taskName.length > 0){
-      // console.log('greater than zero')
       if (newTask.expectedCycles.length >0){
-        // console.log('expected greater than zero')
         setTaskList((prevTaskList) => ([
           ...prevTaskList, {
             key: taskKeys,
@@ -195,7 +185,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
         ]))
       }
       else{
-        // console.log('expected is lesser or equal than zero')
         setTaskList((prevTaskList) => ([
           ...prevTaskList, {
             key: taskKeys,
@@ -205,7 +194,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
             finished: false
           }
         ]))
-        // console.log("another checkpoint")
       }
     }
     else
@@ -248,7 +236,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       {/* Add to list button */}
       <input type="button" value="+" onClick={()=> {  
         inputVerification()
-        // console.log("submit new task")
       }
       }/>      
     </div>
@@ -262,11 +249,7 @@ export default function Home() {
     taskName: ""
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
-  // const [choseTask, setChoseTask] = useState(false)
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
-  // console.log('first ', taskInProgress)
-  // console.log('checkedTask ', checkedTask)
-  console.log('task in progress ', taskInProgress)
 
   return (
     <div>
@@ -281,7 +264,6 @@ export default function Home() {
         cycleComplete={cycleComplete} 
         setCycleComplete={setCycleComplete}
         setCheckedTask={setCheckedTask} 
-        // choseTask={choseTask} 
       />
     </div>
   );
