@@ -23,6 +23,14 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
       console.log("Please select a task to work on! ")
   }
 
+  const resetTimer = () => {
+    setWorkTimerRun(false)
+    setBreakTimerRun(false)
+    setWorkTimer(workTime)
+    setBreakTimer(breakTime)
+  }
+
+
   useEffect(() => {
     let timer1, timer2
     if (workTimerRun){
@@ -74,7 +82,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
         <div>
           <input type="button" value={workTimerRun || breakTimerRun? 'PAUSE':'START'} onClick={() => startTimer(taskInProgress)} />
           {/* <input type="button" value={workTimerRun || breakTimerRun? 'PAUSE':'START'} onClick={() => setWorkTimerRun(!workTimerRun)} /> */}
-          <input type="button" value='RESET' />
+          <input type="button" value='RESET' onClick={() => resetTimer()} />
         </div>
       </div>
     </div>
