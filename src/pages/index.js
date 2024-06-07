@@ -6,11 +6,23 @@ const breakTime = 2;
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
 
-function PomodoroTimer({setCycleComplete, checkedTask}){
+function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
   const [workTimer, setWorkTimer] = useState(workTime);
   const [workTimerRun, setWorkTimerRun] = useState(false);
   const [breakTimer, setBreakTimer] = useState(breakTime);
   const [breakTimerRun, setBreakTimerRun] = useState(false);
+
+  const startTimer = (taskInProgress) => {
+    if (taskInProgress.key != -1){
+      setWorkTimer(true)
+      console.log('setworktimer')
+    }
+    else
+      console.log("Please select a task to work on! ")
+    // console.log('this point ', taskInProgress)
+  }
+
+  // console.log('there ', taskInProgress)
 
   useEffect(() => {
 
@@ -28,7 +40,7 @@ function PomodoroTimer({setCycleComplete, checkedTask}){
           <h1>time2</h1>
         </div>
         <div>
-          <input type="button" value={workTimerRun || breakTimerRun? 'START':'PAUSE'} />
+          <input type="button" value={workTimerRun || breakTimerRun? 'START':'PAUSE'} onClick={() => startTimer(taskInProgress)} />
           <input type="button" value='RESET' />
         </div>
       </div>
@@ -39,7 +51,7 @@ function PomodoroTimer({setCycleComplete, checkedTask}){
 function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCheckedTask}){
   const [taskKeys, setTaskKey] = useState(2)
   const [taskList, setTaskList] = useState(initialTasks)
-  console.log(taskList)
+  // console.log(taskList)
 
   const chooseTask = (task) => {
     if (!task.finished){
@@ -96,7 +108,7 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
         setTaskList(updatedTaskList)
         setCheckedTask(true)
-        setTaskInProgress({
+        setTaskInProgress({ //Resets task in progress to default
           key: -1, 
           taskName: ""
         })
@@ -217,6 +229,7 @@ export default function Home() {
   return (
     <div>
       <PomodoroTimer 
+        taskInProgress={taskInProgress}
         setCycleComplete={setCycleComplete} 
         checkedTask={checkedTask} 
       />
