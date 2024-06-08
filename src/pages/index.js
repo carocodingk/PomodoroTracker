@@ -3,8 +3,38 @@ import { useEffect, useState } from "react";
 // Initial values
 const workTime = 5;
 const breakTime = 2;
-const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: true}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false} ];
+const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false} ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}      ];
 
 function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
   const [workTimer, setWorkTimer] = useState(workTime);
@@ -69,19 +99,33 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
   const minutesB = Math.floor(breakTimer / 60)
 
   return(
-    <div>
+    <div className="yellowBox">
       <div>
         <div>
-          <h2>Work Time</h2>
-          <h1>{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</h1>
+          <p className="orange centerText">Work Time</p>
+          <p className="centerText brown font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
         </div>
         <div>
-          <h2>Break Time</h2>
-          <h1>{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</h1>
+          <p className="orange centerText">Break Time</p>
+          <p className="centerText brown font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
         </div>
-        <div>
-          <input type="button" value={workTimerRun || breakTimerRun? 'PAUSE':'START'} onClick={() => startTimer(taskInProgress)} />
-          <input type="button" value='RESET' onClick={() => resetTimer()} />
+        <div className="centerMargin">
+        <div className="flexBox flexJustifyCenter">
+          <input className="lightBackground timerButton brown" 
+            type="button" 
+            value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
+            onClick={() => 
+              startTimer(taskInProgress)
+            } 
+          />
+          <input className="lightBackground timerButton brown" 
+            type="button" 
+            value='RESET' 
+            onClick={() => 
+              resetTimer()
+            } 
+          />
+        </div>
         </div>
       </div>
     </div>
@@ -89,7 +133,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
 }
 
 function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, setCheckedTask}){
-  const [taskKeys, setTaskKey] = useState(2)
+  const [taskKeys, setTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
 
   const chooseTask = (task) => {
@@ -106,21 +150,27 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
 
   return(
     <div>
-      <ul>
+      <ul id="taskList">
         {taskList.map((task) => (
-          <li>
-            <input type="checkbox" checked={task.finished} />
-            <input type="button" value={task.taskName} onClick={()=>chooseTask(task)}/>
-            #### {task.expectedCycles} 
-            #### {task.actualTime}
+          <li className="flexBox flexAlignCenter taskItem">
+            <input className="checkBox" type="checkbox" checked={task.finished} />
+            <input id="taskItem" className="lightBackground brown hoverItem" 
+              type="button" 
+              value={task.taskName} 
+              onClick={()=>chooseTask(task)}
+            />
+            <p className="brown">***{task.expectedCycles}</p>
+            <p className="brown">***{task.actualTime}</p>
           </li>
         ))}
       </ul>
-      <NewTask 
-        taskKeys={taskKeys} 
-        setTaskKey={setTaskKey} 
-        setTaskList={setTaskList} 
-      />
+      <div id="bottom">
+        <NewTask 
+          taskKeys={taskKeys} 
+          setTaskKey={setTaskKey} 
+          setTaskList={setTaskList} 
+        />
+      </div>
       {cycleComplete && 
       <TaskCompletion 
         taskInProgress={taskInProgress} 
@@ -167,9 +217,19 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
 
   return(
     <div>
-      <h2>{`Have you finished with task: ${taskInProgress.taskName}?`}</h2>
-      <input type="button" value="YES" onClick={()=>updateTaskInProgress(true)} />
-      <input type="button" value="NO" onClick={()=>updateTaskInProgress(false)}/>
+      <p className="brown">{`Have you finished with task: ${taskInProgress.taskName}?`}</p>
+      <input className="lightBackground brown"
+        type="button" 
+        value="YES" 
+        onClick={()=>
+          updateTaskInProgress(true)
+      }/>
+      <input className="lightBackground brown"
+        type="button" 
+        value="NO" 
+        onClick={()=>
+          updateTaskInProgress(false)
+      }/>
     </div>
   );
 }
@@ -220,8 +280,8 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
     <div className="flexBox flexRow">
       {/* Task description field */}
       <div className="flexBox flexColumn">
-        <label>Task description: </label>
-        <input type="text" onChange={
+        <label className="brown">Task description: </label>
+        <input id="newTaskInput" type="text" onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState, 
@@ -233,8 +293,8 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       </div>
       {/* Task expected cycles field */}
       <div className="flexBox flexColumn">
-        <label>Expected Cycles:</label>
-        <input type="text" onChange={
+        <label className="brown">Cycles:</label>
+        <input id="newCycleInput" type="text" onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
@@ -262,8 +322,9 @@ export default function Home() {
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
 
   return (
-    <div>
-      <PomodoroTimer 
+    <div id="main" className="lightBackground">
+      <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
+      <PomodoroTimer
         taskInProgress={taskInProgress}
         setCycleComplete={setCycleComplete} 
         checkedTask={checkedTask} 

@@ -1,6 +1,47 @@
+#main {
+    min-height: 100vh;
+}
+
+.lightBackground {
+    background-color: #FAF7F4;
+}
+
+#trackerTitle {
+    padding-top: 1rem;
+    color: #B32800;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Papyrus, Fantasy;
+}
+
+.orange {
+    color: #E9A200;
+}
+
+.yellowBox {
+    border: 2px solid #FBDD00;
+    max-width: 70vw;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 2rem auto;
+}
+
+.font1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.taskItem {
+    padding: 0.3rem;
+}
+
+.checkBox {
+    margin-right: 1rem;
+    accent-color: #E9A200;
+}
+
 .flexBox {
     display: flex;
-    background-color: red;
 }
 
 .flexColumn {
@@ -9,4 +50,64 @@
 
 .flexRow {
     flex-direction: row;
+}
+
+.flexJustifyCenter {
+    justify-content: center;
+}
+
+.flexAlignCenter{
+    align-items: baseline;
+    border-bottom: 1px dotted #E9A200;
+}
+
+.centerMargin {
+    margin: auto;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.timerButton {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #FBDD00;
+    border-radius: 3px;
+}
+
+.brown {
+    color: #3F1300;
+}
+
+#taskItem {
+    border: none;
+}
+
+.hoverItem:hover {
+    color: #E9A200;
+}
+
+#taskList {
+    max-height: 40vh;
+    max-width: 100vw;
+    overflow: scroll;
+    padding: 0 1rem;
+}
+
+#bottom {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    width: 100vw;
+    background-color: #f1e8df;
+}
+
+#newTaskInput {
+    max-width: 70vw;
+    overflow: auto;
+}
+
+#newCycleInput {
+    max-width: 10vw;
 }
