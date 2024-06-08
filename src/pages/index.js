@@ -280,7 +280,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
     <div className="flexBox flexRow">
       {/* Task description field */}
       <div className="flexBox flexColumn">
-        <label className="brown">Task description: </label>
+        {/* <label className="brown">Task description: </label> */}
         <input id="newTaskInput" type="text" onChange={
           (e) => 
             setNewTask((prevState) => ({
@@ -293,7 +293,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       </div>
       {/* Task expected cycles field */}
       <div className="flexBox flexColumn">
-        <label className="brown">Cycles:</label>
+        {/* <label className="brown">Cycles:</label> */}
         <input id="newCycleInput" type="text" onChange={
           (e) => 
             setNewTask((prevState) => ({
