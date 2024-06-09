@@ -153,14 +153,18 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
       <ul id="taskList">
         {taskList.map((task) => (
           <li className="flexBox flexAlignCenter taskItem">
-            <input className="checkBox" type="checkbox" checked={task.finished} />
-            <input id="taskItem" className="lightBackground brown hoverItem" 
-              type="button" 
-              value={task.taskName} 
-              onClick={()=>chooseTask(task)}
-            />
-            <p className="brown">***{task.expectedCycles}</p>
-            <p className="brown">***{task.actualTime}</p>
+            <div id="left">            
+              <input className="checkBox" type="checkbox" checked={task.finished} />
+              <input id="taskName" className="lightBackground brown hoverItem" 
+                type="button" 
+                value={task.taskName} 
+                onClick={()=>chooseTask(task)}
+              />
+            </div>
+            <div id="right">
+              <p  className="brown details">{task.expectedCycles}</p>
+              <p id="totalTime" className="brown details">{task.actualTime}</p>
+            </div>
           </li>
         ))}
       </ul>
@@ -280,7 +284,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
     <div id="taskInput" className="flexBox flexRow flexJustifyCenter">
       {/* Task description field */}
       <div className="flexBox flexColumn">
-        {/* <label className="brown">Task description: </label> */}
         <input id="newTaskInput" 
           type="text" onChange={
             (e) => 
@@ -294,7 +297,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
       </div>
       {/* Task expected cycles field */}
       <div className="flexBox flexColumn">
-        {/* <label className="brown">Cycles:</label> */}
         <input id="newCycleInput" type="text" onChange={
           (e) => 
             setNewTask((prevState) => ({
