@@ -101,6 +101,9 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
   return(
     <div className="yellowBox">
       <div>
+        {/* <div> */}
+        <p className="centerText">{taskInProgress.taskName}</p>
+        {/* </div> */}
         <div>
           <p className="orange centerText">Work Time</p>
           <p className="centerText brown font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
@@ -221,7 +224,7 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
         setCycleComplete(false) //removes the box asking if the task was completed
         setTaskInProgress({ //Resets task in progress to default
           key: -1, 
-          taskName: ""
+          taskName: "Choose a task"
         })
       }
     })
@@ -334,7 +337,7 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
     key: -1,
-    taskName: ""
+    taskName: "Choose a task"
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
