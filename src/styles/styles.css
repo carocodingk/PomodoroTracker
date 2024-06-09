@@ -171,7 +171,7 @@
 }
 
 #colDescription {
-    width: 63vw;
+    width: 53vw;
     /* border: 1px solid forestgreen; */
 }
 
@@ -212,4 +212,9 @@
 
 #okButton {
     margin-top: 1rem;
+    /* max-width: 10vw; */
+}
+
+.rightAlign {
+    text-align: right;
 }

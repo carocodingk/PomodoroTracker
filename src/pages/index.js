@@ -3,38 +3,39 @@ import { useEffect, useState } from "react";
 // Initial values
 const workTime = 5;
 const breakTime = 2;
-const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false} ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}      ];
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false} ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
+                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
+                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
+                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}      
+                    ];
 
 function PomodoroTimer({taskInProgress, setCycleComplete}){
   const [workTimer, setWorkTimer] = useState(workTime);
@@ -152,6 +153,18 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
     return('heeeelooo');
   }
 
+  const timeProcessing = (time) => {
+    const secondsW = time % 60
+    const minutesW = Math.floor(time / 60)
+    const output = `${minutesW}:${secondsW < 10? `0${secondsW}` : secondsW}`
+    
+    return(
+      output
+    );
+  }
+
+
+
   return(
     <div>
       <div id="colName" className="flexBox justifySpaceBetween">
@@ -159,8 +172,8 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
           <p id="columnLeft" className="columns">Task description</p>
         </div>
         <div>
-          <p className="columns smallCol details">Expected cycles</p>
-          <p className="columns smallCol details">Current time</p>
+          <p className="columns rightAlign details">Expected cycles</p>
+          <p className="columns rightAlign details">Current time</p>
         </div>
       </div>
       <ul id="taskList">
@@ -175,8 +188,9 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
               />
             </div>
             <div>
-              <p  className="brown details centerAlign">{task.expectedCycles}</p>
-              <p id="totalTime" className="brown details centerAlign">{task.actualTime}</p>
+              <p  className="brown details rightAlign">{task.expectedCycles}</p>
+              {/* <p id="totalTime" className="brown details centerAlign">{task.actualTime}</p> */}
+              <p id="totalTime" className="brown details rightAlign">{timeProcessing(task.actualTime)}</p>
             </div>
           </li>
         ))}
@@ -206,20 +220,25 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
     let updatedTask
     taskList.map((task) => {
       if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
+        console.log('before ', task)
+        console.log('worktime ', workTime)
         if (completed){
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime,
             finished: completed
           }
+          console.log("here ", updatedTask)
         }
         else{
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime
           }
+          console.log("there ", updatedTask)
         }
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
+        console.log('updatedtasklist ', updatedTaskList)
         setTaskList(updatedTaskList)
         setCheckedTask(true) //
         setCycleComplete(false) //removes the box asking if the task was completed
@@ -227,6 +246,7 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
           key: -1, 
           taskName: "Choose a task"
         })
+        console.log('after update ', taskList)
       }
     })
   }
@@ -418,7 +438,7 @@ export default function Home() {
   // const Instructions = (setInstructions) => {
   const Instructions = () => {
     return(
-      <div className="flexBox flexColumn">
+      <div className="flexBox flexColumn flexJustifyCenter">
         <ul>
           <li>Enter the task and the number of expected pomodoro cycles it requires. Default cycle is 1</li>
           <li>Press the (+) button</li>
