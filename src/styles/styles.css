@@ -87,7 +87,7 @@
 
 #taskName {
     border: none;
-    max-width: 60vw;
+    max-width: 50vw;
     min-height: 5vh;
     text-wrap: wrap;
 }
