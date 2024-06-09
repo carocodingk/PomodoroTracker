@@ -179,3 +179,31 @@
     margin: auto;
     /* border: 1px solid red; */
 }
+
+#taskVerification1 {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:  rgba(241, 232, 223, 0.7);
+    width: 100vw;
+    height: 100vh;
+}
+
+#taskVerification2 {
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+    opacity: 1;
+    width: 90vw;
+    height: 20vh;
+    position: relative;
+    top: 35vh;
+    left: 5vw;
+    z-index: w;
+    align-items: center;
+}
+
+#verificationButton {
+    margin: 0.5rem;
+}

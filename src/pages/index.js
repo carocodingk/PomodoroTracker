@@ -229,20 +229,25 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
   }
 
   return(
-    <div>
-      <p className="brown">{`Have you finished with task: ${taskInProgress.taskName}?`}</p>
-      <input className="lightBackground brown"
-        type="button" 
-        value="YES" 
-        onClick={()=>
-          updateTaskInProgress(true)
-      }/>
-      <input className="lightBackground brown"
-        type="button" 
-        value="NO" 
-        onClick={()=>
-          updateTaskInProgress(false)
-      }/>
+    <div id="taskVerification1">
+      <div id="taskVerification2" className="flexBox flexColumn flexJustifyCenter">
+        <p className="brown">Have you finished with task:</p>
+        <p> {taskInProgress.taskName}?</p>
+        <div id="verificationButton">
+          <input className="lightBackground brown timerButton hoverItem"
+            type="button" 
+            value="YES" 
+            onClick={()=>
+              updateTaskInProgress(true)
+          }/>
+          <input className="lightBackground brown timerButton hoverItem" 
+            type="button" 
+            value="NO" 
+            onClick={()=>
+              updateTaskInProgress(false)
+          }/>
+        </div>
+      </div>
     </div>
   );
 }
