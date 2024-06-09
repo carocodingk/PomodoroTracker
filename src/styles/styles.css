@@ -196,14 +196,20 @@
     background-color: white;
     opacity: 1;
     width: 90vw;
-    height: 20vh;
+    min-height: 20vh;
     position: relative;
     top: 35vh;
     left: 5vw;
     z-index: w;
-    align-items: center;
+    padding: 3rem;
+    /* align-items: center; */
+
 }
 
 #verificationButton {
     margin: 0.5rem;
+}
+
+#okButton {
+    margin-top: 1rem;
 }

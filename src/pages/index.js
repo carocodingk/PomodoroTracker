@@ -231,39 +231,43 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
     })
   }
 
-  const currTask = () => {
-    return (
-      <p className="brown">Have you finished with task:</p>
-    );
-  }
+  // const currTask = () => {
+  //   return (
+  //     <p className="brown">Have you finished with task:</p>
+  //   );
+  // }
 
-  const taskQuestion = () => {
-    return (
-      <p> {taskInProgress.taskName}?</p>
-    );
-  }
+  // const taskQuestion = () => {
+  //   return (
+  //     <p> {taskInProgress.taskName}?</p>
+  //   );
+  // }
 
-  const taskButtons = () => {
+  const checkTask = () => {
     return(
-      <div id="verificationButton">
-        <input className="lightBackground brown timerButton hoverItem"
-          type="button" 
-          value="YES" 
-          onClick={()=>
-            updateTaskInProgress(true)
-          }/>
-        <input className="lightBackground brown timerButton hoverItem" 
-          type="button" 
-          value="NO" 
-          onClick={()=>
-            updateTaskInProgress(false)
-          }/>
+      <div>
+        <p className="brown centerText">Have you finished with task:</p>
+        <p className="brown centerText"> {taskInProgress.taskName}?</p>
+        <div id="verificationButton" className="flexBox flexJustifyCenter">
+          <input className="lightBackground brown timerButton hoverItem"
+            type="button" 
+            value="YES" 
+            onClick={()=>
+              updateTaskInProgress(true)
+            }/>
+          <input className="lightBackground brown timerButton hoverItem" 
+            type="button" 
+            value="NO" 
+            onClick={()=>
+              updateTaskInProgress(false)
+            }/>
+        </div>
       </div>
     );
   }
 
   return(
-    <DialogBox textField1={currTask} textField2={taskQuestion} divField={taskButtons} />
+    <DialogBox infoField={checkTask} />
   );
   // return(
   //   <div id="taskVerification1">
@@ -312,13 +316,11 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
   // );
 }
 
-function DialogBox({textField1, textField2, divField}){
+function DialogBox({infoField}){
   return(
     <div id="taskVerification1">
-      <div id="taskVerification2" className="flexBox flexColumn flexJustifyCenter">
-        {textField1()}
-        {textField2()}
-        {divField()}
+      <div id="taskVerification2" >
+        {infoField()}
       </div>
     </div>
   );
@@ -411,11 +413,48 @@ export default function Home() {
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
   const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
+  const [seenInstructions, setSeenInstructions] = useState(false)
+
+  // const Instructions = (setInstructions) => {
+  const Instructions = () => {
+    return(
+      <div className="flexBox flexColumn">
+        <ul>
+          <li>Enter the task and the number of expected pomodoro cycles it requires. Default cycle is 1</li>
+          <li>Press the (+) button</li>
+          <li>Select the task to work on</li>
+          <li>Select start to initiate the work timer and then the resting timer</li>
+          <li>Notify if the task has been completed</li>
+        </ul>
+        <input id="okButton" className="lightBackground timerButton brown hoverItem" 
+          type="button" 
+          value="OK" 
+          onClick={()=> setSeenInstructions(true)}/>
+      </div>
+    );
+  }
 
   return (
     <div id="main" className="lightBackground">
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
-      <PomodoroTimer
+      {!seenInstructions && <DialogBox  infoField={Instructions} />}
+      <div>
+        <PomodoroTimer
+          taskInProgress={taskInProgress}
+          setCycleComplete={setCycleComplete} 
+          // checkedTask={checkedTask} 
+        />
+        <TaskManager 
+          taskInProgress={taskInProgress} 
+          setTaskInProgress={setTaskInProgress} 
+          cycleComplete={cycleComplete} 
+          setCycleComplete={setCycleComplete}
+          setCheckedTask={setCheckedTask} 
+        />
+      </div>
+{/* } */}
+    {/* } */}
+      {/* <PomodoroTimer
         taskInProgress={taskInProgress}
         setCycleComplete={setCycleComplete} 
         // checkedTask={checkedTask} 
@@ -426,7 +465,7 @@ export default function Home() {
         cycleComplete={cycleComplete} 
         setCycleComplete={setCycleComplete}
         setCheckedTask={setCheckedTask} 
-      />
+      /> */}
     </div>
   );
 }
