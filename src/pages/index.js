@@ -6,35 +6,7 @@ const breakTime = 2;
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false} ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}  ,
-                      // {key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 0, finished: false}, 
-                      // {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      // {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false}      
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
                     ];
 
 function PomodoroTimer({taskInProgress, setCycleComplete}){
@@ -189,7 +161,6 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
             </div>
             <div>
               <p  className="brown details rightAlign">{task.expectedCycles}</p>
-              {/* <p id="totalTime" className="brown details centerAlign">{task.actualTime}</p> */}
               <p id="totalTime" className="brown details rightAlign">{timeProcessing(task.actualTime)}</p>
             </div>
           </li>
@@ -251,18 +222,6 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
     })
   }
 
-  // const currTask = () => {
-  //   return (
-  //     <p className="brown">Have you finished with task:</p>
-  //   );
-  // }
-
-  // const taskQuestion = () => {
-  //   return (
-  //     <p> {taskInProgress.taskName}?</p>
-  //   );
-  // }
-
   const checkTask = () => {
     return(
       <div>
@@ -289,51 +248,6 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
   return(
     <DialogBox infoField={checkTask} />
   );
-  // return(
-  //   <div id="taskVerification1">
-  //     <div id="taskVerification2" className="flexBox flexColumn flexJustifyCenter">
-  //       <p className="brown">Have you finished with task:</p>
-  //       <p> {taskInProgress.taskName}?</p>
-  //       <div id="verificationButton">
-  //         <input className="lightBackground brown timerButton hoverItem"
-  //           type="button" 
-  //           value="YES" 
-  //           onClick={()=>
-  //             updateTaskInProgress(true)
-  //         }/>
-  //         <input className="lightBackground brown timerButton hoverItem" 
-  //           type="button" 
-  //           value="NO" 
-  //           onClick={()=>
-  //             updateTaskInProgress(false)
-  //         }/>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
-  // return(
-  //   <div id="taskVerification1">
-  //     <div id="taskVerification2" className="flexBox flexColumn flexJustifyCenter">
-  //       <p className="brown">Have you finished with task:</p>
-  //       <p> {taskInProgress.taskName}?</p>
-  //       <div id="verificationButton">
-  //         <input className="lightBackground brown timerButton hoverItem"
-  //           type="button" 
-  //           value="YES" 
-  //           onClick={()=>
-  //             updateTaskInProgress(true)
-  //         }/>
-  //         <input className="lightBackground brown timerButton hoverItem" 
-  //           type="button" 
-  //           value="NO" 
-  //           onClick={()=>
-  //             updateTaskInProgress(false)
-  //         }/>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 }
 
 function DialogBox({infoField}){
@@ -472,20 +386,6 @@ export default function Home() {
           setCheckedTask={setCheckedTask} 
         />
       </div>
-{/* } */}
-    {/* } */}
-      {/* <PomodoroTimer
-        taskInProgress={taskInProgress}
-        setCycleComplete={setCycleComplete} 
-        // checkedTask={checkedTask} 
-      />
-      <TaskManager 
-        taskInProgress={taskInProgress} 
-        setTaskInProgress={setTaskInProgress} 
-        cycleComplete={cycleComplete} 
-        setCycleComplete={setCycleComplete}
-        setCheckedTask={setCheckedTask} 
-      /> */}
     </div>
   );
 }
