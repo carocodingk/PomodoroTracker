@@ -111,14 +111,14 @@ function PomodoroTimer({taskInProgress, setCycleComplete, checkedTask}){
         </div>
         <div className="centerMargin">
         <div className="flexBox flexJustifyCenter">
-          <input className="lightBackground timerButton brown" 
+          <input className="lightBackground timerButton brown hoverItem" 
             type="button" 
             value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
             onClick={() => 
               startTimer(taskInProgress)
             } 
           />
-          <input className="lightBackground timerButton brown" 
+          <input className="lightBackground timerButton brown hoverItem" 
             type="button" 
             value='RESET' 
             onClick={() => 
@@ -150,10 +150,19 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
 
   return(
     <div>
+      <div id="colName" className="flexBox justifySpaceBetween">
+        <div id="colDescription" className="flexBox">
+          <p id="columnLeft" className="columns">Task description</p>
+        </div>
+        <div>
+          <p className="columns smallCol details">Expected cycles</p>
+          <p className="columns smallCol details">Current time</p>
+        </div>
+      </div>
       <ul id="taskList">
         {taskList.map((task) => (
-          <li className="flexBox flexAlignCenter taskItem">
-            <div id="left">            
+          <li className="flexBox flexAlignCenter taskItem justifySpaceBetween">
+            <div>            
               <input className="checkBox" type="checkbox" checked={task.finished} />
               <input id="taskName" className="lightBackground brown hoverItem" 
                 type="button" 
@@ -161,9 +170,9 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
                 onClick={()=>chooseTask(task)}
               />
             </div>
-            <div id="right">
-              <p  className="brown details">{task.expectedCycles}</p>
-              <p id="totalTime" className="brown details">{task.actualTime}</p>
+            <div>
+              <p  className="brown details centerAlign">{task.expectedCycles}</p>
+              <p id="totalTime" className="brown details centerAlign">{task.actualTime}</p>
             </div>
           </li>
         ))}
