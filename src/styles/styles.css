@@ -98,16 +98,42 @@
 #bottom {
     position: absolute;
     bottom: 0;
-    padding: 5px;
+    padding: 0.6rem;
     width: 100vw;
     background-color: #f1e8df;
 }
 
+#taskInput {
+    /* border: 1px solid greenyellow; */
+    width: 80wv;
+}
+
 #newTaskInput {
-    max-width: 70vw;
+    height: 5vh;
+    width: 70vw;
     overflow: auto;
+    border: 1px solid black;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #newCycleInput {
-    max-width: 10vw;
+    width: 10vw;
+    height: 5vh;
+    margin-left: 0.1rem;
+    border: 1px solid black;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* border-radius: 3px; */
+}
+
+#newTaskButton {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: 1px solid #3F1300;
+    background-color: white;
+    padding-bottom: 0.25rem;
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
 }

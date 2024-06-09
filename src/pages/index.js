@@ -277,18 +277,19 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
   }
 
   return(
-    <div className="flexBox flexRow">
+    <div id="taskInput" className="flexBox flexRow flexJustifyCenter">
       {/* Task description field */}
       <div className="flexBox flexColumn">
         {/* <label className="brown">Task description: </label> */}
-        <input id="newTaskInput" type="text" onChange={
-          (e) => 
-            setNewTask((prevState) => ({
-              ...prevState, 
-              taskName: e.target.value
-            })
-          )}
-          value={newTask.taskName}
+        <input id="newTaskInput" 
+          type="text" onChange={
+            (e) => 
+              setNewTask((prevState) => ({
+                ...prevState, 
+                taskName: e.target.value
+              })
+            )}
+            value={newTask.taskName}
         />
       </div>
       {/* Task expected cycles field */}
@@ -305,9 +306,10 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
         />
       </div>
       {/* Add to list button */}
-      <input type="button" value="+" onClick={()=> {  
-        inputVerification()
-      }
+      <input id="newTaskButton" className="brown"
+        type="button" value="+" onClick={()=> {  
+          inputVerification()
+        }
       }/>      
     </div>
   );
