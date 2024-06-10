@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+// import Testing from "./edit.js";
+// import EditMenu from "./api/editMenu.js";
+import DialogBox from "./dialogBox.js";
 
 // Initial values
 const workTime = 5;
@@ -256,15 +259,15 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
   );
 }
 
-function DialogBox({infoField}){
-  return(
-    <div id="taskVerification1">
-      <div id="taskVerification2" >
-        {infoField()}
-      </div>
-    </div>
-  );
-}
+// function DialogBox({infoField}){
+//   return(
+//     <div id="taskVerification1">
+//       <div id="taskVerification2" >
+//         {infoField()}
+//       </div>
+//     </div>
+//   );
+// }
 
 
 function NewTask({taskKeys, setTaskKey, setTaskList}){
@@ -341,10 +344,21 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
         type="button" value="+" onClick={()=> {  
           inputVerification()
         }
-      }/>      
+      }/>  
+      {/* <input type="button" value="Edit" onClick={() => setOpenMenu(!openMenu)} />   s  */}
     </div>
   );
 }
+
+// function Menu(){
+//   return(
+//     <ul>
+//       <li><input type="button" value="Edit a task" onClick={()=>console.log("first")}/></li>
+//       <li><input type="button" value="Remove a task" onClick={()=>console.log("second")}/></li>
+//       <li><input type="button" value="Remove all" onClick={()=>console.log("third")}/></li>
+//     </ul>
+//   );
+// }
 
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
@@ -353,6 +367,7 @@ export default function Home() {
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
   const [seenInstructions, setSeenInstructions] = useState(false)
+  // const [openMenu, setOpenMenu] = useState(false);
 
   const Instructions = () => {
     return(
@@ -383,6 +398,7 @@ export default function Home() {
           taskInProgress={taskInProgress}
           setCycleComplete={setCycleComplete} 
         />
+        {/* {openMenu && <EditMenu />} */}
         <TaskManager 
           taskInProgress={taskInProgress} 
           setTaskInProgress={setTaskInProgress} 
