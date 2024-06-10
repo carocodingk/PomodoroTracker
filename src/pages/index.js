@@ -19,7 +19,6 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
   const startTimer = (taskInProgress) => {
     setCycleComplete(false) //Restart the cycle
     if (taskInProgress.key != -1){
-      console.log('setworktimer')
       setWorkTimerRun(!workTimerRun)
     }
     else
@@ -87,12 +86,9 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
   return(
     <div>
       {timesUp && <DialogBox infoField={alarmAlert} />}
-      {console.log('timesup  ', timesUp)}
     <div className="yellowBox">
       <div>
-        {/* <div> */}
         <p className="centerText">{taskInProgress.taskName}</p>
-        {/* </div> */}
         <div>
           <p className="orange centerText">Work Time</p>
           <p className="centerText brown font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
@@ -208,32 +204,26 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
     let updatedTask
     taskList.map((task) => {
       if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
-        console.log('before ', task)
-        console.log('worktime ', workTime)
         if (completed){
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime,
             finished: completed
           }
-          console.log("here ", updatedTask)
         }
         else{
           updatedTask = {
             ...task,
             actualTime: task.actualTime + workTime
           }
-          console.log("there ", updatedTask)
         }
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
-        console.log('updatedtasklist ', updatedTaskList)
         setTaskList(updatedTaskList)
         setCycleComplete(false) //removes the box asking if the task was completed
         setTaskInProgress({ //Resets task in progress to default
           key: -1, 
           taskName: "Choose a task"
         })
-        console.log('after update ', taskList)
       }
     })
   }
