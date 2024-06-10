@@ -14,12 +14,12 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
   const [workTimerRun, setWorkTimerRun] = useState(false);
   const [breakTimer, setBreakTimer] = useState(breakTime);
   const [breakTimerRun, setBreakTimerRun] = useState(false);
+  const [timesUp, setTimesUp] = useState(false);
 
   const startTimer = (taskInProgress) => {
     setCycleComplete(false) //Restart the cycle
     if (taskInProgress.key != -1){
       console.log('setworktimer')
-      
       setWorkTimerRun(!workTimerRun)
     }
     else
@@ -33,6 +33,18 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
     setBreakTimer(breakTime)
   }
 
+  const alarmAlert = () => {
+    return(
+      <div className="flexBox flexColumn flexJustifyCenter">
+        <h2 className="centerText">Your working time is up!</h2>
+        <h2 className="centerText">Let's take a break</h2>
+        <input className="okButton" type="button" value="OK" 
+          onClick={()=> setTimesUp(false)}
+        />
+      </div>
+    );
+  }
+
 
   useEffect(() => {
     let timer1, timer2
@@ -43,6 +55,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
       if (workTimer === 0){ //time's up
         setWorkTimerRun(false) //Stop work timer
         setBreakTimerRun(true) //Start break timer
+        setTimesUp(true)
       }
     }
     
@@ -72,6 +85,9 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
   const minutesB = Math.floor(breakTimer / 60)
 
   return(
+    <div>
+      {timesUp && <DialogBox infoField={alarmAlert} />}
+      {console.log('timesup  ', timesUp)}
     <div className="yellowBox">
       <div>
         {/* <div> */}
@@ -104,6 +120,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
         </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
@@ -357,7 +374,7 @@ export default function Home() {
           <li>Select start to initiate the work timer and then the resting timer</li>
           <li>Notify if the task has been completed</li>
         </ul>
-        <input id="okButton" className="lightBackground timerButton brown hoverItem" 
+        <input className="lightBackground timerButton brown hoverItem okButton"  
           type="button" 
           value="OK" 
           onClick={()=> setSeenInstructions(true)}/>

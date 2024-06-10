@@ -210,7 +210,7 @@
     margin: 0.5rem;
 }
 
-#okButton {
+.okButton {
     margin-top: 1rem;
     /* max-width: 10vw; */
 }
