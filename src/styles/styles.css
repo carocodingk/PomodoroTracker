@@ -146,9 +146,6 @@
     width: 14vw;
 }
 
-.centerAlign {
-    text-align: center;
-}
 .hoverItem:hover {
     color: #E9A200;
 }
@@ -164,10 +161,6 @@
 
 .columns {
     font-size: 0.8rem;
-}
-
-.smallCol {
-    text-align: center;
 }
 
 #colDescription {
@@ -202,8 +195,6 @@
     left: 5vw;
     z-index: w;
     padding: 3rem;
-    /* align-items: center; */
-
 }
 
 #verificationButton {
@@ -212,7 +203,6 @@
 
 .okButton {
     margin-top: 1rem;
-    /* max-width: 10vw; */
 }
 
 .rightAlign {
