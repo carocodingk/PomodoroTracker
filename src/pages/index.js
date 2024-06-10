@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // Initial values
 const workTime = 5;
 const breakTime = 2;
-const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
+const initialTasks =  [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
@@ -37,7 +37,7 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
       <div className="flexBox flexColumn flexJustifyCenter">
         <h2 className="centerText">Your working time is up!</h2>
         <h2 className="centerText">Let's take a break</h2>
-        <input className="okButton" type="button" value="OK" 
+        <input className="lightBackground okButton timerButton hoverItem" type="button" value="OK" 
           onClick={()=> setTimesUp(false)}
         />
       </div>
