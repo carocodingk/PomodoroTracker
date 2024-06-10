@@ -108,7 +108,8 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
   );
 }
 
-function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, setCheckedTask}){
+
+function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
   const [taskKeys, setTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
 
@@ -179,14 +180,13 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
         setTaskInProgress={setTaskInProgress} 
         taskList={taskList} setTaskList={setTaskList} 
         setCycleComplete={setCycleComplete} 
-        setCheckedTask={setCheckedTask}
       />}
     </div>
   );
 }
 
-function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCycleComplete, setCheckedTask}){
 
+function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCycleComplete}){
   const updateTaskInProgress = (completed) => {
     let updatedTask
     taskList.map((task) => {
@@ -211,7 +211,6 @@ function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskLis
         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
         console.log('updatedtasklist ', updatedTaskList)
         setTaskList(updatedTaskList)
-        setCheckedTask(true) //
         setCycleComplete(false) //removes the box asking if the task was completed
         setTaskInProgress({ //Resets task in progress to default
           key: -1, 
@@ -346,10 +345,8 @@ export default function Home() {
     taskName: "Choose a task"
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
-  const [checkedTask, setCheckedTask] = useState(false)    //state indicates if user notified if a task has been completed
   const [seenInstructions, setSeenInstructions] = useState(false)
 
-  // const Instructions = (setInstructions) => {
   const Instructions = () => {
     return(
       <div className="flexBox flexColumn flexJustifyCenter">
@@ -376,14 +373,12 @@ export default function Home() {
         <PomodoroTimer
           taskInProgress={taskInProgress}
           setCycleComplete={setCycleComplete} 
-          // checkedTask={checkedTask} 
         />
         <TaskManager 
           taskInProgress={taskInProgress} 
           setTaskInProgress={setTaskInProgress} 
           cycleComplete={cycleComplete} 
           setCycleComplete={setCycleComplete}
-          setCheckedTask={setCheckedTask} 
         />
       </div>
     </div>
