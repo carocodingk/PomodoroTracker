@@ -1,128 +1,17 @@
 import { useEffect, useState } from "react";
 
 import PomodoroTimer from "./pomodoroTimer.js";
+import VerifyTaskCompletion from "./verifyTaskCompletion.js";
 import DialogBox from "./dialogBox.js";
 
 // Initial values
-// const workTime = 5;
-// const breakTime = 2;
+const workTime = 5;
+const breakTime = 2;
 const initialTasks =  [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
-                    ];
-
-// function PomodoroTimer({taskInProgress, setCycleComplete}){
-//   const [workTimer, setWorkTimer] = useState(workTime);
-//   const [workTimerRun, setWorkTimerRun] = useState(false);
-//   const [breakTimer, setBreakTimer] = useState(breakTime);
-//   const [breakTimerRun, setBreakTimerRun] = useState(false);
-//   const [timesUp, setTimesUp] = useState(false);
-
-//   const startTimer = (taskInProgress) => {
-//     setCycleComplete(false) //Restart the cycle
-//     if (taskInProgress.key != -1){
-//       setWorkTimerRun(!workTimerRun)
-//     }
-//     else
-//       console.log("Please select a task to work on! ")
-//   }
-
-//   const resetTimer = () => {
-//     setWorkTimerRun(false)
-//     setBreakTimerRun(false)
-//     setWorkTimer(workTime)
-//     setBreakTimer(breakTime)
-//   }
-
-//   const alarmAlert = () => {
-//     return(
-//       <div className="flexBox flexColumn flexJustifyCenter">
-//         <h2 className="centerText">Your working time is up!</h2>
-//         <h2 className="centerText">Let's take a break</h2>
-//         <input className="lightBackground okButton timerButton hoverItem" type="button" value="OK" 
-//           onClick={()=> setTimesUp(false)}
-//         />
-//       </div>
-//     );
-//   }
-
-
-//   useEffect(() => {
-//     let timer1, timer2
-//     if (workTimerRun){
-//       timer1 = setTimeout(() => {
-//         setWorkTimer((prevTime) => prevTime-1)
-//       }, 1000);
-//       if (workTimer === 0){ //time's up
-//         setWorkTimerRun(false) //Stop work timer
-//         setBreakTimerRun(true) //Start break timer
-//         setTimesUp(true)
-//       }
-//     }
-    
-//     if (breakTimerRun){
-//       timer2 = setTimeout(() => {
-//         setBreakTimer((prevTime) => prevTime-1)
-//       }, 1000);
-//       if (breakTimer === 0){
-//         setBreakTimerRun(false) //Stop break timer
-//         setCycleComplete(true)  //Indicates a pomodoro cycle (work + break) is complete
-//         resetTimer()
-//       }
-//     }
-
-//     return() => {
-//       if (timer1)
-//         clearTimeout(timer1)
-//       else if (timer2)
-//         clearTimeout(timer2)
-//     }
-
-//   },[workTimer, workTimerRun, breakTimer, breakTimerRun]);
-
-//   const secondsW = workTimer % 60
-//   const minutesW = Math.floor(workTimer / 60)
-//   const secondsB = breakTimer % 60
-//   const minutesB = Math.floor(breakTimer / 60)
-
-//   return(
-//     <div>
-//       {timesUp && <DialogBox infoField={alarmAlert} />}
-//     <div className="yellowBox">
-//       <div>
-//         <p className="centerText">{taskInProgress.taskName}</p>
-//         <div>
-//           <p className="orange centerText">Work Time</p>
-//           <p className="centerText brown font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
-//         </div>
-//         <div>
-//           <p className="orange centerText">Break Time</p>
-//           <p className="centerText brown font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
-//         </div>
-//         <div className="centerMargin">
-//         <div className="flexBox flexJustifyCenter">
-//           <input className="lightBackground timerButton brown hoverItem" 
-//             type="button" 
-//             value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
-//             onClick={() => 
-//               startTimer(taskInProgress)
-//             } 
-//           />
-//           <input className="lightBackground timerButton brown hoverItem" 
-//             type="button" 
-//             value='RESET' 
-//             onClick={() => 
-//               resetTimer()
-//             } 
-//           />
-//         </div>
-//         </div>
-//       </div>
-//     </div>
-//     </div>
-//   );
-// }
+                      ];
 
 
 function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
@@ -191,7 +80,8 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
         />
       </div>
       {cycleComplete && 
-      <TaskCompletion 
+      <VerifyTaskCompletion 
+        workTime={workTime}
         taskInProgress={taskInProgress} 
         setTaskInProgress={setTaskInProgress} 
         taskList={taskList} setTaskList={setTaskList} 
@@ -202,70 +92,60 @@ function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycle
 }
 
 
-function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCycleComplete}){
-  const updateTaskInProgress = (completed) => {
-    let updatedTask
-    taskList.map((task) => {
-      if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
-        if (completed){
-          updatedTask = {
-            ...task,
-            actualTime: task.actualTime + workTime,
-            finished: completed
-          }
-        }
-        else{
-          updatedTask = {
-            ...task,
-            actualTime: task.actualTime + workTime
-          }
-        }
-        const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
-        setTaskList(updatedTaskList)
-        setCycleComplete(false) //removes the box asking if the task was completed
-        setTaskInProgress({ //Resets task in progress to default
-          key: -1, 
-          taskName: "Choose a task"
-        })
-      }
-    })
-  }
+// function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCycleComplete}){
+//   const updateTaskInProgress = (completed) => {
+//     let updatedTask
+//     taskList.map((task) => {
+//       if (task.key === taskInProgress.key && !task.finished){   //task has not been finished before
+//         if (completed){
+//           updatedTask = {
+//             ...task,
+//             actualTime: task.actualTime + workTime,
+//             finished: completed
+//           }
+//         }
+//         else{
+//           updatedTask = {
+//             ...task,
+//             actualTime: task.actualTime + workTime
+//           }
+//         }
+//         const updatedTaskList = taskList.toSpliced(taskInProgress.key, 1, updatedTask)
+//         setTaskList(updatedTaskList)
+//         setCycleComplete(false) //removes the box asking if the task was completed
+//         setTaskInProgress({ //Resets task in progress to default
+//           key: -1, 
+//           taskName: "Choose a task"
+//         })
+//       }
+//     })
+//   }
 
-  const checkTask = () => {
-    return(
-      <div>
-        <p className="brown centerText">Have you finished with task:</p>
-        <p className="brown centerText"> {taskInProgress.taskName}?</p>
-        <div id="verificationButton" className="flexBox flexJustifyCenter">
-          <input className="lightBackground brown timerButton hoverItem"
-            type="button" 
-            value="YES" 
-            onClick={()=>
-              updateTaskInProgress(true)
-            }/>
-          <input className="lightBackground brown timerButton hoverItem" 
-            type="button" 
-            value="NO" 
-            onClick={()=>
-              updateTaskInProgress(false)
-            }/>
-        </div>
-      </div>
-    );
-  }
-
-  return(
-    <DialogBox infoField={checkTask} />
-  );
-}
-
-// function DialogBox({infoField}){
-//   return(
-//     <div id="taskVerification1">
-//       <div id="taskVerification2" >
-//         {infoField()}
+//   const checkTask = () => {
+//     return(
+//       <div>
+//         <p className="brown centerText">Have you finished with task:</p>
+//         <p className="brown centerText"> {taskInProgress.taskName}?</p>
+//         <div id="verificationButton" className="flexBox flexJustifyCenter">
+//           <input className="lightBackground brown timerButton hoverItem"
+//             type="button" 
+//             value="YES" 
+//             onClick={()=>
+//               updateTaskInProgress(true)
+//             }/>
+//           <input className="lightBackground brown timerButton hoverItem" 
+//             type="button" 
+//             value="NO" 
+//             onClick={()=>
+//               updateTaskInProgress(false)
+//             }/>
+//         </div>
 //       </div>
-//     </div>
+//     );
+//   }
+
+//   return(
+//     <DialogBox infoField={checkTask} />
 //   );
 // }
 
@@ -350,15 +230,6 @@ function NewTask({taskKeys, setTaskKey, setTaskList}){
   );
 }
 
-// function Menu(){
-//   return(
-//     <ul>
-//       <li><input type="button" value="Edit a task" onClick={()=>console.log("first")}/></li>
-//       <li><input type="button" value="Remove a task" onClick={()=>console.log("second")}/></li>
-//       <li><input type="button" value="Remove all" onClick={()=>console.log("third")}/></li>
-//     </ul>
-//   );
-// }
 
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
@@ -395,6 +266,8 @@ export default function Home() {
       {!seenInstructions && <DialogBox  infoField={Instructions} />}
       <div>
         <PomodoroTimer
+          workTime={workTime}
+          breakTime={breakTime}
           taskInProgress={taskInProgress}
           setCycleComplete={setCycleComplete} 
         />
