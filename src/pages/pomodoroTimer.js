@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import DialogBox from "./dialogBox";
 
 const workTime = 5;
 const breakTime = 2;
@@ -92,22 +93,22 @@ function PomodoroTimer({taskInProgress, setCycleComplete}){
             <p className="centerText brown font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
           </div>
           <div className="centerMargin">
-          <div className="flexBox flexJustifyCenter">
-            <input className="lightBackground timerButton brown hoverItem" 
-              type="button" 
-              value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
-              onClick={() => 
-                startTimer(taskInProgress)
-              } 
-            />
-            <input className="lightBackground timerButton brown hoverItem" 
-              type="button" 
-              value='RESET' 
-              onClick={() => 
-                resetTimer()
-              } 
-            />
-          </div>
+            <div className="flexBox flexJustifyCenter">
+                <input className="lightBackground timerButton brown hoverItem" 
+                type="button" 
+                value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
+                onClick={() => 
+                    startTimer(taskInProgress)
+                } 
+                />
+                <input className="lightBackground timerButton brown hoverItem" 
+                type="button" 
+                value='RESET' 
+                onClick={() => 
+                    resetTimer()
+                } 
+                />
+            </div>
           </div>
         </div>
       </div>
