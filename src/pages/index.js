@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import PomodoroTimer from "./pomodoroTimer.js";
-import VerifyTaskCompletion from "./verifyTaskCompletion.js";
 import DialogBox from "./dialogBox.js";
-import NewEditTask from "./newEditTask.js";
+import TaskManager from "./taskManager.js";
 
 // Initial values
 const workTime = 5;
@@ -13,164 +12,6 @@ const initialTasks =  [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actual
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
                       ];
-
-
-function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
-  const [taskKeys, setTaskKey] = useState(4)
-  const [taskList, setTaskList] = useState(initialTasks)
-
-  const chooseTask = (task) => {
-    if (!task.finished){
-      setTaskInProgress({
-        key: task.key,
-        taskName: task.taskName
-      })
-    }
-    else{
-      console.log("This task has been resolved")
-    }
-    return('heeeelooo');
-  }
-
-  const timeProcessing = (time) => {
-    const secondsW = time % 60
-    const minutesW = Math.floor(time / 60)
-    const output = `${minutesW}:${secondsW < 10? `0${secondsW}` : secondsW}`
-    
-    return(
-      output
-    );
-  }
-
-
-
-  return(
-    <div>
-      <div id="colName" className="flexBox justifySpaceBetween">
-        <div id="colDescription" className="flexBox">
-          <p id="columnLeft" className="columns">Task description</p>
-        </div>
-        <div>
-          <p className="columns rightAlign details">Expected cycles</p>
-          <p className="columns rightAlign details">Current time</p>
-        </div>
-      </div>
-      <ul id="taskList">
-        {taskList.map((task) => (
-          <li className="flexBox flexAlignCenter taskItem justifySpaceBetween">
-            <div>            
-              <input className="checkBox" type="checkbox" checked={task.finished} />
-              <input id="taskName" className="lightBackground brown hoverItem" 
-                type="button" 
-                value={task.taskName} 
-                onClick={()=>chooseTask(task)}
-              />
-            </div>
-            <div>
-              <p  className="brown details rightAlign">{task.expectedCycles}</p>
-              <p id="totalTime" className="brown details rightAlign">{timeProcessing(task.actualTime)}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div id="bottom">
-        <NewEditTask 
-          taskKeys={taskKeys} 
-          setTaskKey={setTaskKey} 
-          setTaskList={setTaskList} 
-        />
-      </div>
-      {cycleComplete && 
-      <VerifyTaskCompletion 
-        workTime={workTime}
-        taskInProgress={taskInProgress} 
-        setTaskInProgress={setTaskInProgress} 
-        taskList={taskList} setTaskList={setTaskList} 
-        setCycleComplete={setCycleComplete} 
-      />}
-    </div>
-  );
-}
-
-// function NewTask({taskKeys, setTaskKey, setTaskList}){
-//   const [newTask, setNewTask] = useState({
-//     taskName: "", 
-//     expectedCycles: "", 
-//   })
-
-//   //  Verifies if the input entered by user are valid: task description is not empty and 
-//   //  assigns a default of 1 to expected number of cycles when not specified
-//   const inputVerification = () => {
-//     if (newTask.taskName.length > 0){
-//       if (newTask.expectedCycles.length >0){
-//         setTaskList((prevTaskList) => ([
-//           ...prevTaskList, {
-//             key: taskKeys,
-//             taskName: newTask.taskName,
-//             expectedCycles: newTask.expectedCycles,
-//             actualTime: 0,
-//             finished: false
-//           }
-//         ]))
-//       }
-//       else{
-//         setTaskList((prevTaskList) => ([
-//           ...prevTaskList, {
-//             key: taskKeys,
-//             taskName: newTask.taskName,
-//             expectedCycles: 1,
-//             actualTime: 0,
-//             finished: false
-//           }
-//         ]))
-//       }
-//     }
-//     else
-//       console.log('Please enter a task!')
-//     setTaskKey((prevTaskKey) => prevTaskKey+1)  //Updates the key manager
-//     setNewTask({                                //Resets the input field to blank
-//       taskName: "",
-//       expectedCycles: ""
-//     })
-//   }
-
-//   return(
-//     <div id="taskInput" className="flexBox flexRow flexJustifyCenter">
-//       {/* Task description field */}
-//       <div className="flexBox flexColumn">
-//         <input id="newTaskInput" 
-//           type="text" onChange={
-//             (e) => 
-//               setNewTask((prevState) => ({
-//                 ...prevState, 
-//                 taskName: e.target.value
-//               })
-//             )}
-//             value={newTask.taskName}
-//         />
-//       </div>
-//       {/* Task expected cycles field */}
-//       <div className="flexBox flexColumn">
-//         <input id="newCycleInput" type="text" onChange={
-//           (e) => 
-//             setNewTask((prevState) => ({
-//               ...prevState,
-//               expectedCycles: e.target.value
-//             }))
-//           }
-//           value={newTask.expectedCycles}
-//         />
-//       </div>
-//       {/* Add to list button */}
-//       <input id="newTaskButton" className="brown"
-//         type="button" value="+" onClick={()=> {  
-//           inputVerification()
-//         }
-//       }/>  
-//       {/* <input type="button" value="Edit" onClick={() => setOpenMenu(!openMenu)} />   s  */}
-//     </div>
-//   );
-// }
 
 
 export default function Home() {
@@ -215,6 +56,7 @@ export default function Home() {
         />
         {/* {openMenu && <EditMenu />} */}
         <TaskManager 
+          initialTasks={initialTasks}
           taskInProgress={taskInProgress} 
           setTaskInProgress={setTaskInProgress} 
           cycleComplete={cycleComplete} 
