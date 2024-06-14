@@ -7,6 +7,7 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
     const [taskKeys, setTaskKey] = useState(4)
     const [taskList, setTaskList] = useState(initialTasks)
     const [openMenu, setOpenMenu] = useState(false)
+    const [editTask, setEditTask] = useState(null)
   
     const chooseTask = (task) => {
       if (!task.finished){
@@ -20,6 +21,15 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
       }
       return('heeeelooo');
     }
+
+    const chooseTaskEdit = (task) => {
+      setEditTask({
+        key: task.key,
+        taskName: task.taskName
+      })
+    }
+
+
   
     const timeProcessing = (time) => {
       const secondsW = time % 60
@@ -45,29 +55,29 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
           </div>
         </div>
         {taskList.length > 0?
-        <ul id="taskList">
-          {taskList.map((task) => (
-            <li className="flexBox flexAlignCenter taskItem justifySpaceBetween">
-              <div>            
-                <input className="checkBox" type="checkbox" checked={task.finished} />
-                <input id="taskName" className="lightBackground brown hoverItem" 
-                  type="button" 
-                  value={task.taskName} 
-                  onClick={()=>chooseTask(task)}
-                />
-              </div>
-              <div>
-                <p  className="brown details rightAlign">{task.expectedCycles}</p>
-                <p id="totalTime" className="brown details rightAlign">{timeProcessing(task.actualTime)}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-        :
-        <div>
-          You have no pending tasks
-        </div>
-}
+          <ul id="taskList">
+            {taskList.map((task) => (
+              <li className="flexBox flexAlignCenter taskItem justifySpaceBetween">
+                <div>            
+                  <input className="checkBox" type="checkbox" checked={task.finished} />
+                  <input id="taskName" className="lightBackground brown hoverItem" 
+                    type="button" 
+                    value={task.taskName} 
+                    onClick={()=>chooseTask(task)}
+                  />
+                </div>
+                <div>
+                  <p  className="brown details rightAlign">{task.expectedCycles}</p>
+                  <p id="totalTime" className="brown details rightAlign">{timeProcessing(task.actualTime)}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          :
+          <div>
+            You have no pending tasks
+          </div>
+        }
         <div id="bottom">
           <NewEditTask 
             taskKeys={taskKeys} 
