@@ -21,7 +21,7 @@ export default function Home() {
   })
   const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
   const [seenInstructions, setSeenInstructions] = useState(false)
-  // const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   const Instructions = () => {
     return(

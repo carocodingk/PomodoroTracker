@@ -206,3 +206,10 @@
 .rightAlign {
     text-align: right;
 }
+
+#menu {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    border: 1px solid black;
+}

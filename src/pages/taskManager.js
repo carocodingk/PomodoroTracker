@@ -1,10 +1,12 @@
 import { useState } from "react";
 import NewEditTask from "./newEditTask";
 import VerifyTaskCompletion from "./verifyTaskCompletion";
+import EditMenu from "./editMenu";
 
 function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
     const [taskKeys, setTaskKey] = useState(4)
     const [taskList, setTaskList] = useState(initialTasks)
+    const [openMenu, setOpenMenu] = useState(false)
   
     const chooseTask = (task) => {
       if (!task.finished){
@@ -65,7 +67,15 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
             taskKeys={taskKeys} 
             setTaskKey={setTaskKey} 
             setTaskList={setTaskList} 
+            openMenu={openMenu}
+            setOpenMenu={setOpenMenu}
           />
+        </div>
+        <div id="menu">
+          {openMenu && 
+          <EditMenu 
+            taskList={taskList}
+            setTaskList={setTaskList}/>}
         </div>
         {cycleComplete && 
         <VerifyTaskCompletion 

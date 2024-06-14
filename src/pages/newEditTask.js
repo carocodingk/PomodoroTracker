@@ -1,10 +1,14 @@
 import { useState } from "react"
+// import EditMenu from "./editMenu"
+// import EditMenu from "./editMenu"
 
-function NewEditTask({taskKeys, setTaskKey, setTaskList}){
+function NewEditTask({taskKeys, setTaskKey, setTaskList, openMenu, setOpenMenu}){
     const [newTask, setNewTask] = useState({
       taskName: "", 
       expectedCycles: "", 
     })
+
+    // const [openMenu, setOpenMenu] = useState(false)
   
     //  Verifies if the input entered by user are valid: task description is not empty and 
     //  assigns a default of 1 to expected number of cycles when not specified
@@ -75,6 +79,8 @@ function NewEditTask({taskKeys, setTaskKey, setTaskList}){
             inputVerification()
           }
         }/>  
+        <input type="button" value="EDIT" onClick={() => setOpenMenu(!openMenu)} />
+        {/* <EditMenu /> */}
         {/* <input type="button" value="Edit" onClick={() => setOpenMenu(!openMenu)} />   s  */}
       </div>
     );
