@@ -44,6 +44,7 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
             <p className="columns rightAlign details">Current time</p>
           </div>
         </div>
+        {taskList.length > 0?
         <ul id="taskList">
           {taskList.map((task) => (
             <li className="flexBox flexAlignCenter taskItem justifySpaceBetween">
@@ -62,6 +63,11 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
             </li>
           ))}
         </ul>
+        :
+        <div>
+          You have no pending tasks
+        </div>
+}
         <div id="bottom">
           <NewEditTask 
             taskKeys={taskKeys} 
