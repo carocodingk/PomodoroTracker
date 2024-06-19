@@ -56,6 +56,7 @@ export default function Home() {
         />
         {/* {openMenu && <EditMenu />} */}
         <TaskManager 
+          workTime={workTime}
           initialTasks={initialTasks}
           taskInProgress={taskInProgress} 
           setTaskInProgress={setTaskInProgress} 
