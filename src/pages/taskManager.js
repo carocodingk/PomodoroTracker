@@ -7,7 +7,8 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
     const [taskKeys, setTaskKey] = useState(4)
     const [taskList, setTaskList] = useState(initialTasks)
     const [openMenu, setOpenMenu] = useState(false)
-    const [editTask, setEditTask] = useState(null)
+    // const [editTask, setEditTask] = useState(null)
+    const [editModeOption, setEditModeOption] = useState(-1)
   
     const chooseTask = (task) => {
       if (!task.finished){
@@ -22,12 +23,13 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
       return('heeeelooo');
     }
 
-    const chooseTaskEdit = (task) => {
-      setEditTask({
-        key: task.key,
-        taskName: task.taskName
-      })
-    }
+    // const chooseTaskEdit = (task) => {
+    //   setEditTask({
+    //     key: task.key,
+    //     taskName: task.taskName
+    //   })
+    //   console.log("choosetaskedit")
+    // }
 
 
   
@@ -63,7 +65,7 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
                   <input id="taskName" className="lightBackground brown hoverItem" 
                     type="button" 
                     value={task.taskName} 
-                    onClick={()=>chooseTask(task)}
+                    onClick={()=> chooseTask(task)}
                   />
                 </div>
                 <div>
@@ -91,7 +93,11 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
           {openMenu && 
           <EditMenu 
             taskList={taskList}
-            setTaskList={setTaskList}/>}
+            setTaskList={setTaskList}
+            setEditModeOption={setEditModeOption}
+            editTask={taskInProgress}
+          />}
+          {console.log(editModeOption)}
         </div>
         {cycleComplete && 
         <VerifyTaskCompletion 

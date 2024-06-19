@@ -7,8 +7,6 @@ function NewEditTask({taskKeys, setTaskKey, setTaskList, openMenu, setOpenMenu})
       taskName: "", 
       expectedCycles: "", 
     })
-
-    // const [openMenu, setOpenMenu] = useState(false)
   
     //  Verifies if the input entered by user are valid: task description is not empty and 
     //  assigns a default of 1 to expected number of cycles when not specified
