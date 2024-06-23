@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import DialogBox from "./dialogBox"
 import ShowTask from "./showTask"
 
-function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setOpenMenu}){
+function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShowDetails, showDetails}){
 
-  const [showDetails, setShowDetails] = useState(false);
+
   
   const removeAll = () => {
     const newTaskList =[]
@@ -14,7 +13,6 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setOpen
   const removeTask = () => {
     let newTaskList = []
     setEditModeOption(2)
-
     return(
       <div>
         {taskList.map((task) =>
@@ -27,23 +25,24 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setOpen
       </div>  
     );
   }
+  // console.log('at the end ', showDetails)
+  // const [showDetails, setShowDetails] = useState(false);
 
-  const editTask = () => {
-    return(
-    setOpenMenu(false)
-    );
-
+  const test = () => {
+    console.log('before ', showDetails);
+    setShowDetails(!showDetails)
+    console.log('after ', showDetails)
   }
 
-    return(
+  return(
     <div>
-      {showDetails && <ShowTask taskList={taskList} taskToEdit={taskToEdit} />}
-      {/* <ul onMouseEnter={() => setOpenMenu(true)} onMouseLeave={()=> setOpenMenu(false)}> */}
       <ul>
-        <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Edit a task" onClick={()=> editTask()}/></li>
+        <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Edit a task" onClick={()=>test()}/></li>
         <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Remove a task" onClick={()=>removeTask()}/></li>
         <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Remove all" onClick={()=> removeAll()}/></li>
       </ul>
+      {console.log('at the end ', showDetails)}
+      {/* {showDetails && <ShowTask taskList={taskList} taskToEdit={taskToEdit} showDetails={showDetails}/>} */}
     </div>
     );
 }

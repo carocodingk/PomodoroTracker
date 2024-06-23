@@ -217,10 +217,10 @@
 }
 
 #showTaskBackground {
-    width: 100vw;
-    height: 100vh;
-    background-color:  rgba(241, 232, 223, 0.7);
-
+    /* width: 100vw;
+    height: 100vh; */
+    /* background-color:  rgba(241, 232, 223, 0.7); */
+    background-color: blueviolet;
 }
 
 ul {
@@ -240,13 +240,13 @@ ul {
 }
 
 #test {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background-color: red;
-    z-index: 2;
+    /* /* z-index: 2; */
     width: 90vw;
-    height: 30vh;
+    max-height: 30vh; 
 }
 
 

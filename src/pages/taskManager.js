@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewEditTask from "./newEditTask";
 import VerifyTaskCompletion from "./verifyTaskCompletion";
 import EditMenu from "./editMenu";
+import ShowTask from "./showTask";
 
 function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     const [taskKeys, setTaskKey] = useState(4)
@@ -9,6 +10,7 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
     // const [openMenu, setOpenMenu] = useState(false)
     // const [editTask, setEditTask] = useState(null)
     const [editModeOption, setEditModeOption] = useState(-1)
+    const [showDetails, setShowDetails] = useState(false)
   
     const chooseTask = (task) => {
       if (!task.finished){
@@ -86,7 +88,9 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
             setTaskList={setTaskList}
             setEditModeOption={setEditModeOption}
             taskToEdit={taskInProgress}
-            setOpenMenu={setOpenMenu}
+            setShowDetails={setShowDetails}
+            showDetails={showDetails}
+            // setOpenMenu={setOpenMenu}
           />}
           {console.log(editModeOption)}
         </div>
@@ -97,6 +101,12 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           setTaskInProgress={setTaskInProgress} 
           taskList={taskList} setTaskList={setTaskList} 
           setCycleComplete={setCycleComplete} 
+        />}
+        {showDetails &&
+        <ShowTask 
+          taskList={taskList} 
+          taskToEdit={taskInProgress} 
+          showDetails={showDetails}
         />}
       </div>
     );
