@@ -3,10 +3,10 @@ import NewEditTask from "./newEditTask";
 import VerifyTaskCompletion from "./verifyTaskCompletion";
 import EditMenu from "./editMenu";
 
-function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
+function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     const [taskKeys, setTaskKey] = useState(4)
     const [taskList, setTaskList] = useState(initialTasks)
-    const [openMenu, setOpenMenu] = useState(false)
+    // const [openMenu, setOpenMenu] = useState(false)
     // const [editTask, setEditTask] = useState(null)
     const [editModeOption, setEditModeOption] = useState(-1)
   
@@ -18,20 +18,10 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
         })
       }
       else{
-        console.log("This task has been resolved")
+        console.log("This task has been resolved")``
       }
       return('heeeelooo');
     }
-
-    // const chooseTaskEdit = (task) => {
-    //   setEditTask({
-    //     key: task.key,
-    //     taskName: task.taskName
-    //   })
-    //   console.log("choosetaskedit")
-    // }
-
-
   
     const timeProcessing = (time) => {
       const secondsW = time % 60
@@ -89,13 +79,14 @@ function TaskManager({initialTasks, taskInProgress, setTaskInProgress, cycleComp
             setOpenMenu={setOpenMenu}
           />
         </div>
-        <div id="menu">
+        <div id="menu" >
           {openMenu && 
           <EditMenu 
             taskList={taskList}
             setTaskList={setTaskList}
             setEditModeOption={setEditModeOption}
-            editTask={taskInProgress}
+            taskToEdit={taskInProgress}
+            setOpenMenu={setOpenMenu}
           />}
           {console.log(editModeOption)}
         </div>

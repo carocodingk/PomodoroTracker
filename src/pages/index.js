@@ -3,6 +3,7 @@ import { useState } from "react";
 import PomodoroTimer from "./pomodoroTimer.js";
 import DialogBox from "./dialogBox.js";
 import TaskManager from "./taskManager.js";
+import EditMenu from "./editMenu.js";
 
 // Initial values
 const workTime = 5;
@@ -43,8 +44,15 @@ export default function Home() {
     );
   }
 
+  const closeMenu = () => {
+    if (openMenu){
+      setOpenMenu(false)
+      console.log('just closed')
+    }
+  }
+
   return (
-    <div id="main" className="lightBackground">
+    <div id="main" className="lightBackground" onClick={()=> closeMenu()}>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
       {!seenInstructions && <DialogBox  infoField={Instructions} />}
       <div>
@@ -53,6 +61,7 @@ export default function Home() {
           breakTime={breakTime}
           taskInProgress={taskInProgress}
           setCycleComplete={setCycleComplete} 
+          setOpenMenu={setOpenMenu}
         />
         {/* {openMenu && <EditMenu />} */}
         <TaskManager 
@@ -62,6 +71,8 @@ export default function Home() {
           setTaskInProgress={setTaskInProgress} 
           cycleComplete={cycleComplete} 
           setCycleComplete={setCycleComplete}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
         />
       </div>
     </div>

@@ -104,11 +104,13 @@
     bottom: 0;
     padding: 0.6rem;
     width: 100vw;
+    height: 8vh;
     background-color: #f1e8df;
 }
 
 #taskInput {
     width: 80wv;
+    /* z-index: 3; */
 }
 
 #newTaskInput {
@@ -209,7 +211,45 @@
 
 #menu {
     position: absolute;
-    bottom: 80px;
+    bottom: 8vh;
     right: 0;
     border: 1px solid black;
+}
+
+#showTaskBackground {
+    width: 100vw;
+    height: 100vh;
+    background-color:  rgba(241, 232, 223, 0.7);
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+.borderless {
+    border: none;
+    border-bottom: 1px dotted #E9A200;
+    max-width: 50vw;
+    min-height: 5vh;
+    
+}
+
+.menuButton {
+    min-width: 30vw;
+}
+
+#test {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: red;
+    z-index: 2;
+    width: 90vw;
+    height: 30vh;
+}
+
+
+#here {
+    background-color: blue;
 }

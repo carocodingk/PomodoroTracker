@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DialogBox from "./dialogBox";
 
-function PomodoroTimer({workTime, breakTime, taskInProgress, setCycleComplete}){
+function PomodoroTimer({workTime, breakTime, taskInProgress, setCycleComplete, setOpenMenu}){
     const [workTimer, setWorkTimer] = useState(workTime);
     const [workTimerRun, setWorkTimerRun] = useState(false);
     const [breakTimer, setBreakTimer] = useState(breakTime);

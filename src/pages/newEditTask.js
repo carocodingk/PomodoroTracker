@@ -1,6 +1,4 @@
 import { useState } from "react"
-// import EditMenu from "./editMenu"
-// import EditMenu from "./editMenu"
 
 function NewEditTask({taskKeys, setTaskKey, setTaskList, openMenu, setOpenMenu}){
     const [newTask, setNewTask] = useState({
@@ -78,6 +76,7 @@ function NewEditTask({taskKeys, setTaskKey, setTaskList, openMenu, setOpenMenu})
           }
         }/>  
         <input type="button" value="EDIT" onClick={() => setOpenMenu(!openMenu)} />
+        {/* <input type="button" value="EDIT" onMouseEnter={() => setOpenMenu(true)} onMouseLeave={() => setOpenMenu(false)} /> */}
         {/* <EditMenu /> */}
         {/* <input type="button" value="Edit" onClick={() => setOpenMenu(!openMenu)} />   s  */}
       </div>
