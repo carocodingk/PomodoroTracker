@@ -20,7 +20,7 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
         })
       }
       else{
-        console.log("This task has been resolved")``
+        console.log("This task has been resolved")
       }
       return('heeeelooo');
     }
