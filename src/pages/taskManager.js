@@ -110,7 +110,8 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           taskList={taskList} 
           setTaskList={setTaskList}
           taskToEdit={taskInProgress} 
-          showDetails={showDetails}
+          // showDetails={showDetails}
+          setTaskToEdit={setTaskInProgress}
           setShowDetails={setShowDetails}
         />}
       </div>

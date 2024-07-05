@@ -1,8 +1,6 @@
 import { useState } from "react"
 
-function ShowTask ({taskList, setTaskList, taskToEdit, showDetails, setShowDetails}){
-    // console.log('inside show task')
-    // console.log('show details ', showDetails )
+function ShowTask ({taskList, setTaskList, taskToEdit, setTaskToEdit, setShowDetails}){
     const [editedTask, setEditedTask] = useState({
         key: taskToEdit.key, 
         taskName: taskToEdit.taskName, 
@@ -12,13 +10,15 @@ function ShowTask ({taskList, setTaskList, taskToEdit, showDetails, setShowDetai
     })
 
     const savingChanges = (idx) => {
-        // console.log("inside saving changes")
         const newEditedList = taskList.toSpliced(idx, 1, editedTask)
+        // const currTaskInProgress = {
+        //     key: editedTask.key,
+        //     taskName: editedTask.taskName
+        // }
         setTaskList(newEditedList)
+        setTaskToEdit(editedTask)
         setShowDetails(false)
     }
-
-    // console.log(taskToEdit)
 
     return(
         <div>
