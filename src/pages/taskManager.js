@@ -16,7 +16,10 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
       if (!task.finished){
         setTaskInProgress({
           key: task.key,
-          taskName: task.taskName
+          taskName: task.taskName,
+          expectedCycles: task.expectedCycles,
+          actualTime: task.actualTime,
+          finished: task.finished
         })
       }
       else{
@@ -105,8 +108,10 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
         {showDetails &&
         <ShowTask 
           taskList={taskList} 
+          setTaskList={setTaskList}
           taskToEdit={taskInProgress} 
           showDetails={showDetails}
+          setShowDetails={setShowDetails}
         />}
       </div>
     );

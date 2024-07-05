@@ -165,12 +165,10 @@
 
 #colDescription {
     width: 53vw;
-    /* border: 1px solid forestgreen; */
 }
 
 #columnLeft {
     margin: auto;
-    /* border: 1px solid red; */
 }
 
 #taskVerification1 {
@@ -181,20 +179,18 @@
     background-color:  rgba(241, 232, 223, 0.7);
     width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #taskVerification2 {
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: white;
-    opacity: 1;
     width: 90vw;
     min-height: 20vh;
-    position: relative;
-    top: 35vh;
-    left: 5vw;
-    z-index: w;
+    border: 1px solid black;
+    border-radius: 3px;
     padding: 3rem;
+    background-color: white;
 }
 
 #verificationButton {
@@ -216,12 +212,6 @@
     border: 1px solid black;
 }
 
-#showTaskBackground {
-    /* width: 100vw;
-    height: 100vh; */
-    /* background-color:  rgba(241, 232, 223, 0.7); */
-    background-color: blueviolet;
-}
 
 ul {
     list-style-type: none;
@@ -240,16 +230,20 @@ ul {
 }
 
 #test {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: red;
-    /* /* z-index: 2; */
-    width: 90vw;
-    max-height: 30vh; 
+    max-width: 90vw;
+    max-height: 30vh;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3rem;
+    background-color: white;
 }
 
+.topBottomPadding {
+    padding-top: 0.3rem;
+    padding-bottom: 0.5rem;
+}
 
-#here {
-    background-color: blue;
+.input {
+    margin: 0 0.5rem;
+    padding: 0.3rem;
 }

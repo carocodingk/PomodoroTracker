@@ -27,9 +27,9 @@ function ShowTask ({taskList, setTaskList, taskToEdit, showDetails, setShowDetai
                     return(
                         <div id="taskVerification1">
                             <div id="test" className="flexBox flexColumn taskVerification2">
-                                <div>
+                                <div className="topBottomPadding">
                                     <label>Task:</label>
-                                    <input type="text" value={editedTask.taskName} onChange={
+                                    <input className="input" type="text" value={editedTask.taskName} onChange={
                                         (e) => 
                                             setEditedTask((prevState) => ({
                                                 ...prevState,
@@ -38,44 +38,42 @@ function ShowTask ({taskList, setTaskList, taskToEdit, showDetails, setShowDetai
                                         )} 
                                     />
                                 </div>
-                                {/* <div className="flexBox"> */}
-                                    <div>
-                                        <label>Expected Cycles:</label>
-                                        <input type="text" value={editedTask.expectedCycles} onChange={
-                                            (e) => 
-                                                setEditedTask((prevState) => ({
-                                                    ...prevState,
-                                                    expectedCycles: e.target.value
-                                                })
-                                            )} 
-                                        />
-                                    </div>
-                                    <div>
-                                        <label>Actual Time:</label>
-                                        <input type="text" value={editedTask.actualTime} onChange={
-                                            (e) => 
-                                                setEditedTask((prevState) => ({
-                                                    ...prevState,
-                                                    actualTime: e.target.value
-                                                })
-                                            )} 
-                                        />
-                                    </div>
-                                    <div>
-                                        <label>Finished?</label>
-                                        <input type="checkbox" value={editedTask.finished} onChange={
-                                            (e) => 
-                                                setEditedTask((prevState) => ({
-                                                    ...prevState,
-                                                    finished: e.target.value
-                                                })
-                                            )} 
-                                        />
-                                    </div>
-                                {/* </div> */}
-                                <div>
-                                    <input type="button" value="Save" onClick={() => savingChanges(idx)} />
-                                    <input type="button" value="Cancel" onClick={() => setShowDetails(false)} />
+                                <div className="topBottomPadding">
+                                    <label>Expected Cycles:</label>
+                                    <input className="input" type="text" value={editedTask.expectedCycles} onChange={
+                                        (e) => 
+                                            setEditedTask((prevState) => ({
+                                                ...prevState,
+                                                expectedCycles: e.target.value
+                                            })
+                                        )} 
+                                    />
+                                </div>
+                                <div className="topBottomPadding">
+                                    <label>Actual Time:</label>
+                                    <input className="input" type="text" value={editedTask.actualTime} onChange={
+                                        (e) => 
+                                            setEditedTask((prevState) => ({
+                                                ...prevState,
+                                                actualTime: e.target.value
+                                            })
+                                        )} 
+                                    />
+                                </div>
+                                <div className="topBottomPadding">
+                                    <label>Finished?</label>
+                                    <input className="input" type="checkbox" value={editedTask.finished} onChange={
+                                        (e) => 
+                                            setEditedTask((prevState) => ({
+                                                ...prevState,
+                                                finished: e.target.value
+                                            })
+                                        )} 
+                                    />
+                                </div>
+                                <div className="flexBox flexJustifyCenter">
+                                    <input className="timerButton hoverItem lightBackground" type="button" value="Save" onClick={() => savingChanges(idx)} />
+                                    <input className="timerButton hoverItem lightBackground" type="button" value="Cancel" onClick={() => setShowDetails(false)} />
                                 </div>
                             </div>
                         </div>
