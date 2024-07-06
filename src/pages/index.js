@@ -60,6 +60,7 @@ export default function Home() {
           workTime={workTime}
           breakTime={breakTime}
           taskInProgress={taskInProgress}
+          setTaskInProgress={setTaskInProgress}
           setCycleComplete={setCycleComplete} 
           setOpenMenu={setOpenMenu}
         />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DialogBox from "./dialogBox";
 
-function PomodoroTimer({workTime, breakTime, taskInProgress, setCycleComplete, setOpenMenu}){
+function PomodoroTimer({workTime, breakTime, taskInProgress, setTaskInProgress, setCycleComplete, setOpenMenu}){
     const [workTimer, setWorkTimer] = useState(workTime);
     const [workTimerRun, setWorkTimerRun] = useState(false);
     const [breakTimer, setBreakTimer] = useState(breakTime);
@@ -101,8 +101,13 @@ function PomodoroTimer({workTime, breakTime, taskInProgress, setCycleComplete, s
                 <input className="lightBackground timerButton brown hoverItem" 
                 type="button" 
                 value='RESET' 
-                onClick={() => 
+                onClick={() => {
                     resetTimer()
+                    setTaskInProgress({
+                      key: -1,
+                      taskName: "Choose a task"
+                    })
+                  }
                 } 
                 />
             </div>
