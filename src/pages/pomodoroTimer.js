@@ -36,7 +36,6 @@ function PomodoroTimer({workTime, breakTime, taskInProgress, setTaskInProgress, 
       );
     }
   
-  
     useEffect(() => {
       let timer1, timer2
       if (workTimerRun){

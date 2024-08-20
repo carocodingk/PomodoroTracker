@@ -29,8 +29,10 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
     }
   
     const timeProcessing = (time) => {
-      const secondsW = time % 60
+      const hoursW = Math.floor(time / 3600)
+      const remainTime = hours > 0? 
       const minutesW = Math.floor(time / 60)
+      const secondsW = time % 60
       const output = `${minutesW}:${secondsW < 10? `0${secondsW}` : secondsW}`
       
       return(
