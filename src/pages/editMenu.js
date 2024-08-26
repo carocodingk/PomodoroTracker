@@ -28,7 +28,7 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
   // console.log('at the end ', showDetails)
   // const [showDetails, setShowDetails] = useState(false);
 
-  const test = () => {
+  const editTask = () => {
     console.log('before ', showDetails);
     setShowDetails(!showDetails)
     console.log('after ', showDetails)
@@ -37,7 +37,7 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
   return(
     <div>
       <ul>
-        <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Edit a task" onClick={()=>test()}/></li>
+        <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Edit a task" onClick={()=>editTask()}/></li>
         <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Remove a task" onClick={()=>removeTask()}/></li>
         <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Remove all" onClick={()=> removeAll()}/></li>
       </ul>
