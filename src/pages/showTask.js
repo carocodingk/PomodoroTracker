@@ -6,8 +6,6 @@ function ShowTask ({taskList, setTaskList, taskToEdit, setTaskToEdit, setShowDet
         taskName: taskToEdit.taskName, 
         expectedCycles: taskToEdit.expectedCycles,
         actualTime: taskToEdit.actualTime,
-        // actualTimeMin: Math.floor(taskToEdit.actualTime / 60), 
-        // actualTimeSec: taskToEdit.actualTime % 60,
         finished: taskToEdit.finished
     })
 
@@ -56,37 +54,6 @@ function ShowTask ({taskList, setTaskList, taskToEdit, setTaskToEdit, setShowDet
                                         )} 
                                     />
                                 </div>
-                                {/* <div className="topBottomPadding">
-                                    <label>Actual Time:</label>
-                                    
-                                    <input className="input" type="text" value={Math.floor(editedTask.actualTime/60)} onChange={
-                                        (e) => {
-                                            setEditedTask((prevState) => ({
-                                                ...prevState,
-                                                actualTime: (e.target.value * 60) + (prevState.actualTime%60)
-                                            }))
-                                        }} 
-                                    />
-                                    <input className="input" type="text" value={editedTask.actualTime%60} onChange={
-                                        (e) => {
-                                            setEditedTask((prevState) => ({
-                                                ...prevState,
-                                                actualTime: prevState.actualTime - (prevState.actualTime%60) + e.target.value 
-                                            }))
-                                            // const seconds = e.target.value
-                                            // if (e.target.value <= 59){
-                                            //     console.log("smaller")
-                                            //     // setEditedTask((prevState) => ({
-                                            //     //     ...prevState,
-                                            //     //     actualTime: (prevState.actualTime) - (prevState.actualTime%60) + (e.target.value)
-                                            //     // }))
-                                            // }
-                                            // else {
-                                            //     console.log("bigger")
-                                            // }
-                                        }} 
-                                    />
-                                </div> */}
                                 <div className="topBottomPadding">
                                     <label>Finished?</label>
                                     <input className="input" type="checkbox" value={editedTask.finished} onChange={

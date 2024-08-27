@@ -25,8 +25,6 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
       </div>  
     );
   }
-  // console.log('at the end ', showDetails)
-  // const [showDetails, setShowDetails] = useState(false);
 
   const editTask = () => {
     console.log('before ', showDetails);
@@ -42,7 +40,6 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
         <li><input type="button" className="borderless lightBackground menuButton hoverItem" value="Remove all" onClick={()=> removeAll()}/></li>
       </ul>
       {console.log('at the end ', showDetails)}
-      {/* {showDetails && <ShowTask taskList={taskList} taskToEdit={taskToEdit} showDetails={showDetails}/>} */}
     </div>
     );
 }

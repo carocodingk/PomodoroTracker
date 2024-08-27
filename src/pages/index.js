@@ -64,7 +64,6 @@ export default function Home() {
           setCycleComplete={setCycleComplete} 
           setOpenMenu={setOpenMenu}
         />
-        {/* {openMenu && <EditMenu />} */}
         <TaskManager 
           workTime={workTime}
           initialTasks={initialTasks}
