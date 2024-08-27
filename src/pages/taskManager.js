@@ -7,7 +7,6 @@ import ShowTask from "./showTask";
 function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     const [taskKeys, setTaskKey] = useState(4)
     const [taskList, setTaskList] = useState(initialTasks)
-    const [editModeOption, setEditModeOption] = useState(-1)
     const [showDetails, setShowDetails] = useState(false)
   
     const chooseTask = (task) => {
@@ -90,12 +89,10 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           <EditMenu 
             taskList={taskList}
             setTaskList={setTaskList}
-            setEditModeOption={setEditModeOption}
             taskToEdit={taskInProgress}
             setShowDetails={setShowDetails}
             showDetails={showDetails}
           />}
-          {console.log(editModeOption)}
         </div>
         {cycleComplete && 
         <VerifyTaskCompletion 

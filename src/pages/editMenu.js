@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ShowTask from "./showTask"
 
-function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShowDetails, showDetails}){
+function EditMenu({taskList, setTaskList, taskToEdit, setShowDetails, showDetails}){
 
 
   
@@ -12,7 +12,6 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
 
   const removeTask = () => {
     let newTaskList = []
-    // setEditModeOption(2)
     return(
       <div>
         {taskList.map((task) =>
@@ -28,10 +27,7 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
 
   const editTask = () => {
     if (taskToEdit.key != -1)
-    // console.log('before ', showDetails);
-    // setShowDetails(!showDetails)
       setShowDetails(true)
-    // console.log('after ', showDetails)
   }
 
   return(
