@@ -109,6 +109,7 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           setCycleComplete={setCycleComplete} 
         />}
         {showDetails &&
+        taskInProgress.key != -1 &&
         <ShowTask 
           taskList={taskList} 
           setTaskList={setTaskList}
@@ -117,6 +118,7 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           setTaskToEdit={setTaskInProgress}
           setShowDetails={setShowDetails}
         />}
+        {console.log('here ', taskInProgress.key)}
       </div>
     );
   }

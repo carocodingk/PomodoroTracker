@@ -21,6 +21,10 @@ function ShowTask ({taskList, setTaskList, taskToEdit, setTaskToEdit, setShowDet
         setTaskList(newEditedList)
         setTaskToEdit(editedTask)
         setShowDetails(false)
+        setTaskToEdit({ //Resets task in progress to default
+            key: -1, 
+            taskName: "Choose a task21233333"
+          })
     }
 
     return(
