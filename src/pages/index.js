@@ -3,7 +3,6 @@ import { useState } from "react";
 import PomodoroTimer from "./pomodoroTimer.js";
 import DialogBox from "./dialogBox.js";
 import TaskManager from "./taskManager.js";
-import EditMenu from "./editMenu.js";
 
 // Initial values
 const workTime = 5;

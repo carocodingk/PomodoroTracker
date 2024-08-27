@@ -9,10 +9,10 @@ function ShowTask ({taskList, setTaskList, taskToEdit, setTaskToEdit, setShowDet
         finished: taskToEdit.finished
     })
 
-    const [newTime, setNewTime] = useState({
-        minutes: Math.floor(editedTask.actualTime/60),
-        seconds: editedTask.actualTime % 60
-    })
+    // const [newTime, setNewTime] = useState({
+    //     minutes: Math.floor(editedTask.actualTime/60),
+    //     seconds: editedTask.actualTime % 60
+    // })
 
     const savingChanges = (idx) => {
         const newEditedList = taskList.toSpliced(idx, 1, editedTask)
