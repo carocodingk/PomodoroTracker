@@ -12,7 +12,7 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
 
   const removeTask = () => {
     let newTaskList = []
-    setEditModeOption(2)
+    // setEditModeOption(2)
     return(
       <div>
         {taskList.map((task) =>
@@ -27,9 +27,11 @@ function EditMenu({taskList, setTaskList, setEditModeOption, taskToEdit, setShow
   }
 
   const editTask = () => {
-    console.log('before ', showDetails);
-    setShowDetails(!showDetails)
-    console.log('after ', showDetails)
+    if (taskToEdit.key != -1)
+    // console.log('before ', showDetails);
+    // setShowDetails(!showDetails)
+      setShowDetails(true)
+    // console.log('after ', showDetails)
   }
 
   return(

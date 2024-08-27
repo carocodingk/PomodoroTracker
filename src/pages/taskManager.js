@@ -115,6 +115,7 @@ function TaskManager({workTime, initialTasks, taskInProgress, setTaskInProgress,
           setShowDetails={setShowDetails}
         />}
         {console.log('here ', taskInProgress.key)}
+        {console.log('show details ', showDetails)}
       </div>
     );
   }
