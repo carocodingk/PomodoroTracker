@@ -1,6 +1,11 @@
 import { useEffect, useState, useContext, createContext } from "react";
+import Pomodoro from './components/PomodoroTimer.jsx'
+import UserContext from "./components/UserContext.jsx";
+import PomodoroTimer from "./components/PomodoroTimer.jsx";
+import AppInstructions from "./components/AppInstructions.jsx";
 
-const UserContext = createContext({});
+
+// const UserContext = createContext({});
 
 // Initial values
 // const workTime = 5;
@@ -11,6 +16,8 @@ const UserContext = createContext({});
 //                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
 //                     ];
 
+
+//################################################# */
 // function PomodoroTimer({taskInProgress, setCycleComplete}){
 //   const [workTimer, setWorkTimer] = useState(workTime);
 //   const [workTimerRun, setWorkTimerRun] = useState(false);
@@ -122,8 +129,9 @@ const UserContext = createContext({});
 //     </div>
 //   );
 // }
+//*************************************************** */
 
-
+//################################################# */
 // function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
 //   const [taskKeys, setTaskKey] = useState(4)
 //   const [taskList, setTaskList] = useState(initialTasks)
@@ -199,8 +207,10 @@ const UserContext = createContext({});
 //     </div>
 //   );
 // }
+//*************************************************** */
 
 
+//################################################# */
 // function TaskCompletion({taskInProgress, setTaskInProgress, taskList, setTaskList, setCycleComplete}){
 //   const updateTaskInProgress = (completed) => {
 //     let updatedTask
@@ -257,7 +267,11 @@ const UserContext = createContext({});
 //     <DialogBox infoField={checkTask} />
 //   );
 // }
+//*************************************************** */
 
+
+
+//################################################# */
 // function DialogBox({infoField}){
 //   return(
 //     <div id="taskVerification1">
@@ -267,8 +281,11 @@ const UserContext = createContext({});
 //     </div>
 //   );
 // }
+//*************************************************** */
 
 
+
+//################################################# */
 // function NewTask({taskKeys, setTaskKey, setTaskList}){
 //   const [newTask, setNewTask] = useState({
 //     taskName: "", 
@@ -347,8 +364,9 @@ const UserContext = createContext({});
 //     </div>
 //   );
 // }
+//*************************************************** */
 
-function Pomodoro(){
+function Pomodoro1(){
   console.log('inside pomodoro')
   const c = useContext(UserContext);
   console.log(c)
@@ -364,12 +382,15 @@ export default function Home() {
     key: -1,
     taskName: "Choose a task"
   })
+  const [seenInstructions, setSeenInstructions] = useState(false)
 
   return(
-    <UserContext.Provider value={{taskInProgress}}>
-      <Pomodoro />
-
-    </UserContext.Provider>
+    <div>
+      {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
+      <UserContext.Provider value={{taskInProgress}}>
+        <PomodoroTimer />
+      </UserContext.Provider>
+    </div>
   );
 
   // const [cycleComplete, setCycleComplete] = useState(false) //state indicates when a pomodoro cycle has been completed
