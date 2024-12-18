@@ -13,10 +13,12 @@ function TaskManager(){
   const [ch, setCh] = useState(null)
 
   const selectTask = (task) => {
+    console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
     if (!task.finished){ //Task is not finished
       // console.log('INSIDE SELECTTASK')
-      t.taskInProgress.key = task.key
-      t.taskInProgress.taskName = task.taskName
+      // t.taskInProgress.key = task.key
+      // t.taskInProgress.taskName = task.taskName
+      t.setTaskInProgress({key: task.key, taskName: task.taskName})
       console.log('there ', [t.taskInProgress.key, t.taskInProgress.taskName] )
     }
   }

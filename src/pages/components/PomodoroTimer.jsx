@@ -83,6 +83,8 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const secondsB = breakTimer % 60
   const minutesB = Math.floor(breakTimer / 60)
 
+  console.log('in pomo', t)
+
   return(
     <div>
       {timesUp && <DialogBox infoField={alarmAlert} />}

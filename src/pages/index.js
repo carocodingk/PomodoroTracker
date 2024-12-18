@@ -243,7 +243,7 @@ const breakTime = 2;
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
     key: -1,
-    taskName: "Choose a task"
+    taskName: "Choose a task@@@@@"
   })
   const [seenInstructions, setSeenInstructions] = useState(false)
   const [cycleComplete, setCycleComplete] = useState(false) 
@@ -252,7 +252,7 @@ export default function Home() {
     <div>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
       {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
-      <UserContext.Provider value={{taskInProgress}}>
+      <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
         <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
         <TaskManager />
       </UserContext.Provider>
