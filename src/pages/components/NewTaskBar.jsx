@@ -18,6 +18,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             finished: false
           }
         ]))
+        setNextTaskKey(nextTaskKey+1)
     }
     else {
       console.log('Description is empty')

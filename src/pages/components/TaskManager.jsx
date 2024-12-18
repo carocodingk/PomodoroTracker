@@ -6,11 +6,12 @@ import NewTaskBar from "./NewTaskBar";
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
+                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
 function TaskManager(){
   const t = useContext(UserContext)
+  const [nextTaskKey, setNextTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
   const [ch, setCh] = useState(null)
 
@@ -30,7 +31,7 @@ function TaskManager(){
         {taskList.map((task, key) => 
           <li>
               <div className="flexBox">
-                <input className='checked' type="checkbox" defaultChecked={task.finished} checked={task.finished} />
+                <input className='checked' type="checkbox" checked={task.finished} />
                 <input type='button' value={task.taskName} onClick={()=> selectTask(task)} />
                 <p>{task.expectedCycles}</p>
                 <p>{task.actualTime}</p>
@@ -38,7 +39,7 @@ function TaskManager(){
           </li>
         )}
       </ul>
-      <NewTaskBar setTaskList={setTaskList} />
+      <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
       {console.log('###### ', taskList)}
     </div>
   ) 
