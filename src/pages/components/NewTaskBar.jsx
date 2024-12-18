@@ -1,8 +1,28 @@
 import { useState } from "react";
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
-  const [newTask, setNewTask] = useState('');
-  console.log(newTask)
+  const [newTask, setNewTask] = useState({
+    taskName:'',
+    expectedCycles: 1
+  });
+
+  const taskVerification = () => {
+  // check new task description is not empty
+    if (newTask.taskName.length > 0){
+        setTaskList((prevTaskList) => ([
+          ...prevTaskList, {
+            key: nextTaskKey,
+            taskName: newTask.taskName,
+            expectedCycles: Number(newTask.expectedCycles),
+            actualTime: 0,
+            finished: false
+          }
+        ]))
+    }
+    else {
+      console.log('Description is empty')
+    }
+  }
 
   return(
     <div>
@@ -21,7 +41,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             expectedCycles: e.target.value
           }))
       }/>
-      <input type="button" value='+' onClick={() => console.log(newTask)}/>
+      <input type="button" value='+' onClick={() => taskVerification()}/>
     </div>
   );
 }

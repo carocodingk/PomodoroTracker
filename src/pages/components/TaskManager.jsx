@@ -39,6 +39,7 @@ function TaskManager(){
         )}
       </ul>
       <NewTaskBar setTaskList={setTaskList} />
+      {console.log('###### ', taskList)}
     </div>
   ) 
 }
