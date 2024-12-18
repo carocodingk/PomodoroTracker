@@ -1,7 +1,9 @@
 import { useState, useContext } from "react";
 import UserContext from "./UserContext";
+import AddNewTask from "./NewTaskBar";
+import NewTaskBar from "./NewTaskBar";
 
-const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: false}, 
+const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: false},  
@@ -15,11 +17,10 @@ function TaskManager(){
   const selectTask = (task) => {
     console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
     if (!task.finished){ //Task is not finished
-      // console.log('INSIDE SELECTTASK')
-      // t.taskInProgress.key = task.key
-      // t.taskInProgress.taskName = task.taskName
-      t.setTaskInProgress({key: task.key, taskName: task.taskName})
-      console.log('there ', [t.taskInProgress.key, t.taskInProgress.taskName] )
+      t.setTaskInProgress({
+        key: task.key, 
+        taskName: task.taskName
+      })
     }
   }
 
@@ -29,7 +30,7 @@ function TaskManager(){
         {taskList.map((task, key) => 
           <li>
               <div className="flexBox">
-                <input className='checked' type="checkbox" defaultChecked={false} checked={ch} />
+                <input className='checked' type="checkbox" defaultChecked={task.finished} checked={task.finished} />
                 <input type='button' value={task.taskName} onClick={()=> selectTask(task)} />
                 <p>{task.expectedCycles}</p>
                 <p>{task.actualTime}</p>
@@ -37,8 +38,9 @@ function TaskManager(){
           </li>
         )}
       </ul>
+      <NewTaskBar setTaskList={setTaskList} />
     </div>
-  )
+  ) 
 }
 // function TaskManager({taskInProgress, setTaskInProgress, cycleComplete, setCycleComplete}){
 //   const [taskKeys, setTaskKey] = useState(4)
