@@ -1,10 +1,13 @@
 import { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
+// import DialogBox from "./DialogBox";
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
     taskName:'',
     expectedCycles: 1
   });
+  const [showErrorMsg, setShowErrorMsg] = useState(false);
 
   const taskVerification = () => {
   // check new task description is not empty
@@ -22,11 +25,23 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
     }
     else {
       console.log('Description is empty')
+      setShowErrorMsg(true)
     }
   }
 
+  // const ErrorMessage =() => {
+  //   return(
+  //     <div>
+  //       <h3 style={{color: red}}>Error! The task you are trying to enter is empty!</h3>
+  //       <input type="button" value='OK!' onClick={() => setShowErrorMsg(false)} />
+  //     </div>
+  //   );
+  // }
+
   return(
     <div>
+      {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
+      {/* {showErrorMsg && <DialogBox infoField={'ErrorMessage'} />} */}
       <input type="text" onChange={
         (e) => 
           setNewTask((prevState) => ({

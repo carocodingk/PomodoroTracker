@@ -13,7 +13,7 @@ function TaskManager(){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
-  const [ch, setCh] = useState(null)
+  // const [ch, setCh] = useState(null)
 
   const selectTask = (task) => {
     console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )

@@ -17,4 +17,6 @@ function AppInstructions({setSeenInstructions}){
     </div>
   );
 } 
+
+
 export default AppInstructions;
