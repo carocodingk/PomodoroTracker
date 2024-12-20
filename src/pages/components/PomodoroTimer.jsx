@@ -35,21 +35,12 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
     setBreakTimer(breakTime)
   }
 
-  // const alarmAlert = () => {
-  //   return(
-  //     <div className="flexBox flexColumn flexJustifyCenter">
-  //       <h2 className="centerTex test">Your working time is up!</h2>
-  //       <h2 className="centerText test">Let's take a break</h2>
-  //       <input className="okButton" type="button" value="OK" onClick={()=> setTimesUp(false)} />
-  //     </div>
-  //   );
-  // }
-
-
   useEffect(() => {
-    let timer1, timer2
+    let timer1, timer2 
+
+    //Work timer
     if (workTimerRun){
-      timer1 = setTimeout(() => {
+      timer1 = setTimeout(() => { 
         setWorkTimer((prevTime) => prevTime-1)
       }, 1000);
       if (workTimer === 0){ //time's up
@@ -58,7 +49,7 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
         setTimesUp(true)
       }
     }
-    
+    //Break timer
     if (breakTimerRun){
       timer2 = setTimeout(() => {
         setBreakTimer((prevTime) => prevTime-1)

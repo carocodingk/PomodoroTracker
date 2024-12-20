@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import UserContext from "./UserContext";
-import AddNewTask from "./NewTaskBar";
 import NewTaskBar from "./NewTaskBar";
+import TaskCompletion from "./TaskCompletion"
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
@@ -9,7 +9,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
-function TaskManager(){
+function TaskManager({cycleComplete}){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
@@ -34,6 +34,18 @@ function TaskManager(){
     );
   }
 
+  // const taskCompletion = () => {
+  //   return(
+  //     <div>
+  //       <h3>Has the task been completed?</h3>
+  //       <div>
+  //         <input type='button' value={'YES!'} onClick={()=>console.log('yes!')} />
+  //         <input type='button' value={'Not yet!'} onClick={()=>console.log('No!')} />
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
 
   return(
     <div>
@@ -50,7 +62,14 @@ function TaskManager(){
         )}
       </ul>
       <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
-      {console.log('###### ', taskList)}
+      {/* {console.log('###### ', taskList)} */}
+      {cycleComplete && 
+      <TaskCompletion
+        taskList={taskList}
+        setTaskList={setTaskList}
+        taskInProgress={t.taskInProgress}
+        setTaskInProgress={t.setTaskInProgress}
+      />}
     </div>
   ) 
 }

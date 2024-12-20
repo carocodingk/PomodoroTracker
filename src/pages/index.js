@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext, createContext } from "react";
 import Pomodoro from './components/PomodoroTimer.jsx'
 import UserContext from "./components/UserContext.jsx";
+import TimeContext from "./components/TimeContext.jsx";
 import PomodoroTimer from "./components/PomodoroTimer.jsx";
 import AppInstructions from "./components/AppInstructions.jsx";
 import TaskManager from "./components/TaskManager.jsx";
@@ -253,10 +254,12 @@ export default function Home() {
     <div>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
       {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
-      <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
-        <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
-        <TaskManager />
-      </UserContext.Provider>
+      <TimeContext.Provider value={workTime}>
+        <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
+          <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
+          <TaskManager cycleComplete={cycleComplete} />
+        </UserContext.Provider>
+      </TimeContext.Provider>
     </div>
   );
 
