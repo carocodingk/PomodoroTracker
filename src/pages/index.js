@@ -257,7 +257,7 @@ export default function Home() {
       <TimeContext.Provider value={workTime}>
         <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
           <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
-          <TaskManager cycleComplete={cycleComplete} />
+          <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} />
         </UserContext.Provider>
       </TimeContext.Provider>
     </div>

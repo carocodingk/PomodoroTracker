@@ -9,7 +9,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
-function TaskManager({cycleComplete}){
+function TaskManager({cycleComplete, setCycleComplete}){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
@@ -69,6 +69,7 @@ function TaskManager({cycleComplete}){
         setTaskList={setTaskList}
         taskInProgress={t.taskInProgress}
         setTaskInProgress={t.setTaskInProgress}
+        setCycleComplete={setCycleComplete}
       />}
     </div>
   ) 

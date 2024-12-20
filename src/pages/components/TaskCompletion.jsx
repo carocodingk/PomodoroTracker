@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import TimeContext from "./TimeContext"
 
-function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgress}){
+function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgress, setCycleComplete}){
   const t = useContext(TimeContext)
   let taskUpdate = {}
   let taskListUpdate = []
@@ -39,6 +39,7 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
     })
     console.log('NEW TASKLIST: ', taskListUpdate) 
     setTaskList(taskListUpdate)
+    setCycleComplete(false) //Resets the cycle indicator
   }
 
   return(
