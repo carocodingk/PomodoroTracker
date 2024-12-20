@@ -1,5 +1,6 @@
 import { useState , useEffect} from "react";
 import UserContext from "./UserContext";
+import AlarmAlert from "./AlarmAlert";
 // import DialogBox from "./DialogBox";
 
 const { useContext } = require("react");
@@ -34,15 +35,15 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
     setBreakTimer(breakTime)
   }
 
-  const alarmAlert = () => {
-    return(
-      <div className="flexBox flexColumn flexJustifyCenter">
-        <h2 className="centerTex test">Your working time is up!</h2>
-        <h2 className="centerText test">Let's take a break</h2>
-        <input className="okButton" type="button" value="OK" onClick={()=> setTimesUp(false)} />
-      </div>
-    );
-  }
+  // const alarmAlert = () => {
+  //   return(
+  //     <div className="flexBox flexColumn flexJustifyCenter">
+  //       <h2 className="centerTex test">Your working time is up!</h2>
+  //       <h2 className="centerText test">Let's take a break</h2>
+  //       <input className="okButton" type="button" value="OK" onClick={()=> setTimesUp(false)} />
+  //     </div>
+  //   );
+  // }
 
 
   useEffect(() => {
@@ -87,7 +88,8 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
 
   return(
     <div>
-      {timesUp && <DialogBox infoField={alarmAlert} />}
+      {/* {timesUp && <DialogBox infoField={alarmAlert} />} */}
+      {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
     <div className="yellowBox">
       <div>
         <p className="centerText">{t.taskInProgress.taskName}</p>
