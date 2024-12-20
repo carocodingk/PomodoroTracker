@@ -25,6 +25,16 @@ function TaskManager(){
     }
   }
 
+  const timeProcessing = (time) => {
+    const secondsW = time % 60
+    const minutesW = Math.floor(time / 60)
+    const output = `${minutesW}:${secondsW < 10? `0${secondsW}` : secondsW}`
+    return(
+      output
+    );
+  }
+
+
   return(
     <div>
       <ul>
@@ -34,7 +44,7 @@ function TaskManager(){
                 <input className='checked' type="checkbox" checked={task.finished} />
                 <input type='button' value={task.taskName} onClick={()=> selectTask(task)} />
                 <p>{task.expectedCycles}</p>
-                <p>{task.actualTime}</p>
+                <p>{timeProcessing(task.actualTime)}</p>
               </div>
           </li>
         )}
