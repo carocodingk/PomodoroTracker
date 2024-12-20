@@ -26,9 +26,13 @@ function TaskManager({cycleComplete, setCycleComplete}){
   }
 
   const timeProcessing = (time) => {
-    const secondsW = time % 60
-    const minutesW = Math.floor(time / 60)
-    const output = `${minutesW}:${secondsW < 10? `0${secondsW}` : secondsW}`
+    const hoursW = Math.floor(time / 3600)
+    const minutesW = Math.floor((time - hoursW * 3600) / 60)
+    const secondsW = (time - hoursW * 3600) % 60
+    const output = `
+      ${hoursW < 10? `0${hoursW}` : hoursW}:
+      ${minutesW < 10? `0${minutesW}` : minutesW}:
+      ${secondsW < 10? `0${secondsW}` : secondsW}`
     return(
       output
     );
