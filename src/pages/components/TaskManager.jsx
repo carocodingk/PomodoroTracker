@@ -43,6 +43,7 @@ function TaskManager({cycleComplete, setCycleComplete}){
 
   const deleteTask = (key) => {
     let taskListUpdate = taskList.filter((task) => (task.key !== key))
+    setTaskList(taskListUpdate)
     console.log('tasklistupdate for delete: ',taskListUpdate)
   }
 
