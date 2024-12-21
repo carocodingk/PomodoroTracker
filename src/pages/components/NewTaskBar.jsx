@@ -11,16 +11,16 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const taskVerification = () => {
   // check new task description is not empty
     if (newTask.taskName.length > 0){
-        setTaskList((prevTaskList) => ([
-          ...prevTaskList, {
-            key: nextTaskKey,
-            taskName: newTask.taskName,
-            expectedCycles: Number(newTask.expectedCycles),
-            actualTime: 0,
-            finished: false
-          }
-        ]))
-        setNextTaskKey(nextTaskKey+1)
+      setTaskList((prevTaskList) => ([
+        ...prevTaskList, {
+          key: nextTaskKey,
+          taskName: newTask.taskName,
+          expectedCycles: Number(newTask.expectedCycles),
+          actualTime: 0,
+          finished: false
+        }
+      ]))
+      setNextTaskKey(nextTaskKey+1)
     }
     else {
       console.log('Description is empty')

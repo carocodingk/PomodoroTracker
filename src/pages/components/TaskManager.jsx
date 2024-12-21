@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import UserContext from "./UserContext";
 import NewTaskBar from "./NewTaskBar";
 import TaskCompletion from "./TaskCompletion"
+import TaskEdition from "./TaskEdition";
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
@@ -11,9 +12,10 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
 
 function TaskManager({cycleComplete, setCycleComplete}){
   const t = useContext(UserContext)
-  const [nextTaskKey, setNextTaskKey] = useState(4)
+  const [nextTaskKey, setNextTaskKey] = useState(4) //Tracks the key for the next new task
   const [taskList, setTaskList] = useState(initialTasks)
-  const [menuRequest, setMenuRequest] = useState(-1) //nobody has requested the menu
+  const [menuRequest, setMenuRequest] = useState(-1) //Tracks who has requested the menu for edit/delete(nobody)
+  const [editTask, setEditTask] = useState(false) //tracks if an edit request has been made
 
   const selectTask = (task) => {
     console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
@@ -45,6 +47,7 @@ function TaskManager({cycleComplete, setCycleComplete}){
   }
 
   const openMenu = (key) => {
+    setEditTask(false) //Deactivates the edition mode
     setMenuRequest(key)
     console.log('Menu requested by: ', key)
   }
@@ -63,8 +66,14 @@ function TaskManager({cycleComplete, setCycleComplete}){
                   <input type='button' value='More' onClick={()=>openMenu(task.key)} />
                   {menuRequest === task.key? 
                     <div>
-                      <input type="button" value='Edit' onClick={()=>console.log('edit')}/>
+                      <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
                       <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
+                      {editTask &&
+                      <div id="test1">
+                        ETSTTTTT
+                        <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+                      </div>
+                      }
                     </div>
                     :
                     null
@@ -83,6 +92,9 @@ function TaskManager({cycleComplete, setCycleComplete}){
         setTaskInProgress={t.setTaskInProgress}
         setCycleComplete={setCycleComplete}
       />}
+      {/* {editTask &&
+      <TaskEdition taskKey={menuRequest} taskList={taskList} setTaskList={setTaskList} />
+      } */}
     </div>
   ) 
 }
