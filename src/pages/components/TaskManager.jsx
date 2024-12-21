@@ -13,10 +13,7 @@ function TaskManager({cycleComplete, setCycleComplete}){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4)
   const [taskList, setTaskList] = useState(initialTasks)
-  const [showMenu, setShowMenu] = useState(false)
   const [menuRequest, setMenuRequest] = useState(-1) //nobody has requested the menu
-  const [showMenuKey, setShowMenuKey] = useState(-1) //keeps track what task enters edition mode
-  // const [ch, setCh] = useState(null)
 
   const selectTask = (task) => {
     console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
