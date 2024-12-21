@@ -47,6 +47,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
           }))
       }/>
       <input type="button" value='+' onClick={() => taskVerification()}/>
+      <input type="button" value='Delete all tasks' onClick={() => setTaskList([])} />
     </div>
   );
 }
