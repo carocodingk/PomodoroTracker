@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext, createContext } from "react";
-import Pomodoro from './components/PomodoroTimer.jsx'
 import UserContext from "./components/UserContext.jsx";
 import TimeContext from "./components/TimeContext.jsx";
 import PomodoroTimer from "./components/PomodoroTimer.jsx";
@@ -20,8 +19,9 @@ export default function Home() {
   const [openMenu, setOpenMenu] = useState(false)
 
   const closeMenu = ()=>{
-    if (openMenu)
+    if (openMenu){
       setOpenMenu(false)
+    }
   }
 
   return(

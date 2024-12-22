@@ -16,10 +16,10 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const [timesUp, setTimesUp] = useState(false);
 
   // console.log('worktime and breaktime ', [workTime, breakTime])
-  console.log('using contesxt ', t.taskInProgress.taskName)
+  // console.log('using contesxt ', t.taskInProgress.taskName)
 
   const startTimer = (taskInProgress) => {
-    console.log('inside startTimer ', taskInProgress)
+    // console.log('inside startTimer ', taskInProgress)
     setCycleComplete(false) //Restart the cycle
     if (taskInProgress.key != -1){
       setWorkTimerRun(!workTimerRun)
@@ -75,7 +75,7 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const secondsB = breakTimer % 60
   const minutesB = Math.floor(breakTimer / 60)
 
-  console.log('in pomo', t)
+  // console.log('in pomo', t)
 
   return(
     <div>

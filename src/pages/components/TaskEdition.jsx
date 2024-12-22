@@ -11,7 +11,7 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
         return task
     })
     setTaskList(editedTaskList)
-    console.log('new task list ', taskList)
+    // console.log('new task list ', taskList)
   }
 
   return(

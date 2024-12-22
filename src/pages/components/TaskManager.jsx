@@ -18,7 +18,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const [editTask, setEditTask] = useState(false) //tracks if an edit request has been made
 
   const selectTask = (task) => {
-    console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
+    // console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
     if (!task.finished){ //Task is not finished
       t.setTaskInProgress({
         key: task.key, 
@@ -43,13 +43,15 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const deleteTask = (key) => {
     let taskListUpdate = taskList.filter((task) => (task.key !== key))
     setTaskList(taskListUpdate)
-    console.log('tasklistupdate for delete: ',taskListUpdate)
+    // console.log('tasklistupdate for delete: ',taskListUpdate)
   }
 
   const menuVisibility = (task) => {
-    setMenuRequest(task.key)
-    setOpenMenu(!openMenu)
-    console.log(`${task.key} clicked on more `, [menuRequest, openMenu])
+    if (!openMenu){
+      setMenuRequest(task.key)
+      setOpenMenu(true)
+      // console.log('case 0')
+    }
   }
 
   return(
@@ -66,7 +68,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                   <input type='button' value='More' onClick={()=>menuVisibility(task)} />
                   {(openMenu && (menuRequest === task.key))?  
                     <div>
-                      {console.log('inside ', menuRequest)}
                       <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
                       <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
                       {editTask &&
