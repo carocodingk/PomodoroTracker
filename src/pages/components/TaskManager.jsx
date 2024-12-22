@@ -10,7 +10,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
-function TaskManager({cycleComplete, setCycleComplete}){
+function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4) //Tracks the key for the next new task
   const [taskList, setTaskList] = useState(initialTasks)
@@ -46,31 +46,31 @@ function TaskManager({cycleComplete, setCycleComplete}){
     console.log('tasklistupdate for delete: ',taskListUpdate)
   }
 
-  const openMenu = (key) => {
-    setEditTask(false) //Deactivates the edition mode
-    setMenuRequest(key)
-    console.log('Menu requested by: ', key)
+  const menuVisibility = (task) => {
+    setMenuRequest(task.key)
+    setOpenMenu(!openMenu)
+    console.log(`${task.key} clicked on more `, [menuRequest, openMenu])
   }
 
   return(
-    <div>
+    <div id="taskmanager">
       <ul>
         {taskList.map((task, key) => 
           <li>
-              <div className="flexBox">
+              <div className="flexBox task">
                 <input className='checked' type="checkbox" checked={task.finished} />
                 <input type='button' value={task.taskName} onClick={()=> selectTask(task)} />
                 <p>{task.expectedCycles}</p>
                 <p>{timeProcessing(task.actualTime)}</p>
-                <div>
-                  <input type='button' value='More' onClick={()=>openMenu(task.key)} />
-                  {menuRequest === task.key? 
+                <div id="test2">
+                  <input type='button' value='More' onClick={()=>menuVisibility(task)} />
+                  {(openMenu && (menuRequest === task.key))?  
                     <div>
+                      {console.log('inside ', menuRequest)}
                       <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
                       <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
                       {editTask &&
                       <div id="test1">
-                        ETSTTTTT
                         <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
                       </div>
                       }

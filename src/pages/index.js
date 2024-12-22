@@ -17,15 +17,21 @@ export default function Home() {
   })
   const [seenInstructions, setSeenInstructions] = useState(false)
   const [cycleComplete, setCycleComplete] = useState(false) 
+  const [openMenu, setOpenMenu] = useState(false)
+
+  const closeMenu = ()=>{
+    if (openMenu)
+      setOpenMenu(false)
+  }
 
   return(
-    <div>
+    <div onClick={()=>closeMenu()}>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
       {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
       <TimeContext.Provider value={workTime}>
         <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
           <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
-          <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} />
+          <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </UserContext.Provider>
       </TimeContext.Provider>
     </div>
