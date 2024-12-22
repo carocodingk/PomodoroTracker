@@ -79,40 +79,39 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
 
   return(
     <div>
-      {/* {timesUp && <DialogBox infoField={alarmAlert} />} */}
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
-    <div className="yellowBox">
-      <div>
-        <p className="centerText">{t.taskInProgress.taskName}</p>
+      <div id="yellowBox">
         <div>
-          <p className="orange centerText">Work Time</p>
-          <p className="centerText brown font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
-        </div>
-        <div>
-          <p className="orange centerText">Break Time</p>
-          <p className="centerText brown font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
-        </div>
-        <div className="centerMargin">
-        <div className="flexBox flexJustifyCenter">
-          <input className="lightBackground timerButton brown hoverItem" 
-            type="button" 
-            value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
-            onClick={() => 
-              startTimer(t.taskInProgress)
-            } 
-          />
-          <input className="lightBackground timerButton brown hoverItem" 
-            type="button" 
-            value='RESET' 
-            onClick={() => 
-              resetTimer()
-            } 
-          />
-        </div>
+          <p className="centerText">{t.taskInProgress.taskName}</p>
+          <div>
+            <p className="orange centerText">Work Time</p>
+            <p className="centerText font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
+          </div>
+          <div>
+            <p className="orange centerText">Break Time</p>
+            <p className="centerText font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
+          </div>
+          <div>
+            <div className="flexBox flexJustifyCenter">
+              <input className="lightBackground timerButton hoverItem" 
+                type="button" 
+                value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
+                onClick={() => 
+                  startTimer(t.taskInProgress)
+                } 
+              />
+              <input className="lightBackground timerButton hoverItem" 
+                type="button" 
+                value='RESET' 
+                onClick={() => 
+                  resetTimer()
+                } 
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <h1>hello</h1>
+    {/* <h1>hello</h1> */}
     </div>
   );
 }

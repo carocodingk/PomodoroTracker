@@ -1,225 +1,60 @@
 #main {
-    min-height: 100vh;
-}
-
-.lightBackground {
-    background-color: #FAF7F4;
+  height: 100vh;
+  width: 100vw;
+  color: white;
 }
 
 #trackerTitle {
-    padding-top: 1rem;
-    color: #B32800;
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-family: Papyrus, Fantasy;
-}
-
-.orange {
-    color: #E9A200;
-}
-
-.yellowBox {
-    border: 2px solid #FBDD00;
-    max-width: 70vw;
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 2rem auto;
-}
-
-.font1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.taskItem {
-    padding: 0.3rem;
-}
-
-.justifySpaceBetween {
-    justify-content: space-between;
-}
-
-.checkBox {
-    margin-right: 1rem;
-    accent-color: #E9A200;
-}
-
-.flexBox {
-    display: flex;
-}
-
-.flexColumn {
-    flex-direction: column;
-}
-
-.flexRow {
-    flex-direction: row;
-}
-
-.flexJustifyCenter {
-    justify-content: center;
-}
-
-.flexAlignCenter{
-    align-items: baseline;
-    border-bottom: 1px dotted #E9A200;
-}
-
-.centerMargin {
-    margin: auto;
+  padding-top: 2rem;
+  color: #B32800;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Papyrus, Fantasy;
 }
 
 .centerText {
-    text-align: center;
+  text-align: center;
 }
+
+.orange {
+  color: #E9A200;
+}
+
+.font1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#yellowBox {
+  border: 2px solid #FBDD00;
+  max-width: 80vw;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1.5rem auto;
+}
+
 
 .timerButton {
-    margin: 0 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid #FBDD00;
-    border-radius: 3px;
-}
-
-.brown {
-    color: #3F1300;
-}
-
-#taskName {
-    border: none;
-    max-width: 50vw;
-    min-height: 5vh;
-    text-wrap: wrap;
-}
-
-#taskList {
-    max-height: 40vh;
-    max-width: 100vw;
-    overflow: scroll;
-    padding: 0 0.9rem;
-    overflow: scroll;
-}
-
-#bottom {
-    position: absolute;
-    bottom: 0;
-    padding: 0.6rem;
-    width: 100vw;
-    background-color: #f1e8df;
-}
-
-#taskInput {
-    width: 80wv;
-}
-
-#newTaskInput {
-    height: 5vh;
-    width: 70vw;
-    overflow: auto;
-    border: 1px solid black;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
-
-#newCycleInput {
-    width: 10vw;
-    height: 5vh;
-    margin-left: 0.1rem;
-    border: 1px solid black;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-#newTaskButton {
-    width: 2rem;
-    height: 2rem;
-    border-radius: 2rem;
-    border: 1px solid #3F1300;
-    background-color: white;
-    padding-bottom: 0.25rem;
-    font-size: 1.4rem;
-    margin-left: 0.5rem;
-}
-
-.details {
-    display: inline-block;
-    width: 14vw;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #FBDD00;
+  border-radius: 3px;
 }
 
 .hoverItem:hover {
-    color: #E9A200;
+  color: #E9A200;
 }
 
 .timerButton:hover {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
-#colName {
-    padding: 0 0.9rem;
+
+/* FLEXBOX */
+.flexBox {
+  display: flex;
 }
 
-.columns {
-    font-size: 0.8rem;
-}
-
-#colDescription {
-    width: 53vw;
-    /* border: 1px solid forestgreen; */
-}
-
-#columnLeft {
-    margin: auto;
-    /* border: 1px solid red; */
-}
-
-#taskVerification1 {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color:  rgba(241, 232, 223, 0.7);
-    width: 100vw;
-    height: 100vh;
-}
-
-#taskVerification2 {
-    border: 1px solid black;
-    border-radius: 3px;
-    background-color: white;
-    opacity: 1;
-    width: 90vw;
-    min-height: 20vh;
-    position: relative;
-    top: 35vh;
-    left: 5vw;
-    z-index: w;
-    padding: 3rem;
-}
-
-#verificationButton {
-    margin: 0.5rem;
-}
-
-.okButton {
-    margin-top: 1rem;
-}
-
-.rightAlign {
-    text-align: right;
-}
-
-.test {
-    color: red;
-}
-
-.checked{
-    /* border: 1px solid blue; */
-    background-color: blue;
-}
-
-#test1 {
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    top:0;
-    background-color: green;
+.flexJustifyCenter {
+  justify-content: center;
 }
