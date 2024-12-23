@@ -1,6 +1,6 @@
 function AppInstructions({setSeenInstructions}){
   return(
-    <div className="posAbsolute flexBox modalBox">
+    <div className="posAbsolute flexBox flexJustifyCenter modalBox">
       <div className="flexBox flexColumn flexJustifySpaceAround dialogBox">
         <ol>
           <li>Welcome to a Pomodoro task tracker</li>
