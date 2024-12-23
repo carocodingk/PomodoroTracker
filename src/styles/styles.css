@@ -49,12 +49,44 @@
   border: 1px solid black;
 }
 
+.posAbsolute {
+  position: absolute;
+  top: 0;
+}
 
+/*************************************************************************/
+.modalBox {
+  height: 100vh;
+  width: 100vw;
+  z-index: 3;
+  /* background-color: red; */
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dialogBox{
+  position: relative;
+  z-index: 5;
+  top: 10rem;
+  height: 50vh;
+  border: 1px solid #FBDD00;
+  background-color: black;
+  padding: 2rem;
+}
+
+/*************************************************************************/
 /* FLEXBOX */
 .flexBox {
   display: flex;
 }
 
+.flexColumn {
+  flex-direction: column;
+}
+
 .flexJustifyCenter {
   justify-content: center;
+}
+
+.flexJustifySpaceAround {
+  justify-content: space-around;
 }
