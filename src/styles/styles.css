@@ -75,6 +75,11 @@
   max-height: 30vh;
 }
 
+.boxTitle {
+  padding-bottom: 1rem;
+  color: red;
+}
+
 #taskDescription {
   min-width: 60vw;
 }
