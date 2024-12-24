@@ -56,8 +56,37 @@
 
 
 #taskManager {
-  background-color: pink;
+  overflow: scroll;
+  height: 40vh;
+  /* background-color: red; */
 }
+
+/*************************************************************************/
+.taskItem {
+  border-bottom: 1px dotted gray;
+  padding: 0 0.2rem 0 1rem; 
+}
+
+.taskItem:hover {
+  color: #E9A200;
+}
+
+.taskItemButton {
+  padding: 0.5rem 0.5rem;
+  border: none;
+  background-color: black;
+  color: inherit;
+}
+
+.taskStats {
+  padding: 0 0.6rem;
+}
+
+.taskItemDesc {
+  min-width: 40vw;
+}
+
+
 
 /*************************************************************************/
 #newTaskBar {
@@ -136,8 +165,16 @@
   flex-direction: column;
 }
 
+.flexAlignItemBaseline {
+  align-items: baseline;
+}
+
 .flexJustifyCenter {
   justify-content: center;
+}
+
+.flexJustifySpaceBetween {
+  justify-content: space-between;
 }
 
 .flexJustifySpaceAround {

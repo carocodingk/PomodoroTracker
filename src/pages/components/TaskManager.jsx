@@ -16,6 +16,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const [taskList, setTaskList] = useState(initialTasks)
   const [menuRequest, setMenuRequest] = useState(-1) //Tracks who has requested the menu for edit/delete(nobody)
   const [editTask, setEditTask] = useState(false) //tracks if an edit request has been made
+  const [taskSelected, setTaskSelected] = useState(null)
 
   const selectTask = (task) => {
     // console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
@@ -54,31 +55,45 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     }
   }
 
+  const test = (task)=>{
+    setEditTask(true)
+    setTaskSelected(task)
+  }
+
   return(
-    <div id="taskmanager">
-      <ul>
+    <div className="flexBox flexColumn flexJustifySpaceAround">
+      <ul id="taskManager">
         {taskList.map((task, key) => 
           <li>
-              <div className="flexBox task">
-                <input className='checked' type="checkbox" checked={task.finished} />
-                <input type='button' value={task.taskName} onClick={()=> selectTask(task)} />
-                <p>{task.expectedCycles}</p>
-                <p>{timeProcessing(task.actualTime)}</p>
-                <div id="test2">
-                  <input type='button' value='More' onClick={()=>menuVisibility(task)} />
-                  {(openMenu && (menuRequest === task.key))?  
-                    <div>
-                      <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
-                      <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
-                      {editTask &&
-                      <div id="test1">
-                        <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+              <div className="taskItem flexBox flexJustifySpaceBetween">
+                <div>
+                  <input className='checked' type="checkbox" checked={task.finished} />
+                  <input className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} />
+                </div>
+                <div className="flexBox flexAlignItemBaseline">
+                  <p className="taskStats">{task.expectedCycles}</p>
+                  <p className="taskStats">{timeProcessing(task.actualTime)}</p>
+                  <div>
+                    <input className='taskItemButton' type='button' value='More' onClick={()=>menuVisibility(task)} />
+                    {/* {(openMenu && (menuRequest === task.key))?   */}
+                    {(menuRequest === task.key)?
+                      <div>
+                        <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
+                        <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
+                        {console.log('edit task ', editTask)}
+                        {/* {editTask?
+                        <div id="test1">
+                          {console.log('theeee')}
+                          <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+                        </div>
+                        :
+                        null
+                        } */}
                       </div>
-                      }
-                    </div>
-                    :
-                    null
-                  }
+                      :
+                      null
+                    }
+                  </div>
                 </div>
               </div>
           </li>
@@ -94,7 +109,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
         setCycleComplete={setCycleComplete}
       />}
       {/* {editTask &&
-      <TaskEdition taskKey={menuRequest} taskList={taskList} setTaskList={setTaskList} />
+      <TaskEdition taskSelected={taskSelected} taskKey={menuRequest} taskList={taskList} setTaskList={setTaskList} />
       } */}
     </div>
   ) 
