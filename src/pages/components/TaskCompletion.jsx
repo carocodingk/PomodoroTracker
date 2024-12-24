@@ -37,17 +37,19 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
         return task
       }
     })
-    console.log('NEW TASKLIST: ', taskListUpdate) 
+    // console.log('NEW TASKLIST: ', taskListUpdate) 
     setTaskList(taskListUpdate)
     setCycleComplete(false) //Resets the cycle indicator
   }
 
   return(
-    <div>
-      <h3>Has the task been completed?</h3>
-      <div>
-        <input type='button' value={'YES!'} onClick={()=>taskCompletion(true)} />
-        <input type='button' value={'Not yet!'} onClick={()=>taskCompletion(false)} />
+    <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
+      <div className="dialogBox">
+        <h3 className="boxTitle centerText">Has the task been completed?</h3>
+        <div className="flexBox flexJustifyCenter">
+          <input type='button' className='timerButton hoverItem' value={'YES!'} onClick={()=>taskCompletion(true)} />
+          <input type='button' className='timerButton hoverItem' value={'Not yet!'} onClick={()=>taskCompletion(false)} />
+        </div>
       </div>
     </div>
   );
