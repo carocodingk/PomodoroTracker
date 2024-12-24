@@ -49,10 +49,26 @@
   border: 1px solid black;
 }
 
-.posAbsolute {
+.posAbsoluteTop {
   position: absolute;
   top: 0;
 }
+
+
+#taskManager {
+  background-color: pink;
+}
+
+/*************************************************************************/
+#newTaskBar {
+  position: absolute;
+  bottom: 0;
+}
+
+#errorBox {
+  max-height: 30vh;
+}
+
 
 /*************************************************************************/
 .modalBox {
@@ -67,7 +83,7 @@
   position: relative;
   z-index: 5;
   top: 10rem;
-  height: 50vh;
+  max-height: 50vh;
   border: 1px solid #FBDD00;
   background-color: black;
   padding: 2rem;

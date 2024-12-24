@@ -93,14 +93,14 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
           </div>
           <div>
             <div className="flexBox flexJustifyCenter">
-              <input className="lightBackground timerButton hoverItem" 
+              <input className="timerButton hoverItem" 
                 type="button" 
                 value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
                 onClick={() => 
                   startTimer(t.taskInProgress)
                 } 
               />
-              <input className="lightBackground timerButton hoverItem" 
+              <input className="timerButton hoverItem" 
                 type="button" 
                 value='RESET' 
                 onClick={() => 
