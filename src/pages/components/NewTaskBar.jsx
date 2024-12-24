@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
@@ -31,23 +32,25 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   return(
     <div>
       {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
-      <input type="text" onChange={
-        (e) => 
-          setNewTask((prevState) => ({
-            ...prevState,
-            taskName: e.target.value
-          }))
-        }
-      />
-      <input type="number" onChange={
-        (e) => 
-          setNewTask((prevState) => ({
-            ...prevState,
-            expectedCycles: e.target.value
-          }))
-      }/>
-      <input type="button" value='+' onClick={() => taskVerification()}/>
-      <input type="button" value='Delete all tasks' onClick={() => setTaskList([])} />
+      <div id="newTaskBar" className="flexBox flexJustifySpaceAround">
+        <input id='taskDescription' className='taskField' type="text" onChange={
+          (e) => 
+            setNewTask((prevState) => ({
+              ...prevState,
+              taskName: e.target.value
+            }))
+          }
+        />
+        <input id='taskCycle' className='taskField' type="number" onChange={
+          (e) => 
+            setNewTask((prevState) => ({
+              ...prevState,
+              expectedCycles: e.target.value
+            }))
+        }/>
+        <input className='taskButton' type="button" value='+' onClick={() => taskVerification()}/>
+        <input className='taskButton' type="button" value='-' onClick={() => setTaskList([])} />
+      </div>
     </div>
   );
 }

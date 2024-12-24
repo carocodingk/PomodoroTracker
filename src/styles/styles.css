@@ -63,12 +63,41 @@
 #newTaskBar {
   position: absolute;
   bottom: 0;
+  width: 100vw;
+  border: 2px solid #FBDD00;
+  background-color: black;
+  padding: 0.5rem;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #errorBox {
   max-height: 30vh;
 }
 
+#taskDescription {
+  min-width: 60vw;
+}
+
+#taskCycle {
+  width: 10vw;
+  margin: 0.2rem;
+}
+
+.taskButton {
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  border: none;
+  background-color: black;
+}
+
+.taskButton:hover{
+  color: #E9A200;
+}
+
+.taskField {
+  padding: 0.5rem 0.1rem;
+}
 
 /*************************************************************************/
 .modalBox {
