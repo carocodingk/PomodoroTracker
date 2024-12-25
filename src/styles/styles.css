@@ -33,6 +33,11 @@
   margin: 1.5rem auto;
 }
 
+#currentTask {
+  padding: 0.6rem;
+  font-size: 1.3rem;
+  /* border: 1px solid red; */
+}
 
 .timerButton {
   margin: 0 0.5rem;
