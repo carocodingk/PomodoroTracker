@@ -27,13 +27,25 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
       console.log('Description is empty')
       setShowErrorMsg(true)
     }
+    setNewTask({
+      taskName:'',
+      expectedCycles: 1
+    })
+  }
+
+  const deleteAllTask = ()=>{
+    setTaskList([])
+    setNewTask({
+      taskName:'',
+      expectedCycles: 1
+    })
   }
 
   return(
     <div>
       {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
       <div id="newTaskBar" className="flexBox flexJustifySpaceAround">
-        <input id='taskDescription' className='taskField' type="text" onChange={
+        <input id='taskDescription' className='taskField' type="text" value={newTask.taskName} onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
@@ -49,7 +61,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             }))
         }/>
         <input className='taskButton' type="button" value='+' onClick={() => taskVerification()}/>
-        <input className='taskButton' type="button" value='-' onClick={() => setTaskList([])} />
+        <input className='taskButton' type="button" value='-' onClick={() => deleteAllTask()} />
       </div>
     </div>
   );
