@@ -53,7 +53,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             }))
           }
         />
-        <input id='taskCycle' className='taskField' type="number" onChange={
+        <input id='taskCycle' className='taskField' type="number" value={newTask.expectedCycles} min='1' onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,

@@ -12,7 +12,7 @@ const breakTime = 2;
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
     key: -1,
-    taskName: "Choose a task@@@@@"
+    taskName: "Enter new task / Select a task from list:"
   })
   const [seenInstructions, setSeenInstructions] = useState(false)
   const [cycleComplete, setCycleComplete] = useState(false) 

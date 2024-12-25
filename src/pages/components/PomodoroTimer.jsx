@@ -25,7 +25,7 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
       setWorkTimerRun(!workTimerRun)
     }
     else
-      console.log("Please select a task to work on! ")
+      console.log("Enter new task / Select a task from list:")
   }
 
   const resetTimer = () => {

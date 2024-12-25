@@ -29,7 +29,7 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
         //Resets the task in progress, once a cycle has been completed regardless if the task was finished
         setTaskInProgress({ 
           key: -1,
-          taskName: 'Select a task:' 
+          taskName: "Enter new task / Select a task from list:"
         })
         return taskUpdate
       }
