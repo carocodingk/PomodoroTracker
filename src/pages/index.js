@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   return(
-    <div onClick={()=>closeMenu()}>
+    <div id="main" onClick={()=>closeMenu()}>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
       {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
       <TimeContext.Provider value={workTime}>

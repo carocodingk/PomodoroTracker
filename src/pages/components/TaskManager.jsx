@@ -71,9 +71,10 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
           <li>
             <div>
               <div className="taskItem flexBox flexJustifySpaceBetween">
-                <div>
+                <div className="flexBox flexAlignItemBaseline">
                   <input className='checked' type="checkbox" checked={task.finished} />
-                  <input id='taskDescription' className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} />
+                  {/* <input className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} /> */}
+                  <div id="taskDescription" className='taskItemButton taskItemDesc' onClick={()=> selectTask(task)}>{task.taskName}</div>
                 </div>
                 <div className="flexBox flexAlignItemBaseline">
                   <p className="taskStats">{task.expectedCycles}</p>

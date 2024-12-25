@@ -87,6 +87,10 @@
   overflow: scroll;
 }
 
+#taskDescription {
+  overflow-wrap: break-word;
+}
+
 /*************************************************************************/
 
 
