@@ -15,57 +15,59 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
   }
 
   return(
-    <div className="posAbsoluteTop">
-      <>
-        Description:
-        <input type="text" value={editedTask.taskName} onChange={
-          (e)=>
-            setEditedTask((prevState) => ({
-              ...prevState,
-              taskName: e.target.value
-          }))
-        }/>
-      </>
-      <>
-        Expected Number of Cycles:
-        <input type="number" value={editedTask.expectedCycles} onChange={
-          (e)=>(
-            setEditedTask((prevState) => ({
-              ...prevState,
-              expectedCycles: Number(e.target.value)
+    <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
+      <div className="dialogBox flexBox flexColumn">
+        <div className="flexBox flexColumn flexJustifySpaceBetween editTaskField"> 
+          <p>Description:</p>
+          <input type="text" value={editedTask.taskName} onChange={
+            (e)=>
+              setEditedTask((prevState) => ({
+                ...prevState,
+                taskName: e.target.value
             }))
-          )
-        }/>
-      </>
-      <>
-        Current Time:
-        <input type="number" value={editedTask.actualTime} onChange={
-          (e)=>(
-            setEditedTask((prevState) => ({
-              ...prevState,
-              actualTime: Number(e.target.value)
-            }))
-          )
-        }/>
-      </>
-      <>
-        Finished:
-        <input type="checkbox" checked={editedTask.finished} onClick={
-          (e) => (
-            // console.log('checkbox ', !e.target.checked)
-            setEditedTask((prevState) => ({
-              ...prevState,
-              finished: e.target.checked
-            }))
-          )
-        }/>
-      </>
-      <>      
-        <input type="button" value='Save' onClick={()=>saveChanges()} />
-        <input type="button" value='Cancel' onClick={()=>setEditTask(false)} />
-      </>
-      {/* {console.log('EDITED TASK: ', editedTask)} */}
-    </div>
+          }/>
+        </div>
+        <div className="flexBox flexJustifySpaceBetween editTaskField">
+          <p>Expected Number of Cycles:</p>
+          <input className="editTaskNumber" type="number" value={editedTask.expectedCycles} onChange={
+            (e)=>(
+              setEditedTask((prevState) => ({
+                ...prevState,
+                expectedCycles: Number(e.target.value)
+              }))
+            )
+          }/>
+        </div>
+        <div className="flexBox flexJustifySpaceBetween editTaskField">
+          <p>Current Time:</p>
+          <input className="editTaskNumber" type="number" value={editedTask.actualTime} onChange={
+            (e)=>(
+              setEditedTask((prevState) => ({
+                ...prevState,
+                actualTime: Number(e.target.value)
+              }))
+            )
+          }/>
+        </div>
+        <div className="flexBox flexJustifySpaceBetween editTaskField">
+          <p>Finished:</p>
+          <input className="editTaskNumber" type="checkbox" checked={editedTask.finished} onClick={
+            (e) => (
+              // console.log('checkbox ', !e.target.checked)
+              setEditedTask((prevState) => ({
+                ...prevState,
+                finished: e.target.checked
+              }))
+            )
+          }/>
+        </div>
+        <div className="flexBox flexJustifyCenter">      
+          <input className="timerButton hoverItem" type="button" value='Save' onClick={()=>saveChanges()} />
+          <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setEditTask(false)} />
+        </div>
+        {/* {console.log('EDITED TASK: ', editedTask)} */}
+      </div>
+    </div>  
   );
 }
 

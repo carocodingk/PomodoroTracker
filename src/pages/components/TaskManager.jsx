@@ -73,7 +73,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
               <div className="taskItem flexBox flexJustifySpaceBetween">
                 <div>
                   <input className='checked' type="checkbox" checked={task.finished} />
-                  <input className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} />
+                  <input id='taskDescription' className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} />
                 </div>
                 <div className="flexBox flexAlignItemBaseline">
                   <p className="taskStats">{task.expectedCycles}</p>
@@ -109,17 +109,20 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
       </ul>
       <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
       {cycleComplete && 
-      <TaskCompletion
-        taskList={taskList}
-        setTaskList={setTaskList}
-        taskInProgress={t.taskInProgress}
-        setTaskInProgress={t.setTaskInProgress}
-        setCycleComplete={setCycleComplete}
+        <TaskCompletion
+          taskList={taskList}
+          setTaskList={setTaskList}
+          taskInProgress={t.taskInProgress}
+          setTaskInProgress={t.setTaskInProgress}
+          setCycleComplete={setCycleComplete}
       />}
       {editTask &&
-      <TaskEdition taskSelected={taskSelected} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
-      // console.log('editTask ', taskSelected)
-      }
+        <TaskEdition 
+          taskSelected={taskSelected} 
+          taskList={taskList} 
+          setTaskList={setTaskList} 
+          setEditTask={setEditTask} 
+      />}
     </div>
   ) 
 }

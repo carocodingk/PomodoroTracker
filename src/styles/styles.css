@@ -83,7 +83,8 @@
 }
 
 .taskItemDesc {
-  min-width: 40vw;
+  max-width: 40vw;
+  overflow: scroll;
 }
 
 /*************************************************************************/
@@ -110,10 +111,6 @@
   color: red;
 }
 
-#taskDescription {
-  min-width: 60vw;
-}
-
 #taskCycle {
   width: 10vw;
   margin: 0.2rem;
@@ -135,6 +132,16 @@
 }
 
 /*************************************************************************/
+.editTaskField {
+  margin: 0.8rem 0;
+  /* border: 1px solid blue; */
+}
+.editTaskNumber {
+  max-width: 12vw;
+  /* margin: 0 rem 2rem; */
+}
+
+/*************************************************************************/
 .modalBox {
   height: 100vh;
   width: 100vw;
@@ -144,10 +151,6 @@
 }
 
 .dialogBox{
-  /* position: relative; */
-  /* z-index: 5; */
-  /* top: 20%; */
-  /* max-height: 60vh; */
   border: 1px solid #FBDD00;
   background-color: black;
   padding: 3rem;
