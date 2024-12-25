@@ -82,7 +82,7 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
       <div id="yellowBox">
         <div>
-          <p className="centerText">{t.taskInProgress.taskName}</p>
+          <p className="centerText taskDescription">{t.taskInProgress.taskName}</p>
           <div>
             <p className="orange centerText">Work Time</p>
             <p className="centerText font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>

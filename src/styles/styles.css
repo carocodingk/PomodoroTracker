@@ -87,7 +87,7 @@
   overflow: scroll;
 }
 
-#taskDescription {
+.taskDescription {
   overflow-wrap: break-word;
 }
 
