@@ -3,6 +3,7 @@ import UserContext from "./UserContext";
 import NewTaskBar from "./NewTaskBar";
 import TaskCompletion from "./TaskCompletion"
 import TaskEdition from "./TaskEdition";
+// import TaskListLabels fr om "./TaskListLabels";
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
@@ -16,7 +17,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const [taskList, setTaskList] = useState(initialTasks)
   const [menuRequest, setMenuRequest] = useState(-1) //Tracks who has requested the menu for edit/delete(nobody)
   const [editTask, setEditTask] = useState(false) //tracks if an edit request has been made
-  const [taskSelected, setTaskSelected] = useState(null)
+  // const [taskSelected, setTaskSelected] = useState(null)
 
   const selectTask = (task) => {
     // console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
@@ -44,20 +45,19 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const deleteTask = (key) => {
     let taskListUpdate = taskList.filter((task) => (task.key !== key))
     setTaskList(taskListUpdate)
-    // console.log('tasklistupdate for delete: ',taskListUpdate)
+    console.log('tasklistupdate for delete: ',taskList)
   }
 
   const menuVisibility = (task) => {
     if (!openMenu){
       setMenuRequest(task.key)
-      setOpenMenu(true)
-      // console.log('case 0')
+      // setOpenMenu(true)
     }
   }
 
-  const test = (task)=>{
+  const editingTask = () => {
     setEditTask(true)
-    setTaskSelected(task)
+    setMenuRequest(-1) //resets selection of task
   }
 
   return(
@@ -65,6 +65,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
       <ul id="taskManager">
         {taskList.map((task, key) => 
           <li>
+            <div>
               <div className="taskItem flexBox flexJustifySpaceBetween">
                 <div>
                   <input className='checked' type="checkbox" checked={task.finished} />
@@ -75,27 +76,24 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                   <p className="taskStats">{timeProcessing(task.actualTime)}</p>
                   <div>
                     <input className='taskItemButton' type='button' value='More' onClick={()=>menuVisibility(task)} />
-                    {/* {(openMenu && (menuRequest === task.key))?   */}
-                    {(menuRequest === task.key)?
-                      <div>
-                        <input type="button" value='Edit' onClick={()=>setEditTask(true)}/>
-                        <input type="button" value='Delete' onClick={()=>deleteTask(task.key)}/>
-                        {console.log('edit task ', editTask)}
-                        {/* {editTask?
-                        <div id="test1">
-                          {console.log('theeee')}
-                          <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
-                        </div>
-                        :
-                        null
-                        } */}
-                      </div>
-                      :
-                      null
-                    }
                   </div>
                 </div>
               </div>
+              {(menuRequest === task.key)?
+                <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
+                  <div className="dialogBox">
+                    <h3 className="boxTitle centerText">Please select one of the options: </h3>
+                    <div className="flexBox flexJustifyCenter">
+                      <input className="timerButton hoverItem" type="button" value='Edit task' onClick={()=>editingTask()} />
+                      <input className="timerButton hoverItem" type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
+                      <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
+                    </div>
+                  </div>
+                </div>
+                :
+                null
+              }
+            </div>
           </li>
         )}
       </ul>
