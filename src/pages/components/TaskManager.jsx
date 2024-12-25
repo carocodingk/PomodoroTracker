@@ -17,7 +17,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const [taskList, setTaskList] = useState(initialTasks)
   const [menuRequest, setMenuRequest] = useState(-1) //Tracks who has requested the menu for edit/delete(nobody)
   const [editTask, setEditTask] = useState(false) //tracks if an edit request has been made
-  // const [taskSelected, setTaskSelected] = useState(null)
+  const [taskSelected, setTaskSelected] = useState(null)
 
   const selectTask = (task) => {
     // console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
@@ -55,9 +55,13 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     }
   }
 
-  const editingTask = () => {
+  const editingTask = (task) => {
     setEditTask(true)
     setMenuRequest(-1) //resets selection of task
+    setTaskSelected(task)
+    // return(
+    //   <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+    // )
   }
 
   return(
@@ -80,19 +84,25 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                 </div>
               </div>
               {(menuRequest === task.key)?
+              <div>
                 <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
                   <div className="dialogBox">
                     <h3 className="boxTitle centerText">Please select one of the options: </h3>
                     <div className="flexBox flexJustifyCenter">
-                      <input className="timerButton hoverItem" type="button" value='Edit task' onClick={()=>editingTask()} />
+                      <input className="timerButton hoverItem" type="button" value='Edit task' onClick={()=>editingTask(task)} />
                       <input className="timerButton hoverItem" type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
                       <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
                     </div>
                   </div>
                 </div>
+                {/* {editTask && <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />} */}
+              </div>
                 :
                 null
               }
+              {/* {(editTask && (menuRequest === task.key)) &&
+                <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+              } */}
             </div>
           </li>
         )}
@@ -106,9 +116,10 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
         setTaskInProgress={t.setTaskInProgress}
         setCycleComplete={setCycleComplete}
       />}
-      {/* {editTask &&
-      <TaskEdition taskSelected={taskSelected} taskKey={menuRequest} taskList={taskList} setTaskList={setTaskList} />
-      } */}
+      {editTask &&
+      <TaskEdition taskSelected={taskSelected} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
+      // console.log('editTask ', taskSelected)
+      }
     </div>
   ) 
 }

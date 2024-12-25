@@ -11,11 +11,11 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
         return task
     })
     setTaskList(editedTaskList)
-    // console.log('new task list ', taskList)
+    setEditTask(false)
   }
 
   return(
-    <div>
+    <div className="posAbsoluteTop">
       <>
         Description:
         <input type="text" value={editedTask.taskName} onChange={
@@ -64,7 +64,7 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
         <input type="button" value='Save' onClick={()=>saveChanges()} />
         <input type="button" value='Cancel' onClick={()=>setEditTask(false)} />
       </>
-      {console.log('EDITED TASK: ', editedTask)}
+      {/* {console.log('EDITED TASK: ', editedTask)} */}
     </div>
   );
 }
