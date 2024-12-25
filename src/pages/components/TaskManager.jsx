@@ -34,9 +34,9 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     const minutesW = Math.floor((time - hoursW * 3600) / 60)
     const secondsW = (time - hoursW * 3600) % 60
     const output = `
-      ${hoursW < 10? `0${hoursW}` : hoursW}:
-      ${minutesW < 10? `0${minutesW}` : minutesW}:
-      ${secondsW < 10? `0${secondsW}` : secondsW}`
+      ${hoursW < 10? `0${hoursW}` : hoursW}h
+      ${minutesW < 10? `0${minutesW}` : minutesW}m
+      ${secondsW < 10? `0${secondsW}` : secondsW}s`
     return(
       output
     );
