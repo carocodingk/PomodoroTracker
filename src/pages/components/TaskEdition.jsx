@@ -53,7 +53,6 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
           <p>Finished:</p>
           <input className="editTaskNumber" type="checkbox" checked={editedTask.finished} onClick={
             (e) => (
-              // console.log('checkbox ', !e.target.checked)
               setEditedTask((prevState) => ({
                 ...prevState,
                 finished: e.target.checked
@@ -65,7 +64,6 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
           <input className="timerButton hoverItem" type="button" value='Save' onClick={()=>saveChanges()} />
           <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setEditTask(false)} />
         </div>
-        {/* {console.log('EDITED TASK: ', editedTask)} */}
       </div>
     </div>  
   );

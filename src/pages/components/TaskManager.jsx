@@ -20,7 +20,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const [taskSelected, setTaskSelected] = useState(null)
 
   const selectTask = (task) => {
-    // console.log('initial value ', [t.taskInProgress.key, t.taskInProgress.taskName] )
     if (!task.finished){ //Task is not finished
       t.setTaskInProgress({
         key: task.key, 
@@ -45,13 +44,11 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   const deleteTask = (key) => {
     let taskListUpdate = taskList.filter((task) => (task.key !== key))
     setTaskList(taskListUpdate)
-    console.log('tasklistupdate for delete: ',taskList)
   }
 
   const menuVisibility = (task) => {
     if (!openMenu){
       setMenuRequest(task.key)
-      // setOpenMenu(true)
     }
   }
 
@@ -59,9 +56,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
     setEditTask(true)
     setMenuRequest(-1) //resets selection of task
     setTaskSelected(task)
-    // return(
-    //   <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
-    // )
   }
 
   return(
@@ -73,7 +67,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
               <div className="taskItem flexBox flexJustifySpaceBetween">
                 <div className="flexBox flexAlignItemBaseline">
                   <input className='checked' type="checkbox" checked={task.finished} />
-                  {/* <input className='taskItemButton taskItemDesc' type='button' value={task.taskName} onClick={()=> selectTask(task)} /> */}
                   <div className='taskItemButton taskItemDesc taskDescription' onClick={()=> selectTask(task)}>{task.taskName}</div>
                 </div>
                 <div className="flexBox flexAlignItemBaseline">
@@ -96,14 +89,10 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                     </div>
                   </div>
                 </div>
-                {/* {editTask && <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />} */}
               </div>
                 :
                 null
               }
-              {/* {(editTask && (menuRequest === task.key)) &&
-                <TaskEdition taskSelected={task} taskList={taskList} setTaskList={setTaskList} setEditTask={setEditTask} />
-              } */}
             </div>
           </li>
         )}

@@ -1,7 +1,6 @@
 import { useState , useEffect} from "react";
 import UserContext from "./UserContext";
 import AlarmAlert from "./AlarmAlert";
-// import DialogBox from "./DialogBox";
 
 const { useContext } = require("react");
 
@@ -15,17 +14,11 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const [breakTimerRun, setBreakTimerRun] = useState(false);
   const [timesUp, setTimesUp] = useState(false);
 
-  // console.log('worktime and breaktime ', [workTime, breakTime])
-  // console.log('using contesxt ', t.taskInProgress.taskName)
-
   const startTimer = (taskInProgress) => {
-    // console.log('inside startTimer ', taskInProgress)
     setCycleComplete(false) //Restart the cycle
     if (taskInProgress.key != -1){
       setWorkTimerRun(!workTimerRun)
     }
-    else
-      console.log("Enter new task / Select a task from list:")
   }
 
   const resetTimer = () => {
@@ -75,8 +68,6 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const secondsB = breakTimer % 60
   const minutesB = Math.floor(breakTimer / 60)
 
-  // console.log('in pomo', t)
-
   return(
     <div>
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
@@ -111,7 +102,6 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
           </div>
         </div>
       </div>
-    {/* <h1>hello</h1> */}
     </div>
   );
 }

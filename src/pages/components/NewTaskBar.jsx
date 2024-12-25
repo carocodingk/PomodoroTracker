@@ -24,7 +24,6 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
       setNextTaskKey(nextTaskKey+1)
     }
     else {
-      console.log('Description is empty')
       setShowErrorMsg(true)
     }
     setNewTask({
