@@ -7,8 +7,8 @@ import TaskEdition from "./TaskEdition";
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 2, taskName: 'Grocery shopping1', expectedCycles: 2, actualTime: 0, finished: false},
-                      {key: 3, taskName: 'Grocery shopping2', expectedCycles: 2, actualTime: 0, finished: true},  
+                      {key: 2, taskName: 'Pay utilities', expectedCycles: 2, actualTime: 0, finished: false},
+                      {key: 3, taskName: 'Walk dog', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
 function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
