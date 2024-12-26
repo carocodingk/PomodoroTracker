@@ -10,8 +10,8 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
       else
         return task
     })
-    setTaskList(editedTaskList)
     setEditTask(false)
+    setTaskList(editedTaskList)
   }
 
   return(
@@ -40,14 +40,37 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
         </div>
         <div className="flexBox flexJustifySpaceBetween editTaskField">
           <p>Current Time:</p>
-          <input className="editTaskNumber" type="number" value={editedTask.actualTime} onChange={
-            (e)=>(
-              setEditedTask((prevState) => ({
-                ...prevState,
-                actualTime: Number(e.target.value)
-              }))
-            )
-          }/>
+          <div id="editTimeBar" className="flexBox flexJustifySpaceBetween">
+            <input className="editTime" type="number" min={'0'} max={'99'} value={Math.floor(editedTask.actualTime/3600)} onChange={
+              (e)=>{
+                //total time minus the portion in hours
+                const timeExceptHours = editedTask.actualTime - (Math.floor(editedTask.actualTime/3600)*3600)
+                setEditedTask((prevState) => ({
+                  ...prevState, 
+                  actualTime: timeExceptHours + (Number(e.target.value) * 3600)
+                }))
+              }
+            }/>h
+            <input className="editTime" type="number" min={'0'} value={Math.floor((editedTask.actualTime%3600)/60)} max={'59'} onChange={
+              (e)=>{
+                //total time minus the portion in minutes
+                const timeExceptMinutes = editedTask.actualTime - (Math.floor((editedTask.actualTime % 3600)/60) * 60)
+                setEditedTask((prevState) => ({
+                  ...prevState,
+                  actualTime: timeExceptMinutes + (Number(e.target.value) * 60)
+                }))
+              }
+            }/>m
+            <input className="editTime" type="number" min={'0'} value={(editedTask.actualTime%3600)%60} max={'59'} onChange={
+              (e)=>{
+                const timeExceptSeconds = editedTask.actualTime - ((editedTask.actualTime%3600)%60)
+                setEditedTask((prevState) => ({
+                  ...prevState,
+                  actualTime: timeExceptSeconds + Number(e.target.value)
+                }))
+              }
+            }/>s
+          </div>
         </div>
         <div className="flexBox flexJustifySpaceBetween editTaskField">
           <p>Finished:</p>

@@ -147,15 +147,20 @@
 }
 .editTaskNumber {
   max-width: 12vw;
-  /* margin: 0 rem 2rem; */
 }
 
+#editTimeBar{
+  min-width: 50vw;
+}
+
+.editTime {
+  margin-left: 1rem;
+}
 /*************************************************************************/
 .modalBox {
   height: 100vh;
   width: 100vw;
   z-index: 3;
-  /* background-color: red; */
   background-color: rgba(0, 0, 0, 0.8);
 }
 
