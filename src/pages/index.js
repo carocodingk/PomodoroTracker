@@ -6,8 +6,10 @@ import AppInstructions from "./components/AppInstructions.jsx";
 import TaskManager from "./components/TaskManager.jsx";
 
 // Initial values
-const workTime = 5;
-const breakTime = 2;
+/***************************************/
+const workTime = 10; // 10 seconds
+const breakTime = 3; // 3 seconds
+/**************************************/
 
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
