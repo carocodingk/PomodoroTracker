@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
-import DeleteIcon from '@mui/icons-material/Delete';
+import { IoMdAdd } from "react-icons/io";
+import { MdDeleteOutline } from "react-icons/md";
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
@@ -59,8 +60,14 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
               expectedCycles: e.target.value
             }))
         }/>
-        <input className='taskButton' type="button" value='Add' onClick={() => taskVerification()}/>
-        <input className='taskButton' type="button" value='Remove all' onClick={() => deleteAllTask()} />
+        {/* <input className='taskButton' type="button" value='Add' onClick={() => taskVerification()} /> */}
+        <div className='taskButton' onClick={() => taskVerification()}>
+          <IoMdAdd />
+        </div>
+        <div className='taskButton' onClick={() => deleteAllTask()}>
+          <MdDeleteOutline />
+        </div>
+        {/* <input className='taskButton' type="button" value='Remove all' onClick={() => deleteAllTask()} /> */}
       </div>
     </div>
   );
