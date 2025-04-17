@@ -59,8 +59,8 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
               expectedCycles: e.target.value
             }))
         }/>
-        <input className='taskButton' type="button" value='+' onClick={() => taskVerification()}/>
-        <input className='taskButton' type="button" value='-' onClick={() => deleteAllTask()} />
+        <input className='taskButton' type="button" value='Add' onClick={() => taskVerification()}/>
+        <input className='taskButton' type="button" value='Remove all' onClick={() => deleteAllTask()} />
       </div>
     </div>
   );

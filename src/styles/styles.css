@@ -2,6 +2,7 @@
   height: 100vh;
   width: 100vw;
   color: white;
+  background-color: black;
 }
 
 #trackerTitle {
@@ -62,8 +63,11 @@
 
 #taskManager {
   overflow: scroll;
-  height: 40vh;
-  /* background-color: red; */
+  height: 35vh;
+  width: 100vw;
+  background-color: black;
+  position: absolute;
+  bottom: 9vh;
 }
 
 /*************************************************************************/
@@ -78,7 +82,8 @@
 
 .taskItemButton {
   padding: 0.5rem 0.5rem;
-  border: none;
+  /* border: none; */
+  /* border: 1px solid orange; */
   background-color: black;
   color: inherit;
 }
@@ -88,13 +93,14 @@
 }
 
 .taskItemDesc {
-  max-width: 40vw;
+  max-width: 50vw;
   overflow: scroll;
 }
 
-.taskDescription {
+/* .taskDescription {
   overflow-wrap: break-word;
-}
+  overflow: scroll;
+} */
 
 /*************************************************************************/
 
@@ -127,8 +133,8 @@
 
 .taskButton {
   padding: 0.5rem;
-  font-size: 1.4rem;
-  border: none;
+  font-size: 0.8rem;
+  border: 1px solid red;
   background-color: black;
 }
 
@@ -202,3 +208,11 @@
 .text {
   color: blue;
 }
+
+
+/* @media screen and (min-width: 400px) {
+  .taskItemButton {
+    border: 1px solid green;
+    min-width: 50%;
+  }
+} */
