@@ -38,6 +38,9 @@
   padding: 0.5em;
   font-size: 1.2rem;
   /* border: 1px solid red; */
+  height: 1.9rem;
+  /* text-overflow: ellipsis; */
+  overflow: hidden;
 }
 
 .timerButton {
