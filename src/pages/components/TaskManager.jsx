@@ -3,6 +3,7 @@ import UserContext from "./UserContext";
 import NewTaskBar from "./NewTaskBar";
 import TaskCompletion from "./TaskCompletion"
 import TaskEdition from "./TaskEdition";
+import { RiMore2Fill } from "react-icons/ri";
 // import TaskListLabels fr om "./TaskListLabels";
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
@@ -72,8 +73,9 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                 <div className="flexBox flexAlignItemBaseline">
                   <p className="taskStats">{task.expectedCycles}</p>
                   <p className="taskStats">{timeProcessing(task.actualTime)}</p>
-                  <div>
-                    <input className='taskItemButton11111111' type='button' value='...' onClick={()=>menuVisibility(task)} />
+                  <div onClick={()=>menuVisibility(task)}>
+                    {/* <input type='button' value='...' onClick={()=>menuVisibility(task)} /> */}
+                    <RiMore2Fill />
                   </div>
                 </div>
               </div>
