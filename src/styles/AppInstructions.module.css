@@ -23,6 +23,12 @@
   margin-top: 0.8rem;
   padding: 0.5rem 0;
   width: 20%;
+  border-radius: 3px;
+}
+
+#okButton:hover {
+  border: 1px solid black;
+  color: #E9A200;
 }
 
 @media screen and (min-width: 700px) {
