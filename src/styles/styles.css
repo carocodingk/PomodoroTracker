@@ -63,7 +63,6 @@
   top: 0;
 }
 
-
 #taskManager {
   overflow: scroll;
   height: 40vh;
@@ -130,7 +129,7 @@
 
 .boxTitle {
   padding-bottom: 1rem;
-  color: red;
+  color: white;
 }
 
 #taskCycle {
@@ -158,6 +157,11 @@
 }
 
 /*************************************************************************/
+#posFixedTop {
+  position: fixed;
+  top: 0;
+}
+
 .editTaskField {
   margin: 0.8rem 0;
   /* border: 1px solid blue; */

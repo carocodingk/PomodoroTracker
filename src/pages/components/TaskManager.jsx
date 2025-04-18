@@ -74,14 +74,12 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                   <p className="taskStats">{task.expectedCycles}</p>
                   <p className="taskStats">{timeProcessing(task.actualTime)}</p>
                   <div onClick={()=>menuVisibility(task)}>
-                    {/* <input type='button' value='...' onClick={()=>menuVisibility(task)} /> */}
                     <RiMore2Fill />
                   </div>
                 </div>
               </div>
               {(menuRequest === task.key)?
-              <div>
-                <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
+                <div id="posFixedTop" className="flexBox flexColumn flexJustifyCenter modalBox">
                   <div className="dialogBox">
                     <h3 className="boxTitle centerText">Please select one of the options: </h3>
                     <div className="flexBox flexJustifyCenter">
@@ -91,7 +89,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                     </div>
                   </div>
                 </div>
-              </div>
                 :
                 null
               }

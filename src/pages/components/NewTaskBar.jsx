@@ -60,14 +60,12 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
               expectedCycles: e.target.value
             }))
         }/>
-        {/* <input className='taskButton' type="button" value='Add' onClick={() => taskVerification()} /> */}
         <div className='taskButton' onClick={() => taskVerification()}>
           <IoMdAdd />
         </div>
         <div className='taskButton' onClick={() => deleteAllTask()}>
           <MdDeleteOutline />
         </div>
-        {/* <input className='taskButton' type="button" value='Remove all' onClick={() => deleteAllTask()} /> */}
       </div>
     </div>
   );
