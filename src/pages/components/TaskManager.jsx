@@ -4,7 +4,7 @@ import NewTaskBar from "./NewTaskBar";
 import TaskCompletion from "./TaskCompletion"
 import TaskEdition from "./TaskEdition";
 import { RiMore2Fill } from "react-icons/ri";
-// import TaskListLabels fr om "./TaskListLabels";
+import styles from "@/styles/TaskManager.module.css"
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
@@ -60,19 +60,19 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   }
 
   return(
-    <div className="flexBox flexColumn flexJustifySpaceAround">
-      <ul id="taskManager">
+    <div>
+      <div className={styles.taskList}>
+      <ul>
         {taskList.map((task, key) => 
-          <li>
-            <div>
-              <div className="taskItem flexBox flexJustifySpaceBetween flexAlignCenter">
-                <div className="flexBox flexAlignItemBaseline">
-                  <input className='checked' type="checkbox" checked={task.finished} />
-                  <div className='taskItemButton taskItemDesc' onClick={()=> selectTask(task)}>{task.taskName}</div>
+          <li key={key}>
+              <div className={styles.taskItem}>
+                <div className={styles.taskItemSub}>
+                  <input className='checked' type="checkbox" disabled checked={task.finished} />
+                  <div className={styles.taskItemButton} onClick={()=> selectTask(task)}>{task.taskName}</div>
                 </div>
-                <div className="flexBox flexAlignItemBaseline">
-                  <p className="taskStats">{task.expectedCycles}</p>
-                  <p className="taskStats">{timeProcessing(task.actualTime)}</p>
+                <div className={styles.taskItemSub}>
+                  <p className={styles.taskStats}>{task.expectedCycles}</p>
+                  <p className={styles.taskStats}>{timeProcessing(task.actualTime)}</p>
                   <div onClick={()=>menuVisibility(task)}>
                     <RiMore2Fill />
                   </div>
@@ -92,7 +92,6 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                 :
                 null
               }
-            </div>
           </li>
         )}
       </ul>
@@ -112,6 +111,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
           setTaskList={setTaskList} 
           setEditTask={setEditTask} 
       />}
+      </div>
     </div>
   ) 
 }

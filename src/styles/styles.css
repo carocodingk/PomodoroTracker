@@ -3,6 +3,10 @@
   width: 100vw;
   color: white;
   background-color: black;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-content: center; */
 }
 
 #trackerTitle {
@@ -71,14 +75,14 @@
 }
 
 /*************************************************************************/
-.taskItem {
+/* .taskItem {
   border-bottom: 1px dotted gray;
   padding: 0 0.2rem 0 1rem; 
-}
+} */
 
-.taskItem:hover {
+/* .taskItem:hover {
   color: #E9A200;
-}
+} */
 
 .taskItemButton {
   padding: 0.5rem 0.5rem;
@@ -88,9 +92,9 @@
   color: inherit;
 }
 
-.taskStats {
+/* .taskStats {
   padding: 0 0.6rem;
-}
+} */
 
 .taskItemDesc {
   max-width: 50vw;

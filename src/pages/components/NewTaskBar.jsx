@@ -2,6 +2,7 @@ import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 import { IoMdAdd } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
+import styles from "@/styles/NewTaskBar.module.css"
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
@@ -44,8 +45,8 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   return(
     <div>
       {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
-      <div id="newTaskBar" className="flexBox flexJustifySpaceAround flexAlignCenter">
-        <input id='taskDescription' className='taskField' type="text" value={newTask.taskName} onChange={
+      <div id={styles.newTaskBar} className="flexBox1 flexJustifySpaceAround1 flexAlignCenter1">
+        <input id={styles.newTaskDesc} className='taskField1' type="text" value={newTask.taskName} onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
@@ -53,17 +54,17 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             }))
           }
         />
-        <input id='taskCycle' className='taskField' type="number" value={newTask.expectedCycles} min='1' onChange={
+        <input id={styles.taskCycle} type="number" value={newTask.expectedCycles} min='1' onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
               expectedCycles: e.target.value
             }))
         }/>
-        <div className='taskButton' onClick={() => taskVerification()}>
+        <div className={styles.taskButton} onClick={() => taskVerification()}>
           <IoMdAdd />
         </div>
-        <div className='taskButton' onClick={() => deleteAllTask()}>
+        <div className={styles.taskButton} onClick={() => deleteAllTask()}>
           <MdDeleteOutline />
         </div>
       </div>
