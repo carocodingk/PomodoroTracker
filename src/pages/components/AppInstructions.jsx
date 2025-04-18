@@ -1,8 +1,12 @@
+import styles from "@/styles/AppInstructions.module.css"
+
 function AppInstructions({setSeenInstructions}){
   return(
-    <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
-      <div className="flexBox flexColumn flexJustifySpaceAround1 dialogBox">
-        <ol id="list">
+    // <div className="posAbsoluteTop1 flexBox1 flexColumn1 flexJustifyCenter1 modalBox1">
+    <div id={styles.instructionsContainer}> 
+      {/* <div className="flexBox1 flexColumn1 flexJustifySpaceAround11 dialogBox1"> */}
+      <div id={styles.dialogBox}> 
+        <ol id="list1">
           <li>Welcome to a Pomodoro task tracker</li>
           <li>Each Pomodoro cycle consists of 20 minutes of working time and 5 minutes of resting time</li>
           <li>The current version is for testing purposes. The working time has been set up 10s and resting time
@@ -17,7 +21,8 @@ function AppInstructions({setSeenInstructions}){
           <li>Details of a task can be edited by using button 'more'</li>
           <li>To delete all tasks on the list: select button (-) at the bottom</li>
         </ol>
-        <input className="timerButton hoverItem okButton"  
+        {/* <input className="timerButton1 hoverItem1 okButton1"   */}
+        <input id={styles.okButton}
           type="button" 
           value="OK" 
           onClick={()=> setSeenInstructions(true)} 

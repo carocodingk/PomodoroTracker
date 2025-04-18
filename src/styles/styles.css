@@ -3,10 +3,6 @@
   width: 100vw;
   color: white;
   background-color: black;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-content: center; */
 }
 
 #trackerTitle {
@@ -15,104 +11,52 @@
   font-size: 2rem;
   font-weight: bold;
   font-family: Papyrus, Fantasy;
-}
-
-.centerText {
   text-align: center;
 }
 
-.orange {
-  color: #E9A200;
-}
+/* .centerText {
+  text-align: center;
+} */
 
-.font1 {
+/* .orange {
+  color: #E9A200;
+} */
+
+/* .font1 {
   font-size: 2rem;
   font-weight: bold;
-}
-
-/* #yellowBox {
-  border: 2px solid #FBDD00;
-  max-width: 80vw;
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1.5rem auto;
 } */
 
-/* #currentTask {
-  padding: 0.5em;
-  font-size: 1.2rem;
-  height: 1.9rem;
-  overflow: hidden;
-} */
-
-/* .timerButton {
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid #FBDD00;
-  border-radius: 3px;
-}
-
-.hoverItem:hover {
-  color: #E9A200;
-}
-
-.timerButton:hover {
-  border: 1px solid black;
-} */
-
-.posAbsoluteTop {
+/* .posAbsoluteTop {
   position: absolute;
   top: 0;
-}
+} */
 
-#taskManager {
+/* #taskManager {
   overflow: scroll;
   height: 40vh;
   width: 100vw;
   background-color: black;
   position: absolute;
   bottom: 9vh;
-}
+} */
 
 /*************************************************************************/
-/* .taskItem {
-  border-bottom: 1px dotted gray;
-  padding: 0 0.2rem 0 1rem; 
-} */
-
-/* .taskItem:hover {
-  color: #E9A200;
-} */
-
-.taskItemButton {
+/* .taskItemButton {
   padding: 0.5rem 0.5rem;
-  /* border: none; */
-  /* border: 1px solid orange; */
   background-color: black;
   color: inherit;
-}
-
-/* .taskStats {
-  padding: 0 0.6rem;
 } */
 
-.taskItemDesc {
+/* .taskItemDesc {
   max-width: 50vw;
   overflow: scroll;
-}
-
-/* .taskDescription { */
-  /* overflow-wrap: break-word; */
-  /* overflow: scroll; */
-  /* border: 1px solid orangered; */
-  /* height: 2rem; */
-/* } */
-
+} */
 /*************************************************************************/
 
 
 /*************************************************************************/
-#newTaskBar {
+/* #newTaskBar {
   position: absolute;
   bottom: 0;
   width: 100vw;
@@ -122,127 +66,110 @@
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
-  /* align-items: center; */
-}
+} */
 
-#errorBox {
+/* #errorBox {
   max-height: 30vh;
-}
+} */
 
-.boxTitle {
+/* .boxTitle {
   padding-bottom: 1rem;
   color: white;
-}
+} */
 
-#taskCycle {
+/* #taskCycle {
   width: 12vw;
   margin: 0.2rem;
-}
+} */
 
-.taskButton {
+/* .taskButton {
   padding: 0.5rem;
   font-size: 1.3rem;
-  /* border: 1px solid white; */
-  /* height: 2.5rem; */
-  /* background-color: black; */
   display: flex;
-}
+} */
 
-.taskButton:hover{
+/* .taskButton:hover{
   color: #E9A200;
-}
+} */
 
-.taskField {
+/* .taskField {
   padding: 0.5rem 0.3rem;
   height: 2.1rem;
   border: 1px solid white;
-}
+} */
 
 /*************************************************************************/
-#posFixedTop {
+/* #posFixedTop {
   position: fixed;
   top: 0;
-}
+} */
 
-.editTaskField {
+/* .editTaskField {
   margin: 0.8rem 0;
-  /* border: 1px solid blue; */
-}
-.editTaskNumber {
+} */
+
+/* .editTaskNumber {
   max-width: 12vw;
-}
+} */
 
 /* #editTimeBar{
   min-width: 50vw;
 } */
 
-.editTime {
+/* .editTime {
   margin-left: 1rem;
-}
+} */
 
-.editInput1 {
+/* .editInput1 {
   margin-top: 0.3rem;
-}
+} */
 /*************************************************************************/
-.modalBox {
+/* .modalBox {
   height: 100vh;
   width: 100vw;
   z-index: 3;
   background-color: rgba(0, 0, 0, 0.8);
-}
+} */
 
-.dialogBox{
+/* .dialogBox{
   border: 1px solid #FBDD00;
   background-color: black;
   padding: 3rem;
-}
-
-#list{
-  padding: 2rem;
-}
-/*************************************************************************/
-/* FLEXBOX */
-.flexBox {
-  display: flex;
-}
-
-.flexColumn {
-  flex-direction: column;
-}
-
-.flexAlignItemBaseline {
-  align-items: baseline;
-}
-
-.flexAlignCenter {
-  align-items: center;
-}
-
-.flexJustifyCenter {
-  justify-content: center;
-}
-
-.flexJustifySpaceBetween {
-  justify-content: space-between;
-}
-
-.flexJustifySpaceAround {
-  justify-content: space-around;
-}
-
-/* .flexJustifyStart {
-  justify-content: flex-start;
-  background-color: red;
 } */
 
-.text {
+/* #list{
+  padding: 2rem;
+} */
+/*************************************************************************/
+/* FLEXBOX */
+/* .flexBox {
+  display: flex;
+} */
+
+/* .flexColumn {
+  flex-direction: column;
+} */
+
+/* .flexAlignItemBaseline {
+  align-items: baseline;
+} */
+
+/* .flexAlignCenter {
+  align-items: center;
+} */
+
+/* .flexJustifyCenter {
+  justify-content: center;
+} */
+
+/* .flexJustifySpaceBetween {
+  justify-content: space-between;
+} */
+
+/* .flexJustifySpaceAround {
+  justify-content: space-around;
+} */
+
+/* .text {
   color: blue;
-}
-
-
-/* @media screen and (min-width: 400px) {
-  .taskItemButton {
-    border: 1px solid green;
-    min-width: 50%;
-  }
 } */
