@@ -120,7 +120,7 @@
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 #errorBox {
@@ -170,12 +170,16 @@
   max-width: 12vw;
 }
 
-#editTimeBar{
+/* #editTimeBar{
   min-width: 50vw;
-}
+} */
 
 .editTime {
   margin-left: 1rem;
+}
+
+.editInput1 {
+  margin-top: 0.3rem;
 }
 /*************************************************************************/
 .modalBox {
@@ -208,6 +212,10 @@
   align-items: baseline;
 }
 
+.flexAlignCenter {
+  align-items: center;
+}
+
 .flexJustifyCenter {
   justify-content: center;
 }
@@ -219,6 +227,11 @@
 .flexJustifySpaceAround {
   justify-content: space-around;
 }
+
+/* .flexJustifyStart {
+  justify-content: flex-start;
+  background-color: red;
+} */
 
 .text {
   color: blue;
