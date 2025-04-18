@@ -45,8 +45,8 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   return(
     <div>
       {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
-      <div id={styles.newTaskBar} className="flexBox1 flexJustifySpaceAround1 flexAlignCenter1">
-        <input id={styles.newTaskDesc} className='taskField1' type="text" value={newTask.taskName} onChange={
+      <div id={styles.newTaskBar}>
+        <input id={styles.newTaskDesc} type="text" value={newTask.taskName} onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
