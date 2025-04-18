@@ -1,6 +1,7 @@
 import { useState , useEffect} from "react";
 import UserContext from "./UserContext";
 import AlarmAlert from "./AlarmAlert";
+import styles from "@/styles/PomodoroTimer.module.css"
 
 const { useContext } = require("react");
 
@@ -71,27 +72,27 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   return(
     <div>
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
-      <div id="yellowBox">
+      <div className={styles.yellowBox}>
         <div>
-          <p id='currentTask' className="centerText taskDescription">{t.taskInProgress.taskName}</p>
+          <p className={styles.currentTask}>{t.taskInProgress.taskName}</p>
           <div>
-            <p className="orange centerText">Work Time</p>
-            <p className="centerText font1">{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
+            <p className={styles.currentTimeTitle}>Work Time</p>
+            <p className={styles.currentTime}>{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
           </div>
           <div>
-            <p className="orange centerText">Break Time</p>
-            <p className="centerText font1">{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
+            <p className={styles.currentTimeTitle}>Break Time</p>
+            <p className={styles.currentTime}>{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
           </div>
           <div>
-            <div className="flexBox flexJustifyCenter">
-              <input className="timerButton hoverItem" 
+            <div className={styles.buttonSet}>
+              <input className={styles.timerButton}
                 type="button" 
                 value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
                 onClick={() => 
                   startTimer(t.taskInProgress)
                 } 
               />
-              <input className="timerButton hoverItem" 
+              <input className={styles.timerButton} 
                 type="button" 
                 value='RESET' 
                 onClick={() => 

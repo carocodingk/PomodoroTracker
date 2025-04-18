@@ -26,24 +26,22 @@
   font-weight: bold;
 }
 
-#yellowBox {
+/* #yellowBox {
   border: 2px solid #FBDD00;
   max-width: 80vw;
   border-radius: 10px;
   padding: 1rem;
   margin: 1.5rem auto;
-}
+} */
 
-#currentTask {
+/* #currentTask {
   padding: 0.5em;
   font-size: 1.2rem;
-  /* border: 1px solid red; */
   height: 1.9rem;
-  /* text-overflow: ellipsis; */
   overflow: hidden;
-}
+} */
 
-.timerButton {
+/* .timerButton {
   margin: 0 0.5rem;
   padding: 0.5rem;
   border: 1px solid #FBDD00;
@@ -56,7 +54,7 @@
 
 .timerButton:hover {
   border: 1px solid black;
-}
+} */
 
 .posAbsoluteTop {
   position: absolute;
