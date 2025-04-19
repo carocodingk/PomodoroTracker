@@ -95,6 +95,13 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
           </li>
         )}
       </ul>
+      {taskList.length === 0? 
+        <div>
+          <p style={{ color: '#E9A200', textAlign: 'center', fontSize: '1.5rem' }}>Your TO DO list is empty</p>
+        </div>
+        :
+        null
+      }
       <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
       {cycleComplete && 
         <TaskCompletion
