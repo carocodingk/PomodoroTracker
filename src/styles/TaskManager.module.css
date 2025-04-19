@@ -1,44 +1,79 @@
 .taskList {
-    margin: 0 auto;
-    max-width: 700px;
-    /* background-color: lavender; */
-    height: 42vh;
-    overflow: auto;
+  margin: 0 auto;
+  max-width: 700px;
+  height: 42vh;
+  overflow: auto;
 }
 
 .taskList ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .taskItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px dotted gray;
-    padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px dotted gray;
+  padding: 0.5rem;
 }
 
 .taskItem:hover {
-    color: #E9A200;
+  color: #E9A200;
 }
 
 .taskItemSub {
-    display: flex;
-    align-items: baseline;
+  display: flex;
+  align-items: baseline;
 }
 
 .taskItemButton {
-    padding: 0 0.5rem;
-  }
+  padding: 0 0.5rem;
+}
 
 .taskStats {
-    padding: 0 0.5rem;
-    white-space: nowrap;
+  padding: 0 0.5rem;
+  white-space: nowrap;
+}
+
+.modalBox {
+  position: fixed;
+  top: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+  
+.dialogBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 3rem 3rem 2rem;
+  border: 1px solid #FBDD00;
+  background-color: black;
+}
+  
+.okButton {
+  border: 1px solid #FBDD00;
+  margin: 0.8rem 0.3rem 0;
+  padding: 0.5rem 0;
+  min-width: 5rem;
+  border-radius: 3px;
+}
+
+.okButton:hover {
+  border: 1px solid black;
+  color: #E9A200;
+}
+
+.boxText {
+  padding: 0.5rem;
 }
 
 @media screen and (max-height: 375px) {
     .taskList {
-        /* background-color: red; */
         margin-bottom: 70px;
     }
 }

@@ -79,13 +79,13 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
                 </div>
               </div>
               {(menuRequest === task.key)?
-                <div id="posFixedTop" className="flexBox flexColumn flexJustifyCenter modalBox">
-                  <div className="dialogBox">
-                    <h3 className="boxTitle centerText">Please select one of the options: </h3>
-                    <div className="flexBox flexJustifyCenter">
-                      <input className="timerButton hoverItem" type="button" value='Edit task' onClick={()=>editingTask(task)} />
-                      <input className="timerButton hoverItem" type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
-                      <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
+                <div className={styles.modalBox}>
+                  <div className={styles.dialogBox}>
+                    <h3 className={styles.boxText}>Please select one of the options: </h3>
+                    <div>
+                      <input className={styles.okButton} type="button" value='Edit task' onClick={()=>editingTask(task)} />
+                      <input className={styles.okButton} type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
+                      <input className={styles.okButton} type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
                     </div>
                   </div>
                 </div>
