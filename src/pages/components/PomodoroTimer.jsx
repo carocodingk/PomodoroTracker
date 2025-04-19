@@ -1,17 +1,18 @@
 import { useState , useEffect} from "react";
 import UserContext from "./UserContext";
+import TimeContext from "./TimeContext";
 import AlarmAlert from "./AlarmAlert";
 import styles from "@/styles/PomodoroTimer.module.css"
 
 const { useContext } = require("react");
 
-// function PomodoroTimer({taskInProgress, setCycleComplete}){
-function PomodoroTimer({workTime, breakTime, setCycleComplete}){
+function PomodoroTimer({setCycleComplete}){
   const t = useContext(UserContext);
+  const time = useContext(TimeContext);
 
-  const [workTimer, setWorkTimer] = useState(workTime);
+  const [workTimer, setWorkTimer] = useState(time.workTime);
   const [workTimerRun, setWorkTimerRun] = useState(false);
-  const [breakTimer, setBreakTimer] = useState(breakTime);
+  const [breakTimer, setBreakTimer] = useState(time.breakTime);
   const [breakTimerRun, setBreakTimerRun] = useState(false);
   const [timesUp, setTimesUp] = useState(false);
 
@@ -25,8 +26,8 @@ function PomodoroTimer({workTime, breakTime, setCycleComplete}){
   const resetTimer = () => {
     setWorkTimerRun(false)
     setBreakTimerRun(false)
-    setWorkTimer(workTime)
-    setBreakTimer(breakTime)
+    setWorkTimer(time.workTime)
+    setBreakTimer(time.breakTime)
   }
 
   useEffect(() => {

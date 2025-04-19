@@ -4,7 +4,6 @@ import DeleteAllTasks from "./DeleteAllTasks";
 import { IoMdAdd } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
 import styles from "@/styles/NewTaskBar.module.css"
-import { Delete } from "@mui/icons-material";
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({

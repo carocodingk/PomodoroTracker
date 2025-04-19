@@ -5,12 +5,6 @@ import PomodoroTimer from "./components/PomodoroTimer.jsx";
 import AppInstructions from "./components/AppInstructions.jsx";
 import TaskManager from "./components/TaskManager.jsx";
 
-// Initial values
-/***************************************/
-const workTime = 10; // 10 seconds
-const breakTime = 3; // 3 seconds
-/**************************************/
-
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
     key: -1,
@@ -19,6 +13,9 @@ export default function Home() {
   const [seenInstructions, setSeenInstructions] = useState(false)
   const [cycleComplete, setCycleComplete] = useState(false) 
   const [openMenu, setOpenMenu] = useState(false)
+
+  const [workTime, setWorkTime] = useState(10); // 10 seconds
+  const [breakTime, setBreakTime] = useState(3); // 3 seconds
 
   const closeMenu = ()=>{
     if (openMenu){
@@ -29,11 +26,11 @@ export default function Home() {
   return(
     <div id="main" onClick={()=>closeMenu()}>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
-      {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
-      <TimeContext.Provider value={workTime}>
+      <TimeContext.Provider value={{workTime, breakTime}}>
+        {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
         <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
-          <PomodoroTimer workTime={workTime} breakTime={breakTime} setCycleComplete={setCycleComplete}/>
-          <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <PomodoroTimer setCycleComplete={setCycleComplete}/>
+          <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} openMenu={openMenu} />
         </UserContext.Provider>
       </TimeContext.Provider>
     </div>

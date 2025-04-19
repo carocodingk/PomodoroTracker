@@ -12,7 +12,7 @@ const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualT
                       {key: 3, taskName: 'Walk dog', expectedCycles: 2, actualTime: 0, finished: true},  
                     ];
 
-function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
+function TaskManager({cycleComplete, setCycleComplete, openMenu}){
   const t = useContext(UserContext)
   const [nextTaskKey, setNextTaskKey] = useState(4) //Tracks the key for the next new task
   const [taskList, setTaskList] = useState(initialTasks)

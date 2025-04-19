@@ -13,14 +13,14 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
         if (complete){
           taskUpdate = {
             ...task,
-            actualTime: task.actualTime + t, 
+            actualTime: task.actualTime + t.workTime, 
             finished: true
           }
         }
         else{
           taskUpdate = {
             ...task,
-            actualTime: task.actualTime + t
+            actualTime: task.actualTime + t.workTime
           }
         }
         //Resets the task in progress, once a cycle has been completed regardless if the task was finished
