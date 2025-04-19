@@ -35,3 +35,10 @@
     padding: 0 0.5rem;
     white-space: nowrap;
 }
+
+@media screen and (max-height: 375px) {
+    .taskList {
+        /* background-color: red; */
+        margin-bottom: 70px;
+    }
+}

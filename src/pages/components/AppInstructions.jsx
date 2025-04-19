@@ -1,11 +1,10 @@
-import styles from "@/styles/AppInstructions.module.css"
+import styles from "@/styles/popUpBox.module.css"
 
 function AppInstructions({setSeenInstructions}){
   return(
-    <div id={styles.instructionsContainer}> 
-      <div id={styles.dialogBox}> 
-        <ol id="list1">
-          <li>Welcome to a Pomodoro task tracker</li>
+    <div className={styles.modalBox}> 
+      <div className={styles.dialogBox}> 
+        <ol>
           <li>Each Pomodoro cycle consists of 20 minutes of working time and 5 minutes of resting time</li>
           <li>The current version is for testing purposes. The working time has been set up 10s and resting time
             to 3 seconds. However, this can be changed in the index file on variables 'workTime' and 'breakTime'. 
@@ -19,7 +18,7 @@ function AppInstructions({setSeenInstructions}){
           <li>Details of a task can be edited by using button 'more'</li>
           <li>To delete all tasks on the list: select button (-) at the bottom</li>
         </ol>
-        <input id={styles.okButton}
+        <input className={styles.okButton}
           type="button" 
           value="OK" 
           onClick={()=> setSeenInstructions(true)} 

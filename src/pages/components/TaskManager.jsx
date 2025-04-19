@@ -60,7 +60,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu, setOpenMenu}){
   }
 
   return(
-    <div>
+    <div id={styles.taskManager} >
       <div className={styles.taskList}>
       <ul>
         {taskList.map((task, key) => 

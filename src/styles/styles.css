@@ -173,3 +173,10 @@
 /* .text {
   color: blue;
 } */
+
+
+@media screen and (min-height: 375px) {
+  #main{
+    overflow: auto;
+  }
+}
