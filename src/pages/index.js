@@ -14,8 +14,8 @@ export default function Home() {
   const [cycleComplete, setCycleComplete] = useState(false) 
   const [openMenu, setOpenMenu] = useState(false)
 
-  const [workTime, setWorkTime] = useState(10); // 10 seconds
-  const [breakTime, setBreakTime] = useState(3); // 3 seconds
+  const [workTime, setWorkTime] = useState(60); // 60 seconds
+  const [breakTime, setBreakTime] = useState(10); // 10 seconds
 
   const closeMenu = ()=>{
     if (openMenu){
@@ -26,10 +26,10 @@ export default function Home() {
   return(
     <div id="main" onClick={()=>closeMenu()}>
       <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
-      <TimeContext.Provider value={{workTime, breakTime}}>
+      <TimeContext.Provider value={{workTime, setWorkTime, breakTime, setBreakTime}}>
         {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
         <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
-          <PomodoroTimer setCycleComplete={setCycleComplete}/>
+          <PomodoroTimer setCycleComplete={setCycleComplete} />
           <TaskManager cycleComplete={cycleComplete} setCycleComplete={setCycleComplete} openMenu={openMenu} />
         </UserContext.Provider>
       </TimeContext.Provider>

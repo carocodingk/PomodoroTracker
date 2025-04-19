@@ -7,6 +7,8 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
   let taskUpdate = {}
   let taskListUpdate = []
 
+  // console.log('inside taskcompletion ', t.workTime)
+
   const taskCompletion = (complete) => {
     taskListUpdate = taskList.map((task) => {
       if (task.key === taskInProgress.key){
