@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "@/styles/TaskEdition.module.css"
 
 function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
   let [editedTask, setEditedTask] = useState(taskSelected) 
@@ -15,11 +16,11 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
   }
 
   return(
-    <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
-      <div className="dialogBox flexBox flexColumn">
-        <div className="flexBox flexColumn flexJustifySpaceBetween editTaskField"> 
+    <div className={styles.modalBox}>
+      <div className={styles.dialogBox}>
+        <div> 
           <p>Description:</p>
-          <input className="editInput1 taskField" type="text" value={editedTask.taskName} onChange={
+          <input id={styles.input1} type="text" value={editedTask.taskName} onChange={
             (e)=>
               setEditedTask((prevState) => ({
                 ...prevState,
@@ -27,9 +28,9 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             }))
           }/>
         </div>
-        <div className="flexBox editTaskField flexAlignCenter">
+        <div className={styles.flexBox}>
           <p>Expected Number of Cycles:</p>
-          <input className="editTaskNumber taskField editTime" type="number" value={editedTask.expectedCycles} onChange={
+          <input id={styles.input2} type="number" value={editedTask.expectedCycles} onChange={
             (e)=>(
               setEditedTask((prevState) => ({
                 ...prevState,
@@ -38,10 +39,10 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             )
           }/>
         </div>
-        <div className="editTaskField">
+        <div className={styles.flexBox}>
           <p>Current Time:</p>
-          <div className="flexBox flexAlignCenter editInput1">
-            <input className="taskField" type="number" min={'0'} max={'99'} value={Math.floor(editedTask.actualTime/3600)} onChange={
+          <div>
+            <input className={styles.input3} type="number" min={'0'} max={'99'} value={Math.floor(editedTask.actualTime/3600)} onChange={
               (e)=>{
                 //total time minus the portion in hours
                 const timeExceptHours = editedTask.actualTime - (Math.floor(editedTask.actualTime/3600)*3600)
@@ -50,8 +51,8 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
                   actualTime: timeExceptHours + (Number(e.target.value) * 3600)
                 }))
               }
-            }/> h:
-            <input className="editTime taskField" type="number" min={'0'} value={Math.floor((editedTask.actualTime%3600)/60)} max={'59'} onChange={
+            }/>:
+            <input className={styles.input3} type="number" min={'0'} value={Math.floor((editedTask.actualTime%3600)/60)} max={'59'} onChange={
               (e)=>{
                 //total time minus the portion in minutes
                 const timeExceptMinutes = editedTask.actualTime - (Math.floor((editedTask.actualTime % 3600)/60) * 60)
@@ -60,8 +61,8 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
                   actualTime: timeExceptMinutes + (Number(e.target.value) * 60)
                 }))
               }
-            }/> m:
-            <input className="editTime taskField" type="number" min={'0'} value={(editedTask.actualTime%3600)%60} max={'59'} onChange={
+            }/>:
+            <input className={styles.input3} type="number" min={'0'} value={(editedTask.actualTime%3600)%60} max={'59'} onChange={
               (e)=>{
                 const timeExceptSeconds = editedTask.actualTime - ((editedTask.actualTime%3600)%60)
                 setEditedTask((prevState) => ({
@@ -69,12 +70,12 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
                   actualTime: timeExceptSeconds + Number(e.target.value)
                 }))
               }
-            }/> s
+            }/>
           </div>
         </div>
-        <div className="flexBox editTaskField">
+        <div className={styles.flexBox}>
           <p>Finished:</p>
-          <input className="editTaskNumber editTime" type="checkbox" checked={editedTask.finished} onClick={
+          <input type="checkbox" checked={editedTask.finished} onClick={
             (e) => (
               setEditedTask((prevState) => ({
                 ...prevState,
@@ -83,9 +84,9 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             )
           }/>
         </div>
-        <div className="flexBox flexJustifyCenter">      
-          <input className="timerButton hoverItem" type="button" value='Save' onClick={()=>saveChanges()} />
-          <input className="timerButton hoverItem" type="button" value='Cancel' onClick={()=>setEditTask(false)} />
+        <div className={styles.flexBox1}>      
+          <input className={styles.okButton} type="button" value='Save' onClick={()=>saveChanges()} />
+          <input className={styles.okButton} type="button" value='Cancel' onClick={()=>setEditTask(false)} />
         </div>
       </div>
     </div>  
