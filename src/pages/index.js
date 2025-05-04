@@ -1,9 +1,9 @@
 import { useState } from "react";
-import UserContext from "./components/UserContext.jsx";
-import TimeContext from "./components/TimeContext.jsx";
-import PomodoroTimer from "./components/PomodoroTimer.jsx";
-import AppInstructions from "./components/AppInstructions.jsx";
-import TaskManager from "./components/TaskManager.jsx";
+import UserContext from "../components/UserContext.jsx";
+import TimeContext from "../components/TimeContext.jsx";
+import PomodoroTimer from "../components/PomodoroTimer.jsx";
+import AppInstructions from "../components/AppInstructions.jsx";
+import TaskManager from "../components/TaskManager.jsx";
 
 export default function Home() {
   const [taskInProgress, setTaskInProgress] = useState({
