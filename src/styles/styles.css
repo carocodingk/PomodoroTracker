@@ -149,6 +149,44 @@
 }
 
 
+/* *********************************************************** */
+/* ************************ NewTaskBar *********************** */
+#newTaskBar {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5em;
+  border: 2px solid #FBDD00;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100vw;
+  height: 60px;
+  max-width: 700px;
+
+  background-color: black;
+}
+
+#newTaskDesc {
+  min-width: 60%;
+}
+
+#taskCycle {
+  width: 10%;
+  min-width: 3rem;
+}
+
+.taskButton {
+  border: 1px solid #FBDD00;
+  font-size: 25px;
+  margin: auto 2px;
+}
+
+
+
 
 /* *********************************************************** */
 @media screen and (min-width: 600px) {

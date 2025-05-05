@@ -3,7 +3,7 @@ import ErrorMessage from "./ErrorMessage";
 import DeleteAllTasks from "./DeleteAllTasks";
 import { IoMdAdd } from "react-icons/io";
 import { MdDeleteOutline } from "react-icons/md";
-import styles from "@/styles/NewTaskBar.module.css"
+// import styles from "@/styles/NewTaskBar.module.css"
 
 function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   const [newTask, setNewTask] = useState({
@@ -12,7 +12,7 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   });
   const [showErrorMsg, setShowErrorMsg] = useState(false);
   const [showDeleteAll, setShowDeleteAll] = useState(false);
-  const [delteAllTasks, setDeleteAllTasks] = useState(false);
+  // const [delteAllTasks, setDeleteAllTasks] = useState(false);
 
   const taskVerification = () => {
   // check new task description is not empty
@@ -48,8 +48,8 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
   return(
     <div>
       {showErrorMsg && <ErrorMessage setShowErrorMsg={setShowErrorMsg} />}
-      <div id={styles.newTaskBar}>
-        <input id={styles.newTaskDesc} type="text" value={newTask.taskName} onChange={
+      <div id='newTaskBar'>
+        <input id='newTaskDesc' type="text" value={newTask.taskName} onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
@@ -57,21 +57,16 @@ function NewTaskBar({nextTaskKey, setNextTaskKey, setTaskList}){
             }))
           }
         />
-        <input id={styles.taskCycle} type="number" value={newTask.expectedCycles} min='1' onChange={
+        <input id='taskCycle' type="number" value={newTask.expectedCycles} min='1' onChange={
           (e) => 
             setNewTask((prevState) => ({
               ...prevState,
               expectedCycles: e.target.value
             }))
         }/>
-        <div className={styles.taskButton} onClick={() => taskVerification()}>
-          <IoMdAdd />
-        </div>
-        {/* <div className={styles.taskButton} onClick={() => deleteAllTask()}> */}
+        <IoMdAdd className='taskButton' onClick={() => taskVerification()}/>
         {showDeleteAll && <DeleteAllTasks setShowDeleteAll={setShowDeleteAll} setTaskList={setTaskList} setNewTask={setNewTask} />}
-        <div className={styles.taskButton} onClick={() => setShowDeleteAll(true)}>
-          <MdDeleteOutline />
-        </div>
+          <MdDeleteOutline className='taskButton' onClick={() => setShowDeleteAll(true)}/>
       </div>
     </div>
   );

@@ -102,7 +102,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
         :
         null
       }
-      {/* <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} /> */}
+      <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
       {cycleComplete && 
         <TaskCompletion
           taskList={taskList}
