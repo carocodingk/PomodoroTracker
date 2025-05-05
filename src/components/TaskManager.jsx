@@ -80,12 +80,12 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
               </div>
               {(menuRequest === task.key)?
                 <div className='modalBox'>
-                  <div className='dialogBox'>
+                  <div className='dialogBox_small'>
                     <h3>Please select one of the options: </h3>
                     <div>
-                      <input className='dialogBoxButton' type="button" value='Edit task' onClick={()=>editingTask(task)} />
-                      <input className='dialogBoxButton' type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
-                      <input className='dialogBoxButton' type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
+                      <input className='okButton_alt' type="button" value='Edit task' onClick={()=>editingTask(task)} />
+                      <input className='okButton_alt' type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
+                      <input className='okButton_alt' type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
                     </div>
                   </div>
                 </div>

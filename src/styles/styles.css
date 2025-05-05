@@ -24,6 +24,12 @@
 
 /* *********************************************************** */
 /* ********************** Pomodoro Timer ********************* */
+#pomodoroTimer {
+  /* background-color: red; */
+  /* margin-bottom: 0; */
+  border: 1px solid black;
+}
+
 #yellowBox {
   border: 2px solid #FBDD00;
   max-width: 80vw;
@@ -123,7 +129,7 @@
 
 #spacer {
   height: 60px;
-  background-color: rgb(29, 29, 29);
+  background-color: black;
 }
 
 /* .modalBox {
@@ -215,6 +221,10 @@
   z-index: 2;
 }
 
+.modalBox1 {
+  background-color: red;
+}
+
 .dialogBox {
   display: flex;
   flex-direction: column;
@@ -246,6 +256,83 @@
   padding: 0.5rem;
 } */
 
+/* .modalBox1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+} */
+
+.dialogBox_small {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.9em; 
+  border: 1px solid #FBDD00;
+  width: 300px;
+  min-height: 120px;
+  background-color: black;
+  margin: auto;
+}
+
+.okButton_alt {
+  border: 1px solid #FBDD00;
+  width: 5.6em;
+  padding: 0.5em 0;
+  margin: 1em 0.4em;
+  border-radius: 3px;
+}
+
+.okButton_alt:hover {
+  border: 1px solid white;
+  color: #E9A200;
+}
+
+
+/* *********************************************************** */
+/* *********************** Task Edition ********************** */
+.dialogBox_med {
+  border: 1px solid #FBDD00;
+  width: 90vw;
+  min-height: 200px;
+  padding: 1em;
+  margin: auto;
+}
+
+.flexBox {
+  display: flex;
+  margin: 1rem 0;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.flexBox1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+#input1 {
+  width: 100%;
+  height: 2.2rem;
+  border: 1px solid white;
+}
+
+#input2 {
+  width: 5rem;
+  height: 2.2rem;
+  border: 1px solid white;
+}
+
+.input3 {
+  width: 3rem;
+  height: 2.2rem;
+  margin: 0 0 0 0.3rem;
+  border: 1px solid white;
+}
 
 
 /* *********************************************************** */
