@@ -7,8 +7,10 @@
   height: 100vh;
   width: 100vw;
   /* color: white; */
-  overflow: auto;
+  /* overflow: auto; */
   /* overflow: hidden; */
+  /* background-color: red; */
+    /* border: 3px solid red; */
 }
 
 #trackerTitle {
@@ -124,7 +126,7 @@
   background-color: rgb(29, 29, 29);
 }
 
-.modalBox {
+/* .modalBox {
   position: absolute;
   top: 0;
   left: 0;
@@ -161,7 +163,7 @@
 .dialogBoxButton:hover {
   border: 1px solid #FBDD00;
   color: #E9A200;
-}
+} */
 
 
 /* *********************************************************** */
@@ -181,14 +183,11 @@
   width: 100vw;
   height: 60px;
   max-width: 700px;
-
-  /* background-color: black; */
 }
 
 #newTaskDesc {
   min-width: 60%;
   border: 1px solid #FBDD00;
-  /* background-color: white; */
 }
 
 #taskCycle {
@@ -204,12 +203,77 @@
   margin: auto 2px;
 }
 
+/* *********************************************************** */
+/* *********************** Dialog Boxes ********************** */
+.modalBox {
+  position: fixed;
+  top: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.dialogBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: auto;
+  padding: 3em 3em 2em;
+  border: 1px solid #FBDD00;
+  background-color: black;
+  height: 80vh;
+  overflow: scroll;
+}
+
+.okButton {
+  border: 1px solid #FBDD00;
+  margin-top: 1em;
+  padding: 0.7em 0;
+  width: 30%;
+  border-radius: 3px;
+}
+
+.okButton:hover {
+  border: 1px solid white;
+  color: #E9A200;
+}
+
+/* .boxText {
+  padding: 0.5rem;
+} */
 
 
 
 /* *********************************************************** */
+@media screen and (max-height: 375px) {
+  /* # {} */
+  #taskList {
+    height: 100vh;
+  }
+}
+
+@media screen and (max-height: 530px ) {
+  .dialogBox {
+    padding-top: 13em;
+  }
+}
+
 @media screen and (min-width: 600px) {
   #yellowBox {
     max-width: 550px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .dialogBox {
+    max-width: 700px;
+  }
+
+  .textLine {
+    padding: 0.3rem 0;
   }
 }
