@@ -4,7 +4,7 @@ import NewTaskBar from "./NewTaskBar";
 import TaskCompletion from "./TaskCompletion"
 import TaskEdition from "./TaskEdition";
 import { RiMore2Fill } from "react-icons/ri";
-import styles from "@/styles/TaskManager.module.css"
+// import styles from "@/styles/TaskManager.module.css"
 
 const initialTasks = [{key: 0, taskName: 'Meal Prep', expectedCycles: 3, actualTime: 3700, finished: true}, 
                       {key: 1, taskName: 'Grocery shopping', expectedCycles: 2, actualTime: 0, finished: false},
