@@ -1,11 +1,12 @@
 * {
   background-color: black;
+  color: white;
 }
 
 #main {
   height: 100vh;
   width: 100vw;
-  color: white;
+  /* color: white; */
   overflow: auto;
   /* overflow: hidden; */
 }
@@ -60,7 +61,7 @@
 .timerButton {
   padding: 0.5em;
   margin: 0 0.5em;
-  background-color: black;
+  /* background-color: black; */
   border: 1px solid #FBDD00;
   border-radius: 3px;
 }
@@ -84,9 +85,10 @@
 } */
 
 #taskList {
-  /* background-color: green; */
-  border: 1px solid greenyellow;
-  /* height:43vh; */
+  /* border: 1px solid greenyellow; */
+  height: calc(100vh - 340px);
+  max-width: 700px;
+  margin: 0 auto;
   overflow: auto;
 }
 
@@ -96,6 +98,7 @@
   align-items: baseline;
   border-bottom: 1px dotted gray;
   padding: 0.5em;
+  /* background-color: red; */
 }
 
 .taskItem:hover {
@@ -118,7 +121,7 @@
 
 #spacer {
   height: 60px;
-  background-color: red;
+  background-color: rgb(29, 29, 29);
 }
 
 .modalBox {
@@ -179,16 +182,20 @@
   height: 60px;
   max-width: 700px;
 
-  background-color: black;
+  /* background-color: black; */
 }
 
 #newTaskDesc {
   min-width: 60%;
+  border: 1px solid #FBDD00;
+  /* background-color: white; */
 }
 
 #taskCycle {
   width: 10%;
   min-width: 3rem;
+  border: 1px solid #FBDD00;
+
 }
 
 .taskButton {
