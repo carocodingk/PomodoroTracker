@@ -1,4 +1,4 @@
-.yellowBox {
+/* .yellowBox {
   border: 2px solid #FBDD00;
   max-width: 80vw;
   border-radius: 10px;
@@ -45,10 +45,10 @@
 .timerButton:hover {
   border: 1px solid black;
   color: #E9A200;
-} 
+}  */
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .yellowBox {
     max-width: 550px;
   }
-}
+} */

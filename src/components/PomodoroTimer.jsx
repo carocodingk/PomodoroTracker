@@ -2,7 +2,7 @@ import { useState , useEffect} from "react";
 import UserContext from "./UserContext";
 import TimeContext from "./TimeContext";
 import AlarmAlert from "./AlarmAlert";
-import styles from "@/styles/PomodoroTimer.module.css"
+// import styles from "@/styles/PomodoroTimer.module.css"
 
 const { useContext } = require("react");
 
@@ -73,27 +73,27 @@ function PomodoroTimer({setCycleComplete}){
   return(
     <div>
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
-      <div className={styles.yellowBox}>
+      <div id='yellowBox'>
         <div>
-          <p className={styles.currentTask}>{t.taskInProgress.taskName}</p>
+          <p id='currentTask'>{t.taskInProgress.taskName}</p>
           <div>
-            <p className={styles.currentTimeTitle}>Work Time</p>
-            <p className={styles.currentTime}>{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
+            <p className='currentTimeTitle'>Work Time</p>
+            <p className='currentTime'>{minutesW}:{secondsW < 10? `0${secondsW}` : secondsW}</p>
           </div>
           <div>
-            <p className={styles.currentTimeTitle}>Break Time</p>
-            <p className={styles.currentTime}>{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
+            <p className='currentTimeTitle'>Break Time</p>
+            <p className='currentTime'>{minutesB}:{secondsB < 10? `0${secondsB}` : secondsB}</p>
           </div>
           <div>
-            <div className={styles.buttonSet}>
-              <input className={styles.timerButton}
+            <div id='buttonSet'>
+              <input className='timerButton'
                 type="button" 
                 value={workTimerRun || breakTimerRun? 'PAUSE':'START'} 
                 onClick={() => 
                   startTimer(t.taskInProgress)
                 } 
               />
-              <input className={styles.timerButton} 
+              <input className='timerButton'
                 type="button" 
                 value='RESET' 
                 onClick={() => 
