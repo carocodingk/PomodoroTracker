@@ -1,5 +1,3 @@
-import styles from "@/styles/popUpBox.module.css"
-
 function DeleteAllTask({setShowDeleteAll, setTaskList, setNewTask}){
 
   const deleteAllTask = ()=>{
@@ -12,12 +10,12 @@ function DeleteAllTask({setShowDeleteAll, setTaskList, setNewTask}){
   }
 
   return(
-    <div className={styles.modalBox}>
-      <div className={styles.dialogBox}>
-        <p className={styles.boxText}>Would you like to delete all tasks?</p>
+    <div className='modalBox'>
+      <div className='dialogBox_small'>
+        <p>Would you like to delete all tasks?</p>
         <div>
-          <input className={styles.okButton1} type="button" value="YES!" onClick={()=>deleteAllTask()} />
-          <input className={styles.okButton1} type="button" value="NO" onClick={()=>setShowDeleteAll(false)} />
+          <input className='okButton_alt' type="button" value="YES!" onClick={()=>deleteAllTask()} />
+          <input className='okButton_alt' type="button" value="NO" onClick={()=>setShowDeleteAll(false)} />
         </div>
       </div>
     </div>
