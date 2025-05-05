@@ -83,6 +83,13 @@
   list-style-type: none;
 } */
 
+#taskList {
+  /* background-color: green; */
+  border: 1px solid greenyellow;
+  /* height:43vh; */
+  overflow: auto;
+}
+
 .taskItem {
   display: flex;
   justify-content: space-between;
@@ -107,6 +114,11 @@
 .taskStats {
   padding: 0 0.5em;
   white-space: nowrap;
+}
+
+#spacer {
+  height: 60px;
+  background-color: red;
 }
 
 .modalBox {

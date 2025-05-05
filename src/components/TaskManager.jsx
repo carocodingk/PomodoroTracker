@@ -60,9 +60,9 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
   }
 
   return(
-    // <div>
-    <div id='taskManager'>
-      <ul id="taskList">
+    <div>
+    <div id='taskList'>
+      <ul>
         {taskList.map((task, key) => 
           <li key={key}>
               <div className='taskItem'>
@@ -95,6 +95,8 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
           </li>
         )}
       </ul>
+      <div id='spacer'>
+      </div>
       {taskList.length === 0? 
         <div>
           <p style={{ color: '#E9A200', textAlign: 'center', fontSize: '1.5rem' }}>Your TO DO list is empty</p>
@@ -102,6 +104,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
         :
         null
       }
+      </div>
       <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
       {cycleComplete && 
         <TaskCompletion
