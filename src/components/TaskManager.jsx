@@ -60,32 +60,32 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
   }
 
   return(
-    <div id={styles.taskManager} >
-      <div className={styles.taskList}>
-      <ul>
+    // <div>
+    <div id='taskManager'>
+      <ul id="taskList">
         {taskList.map((task, key) => 
           <li key={key}>
-              <div className={styles.taskItem}>
-                <div className={styles.taskItemSub}>
-                  <input className='checked' type="checkbox" disabled checked={task.finished} />
-                  <div className={styles.taskItemButton} onClick={()=> selectTask(task)}>{task.taskName}</div>
+              <div className='taskItem'>
+                <div className='taskItemSub'>
+                  <input type="checkbox" disabled checked={task.finished} />
+                  <div className='taskItemButton' onClick={()=> selectTask(task)}>{task.taskName}</div>
                 </div>
-                <div className={styles.taskItemSub}>
-                  <p className={styles.taskStats}>{task.expectedCycles}</p>
-                  <p className={styles.taskStats}>{timeProcessing(task.actualTime)}</p>
+                <div className='taskItemSub'>
+                  <p className='taskStats'>{task.expectedCycles}</p>
+                  <p className='taskStats'>{timeProcessing(task.actualTime)}</p>
                   <div onClick={()=>menuVisibility(task)}>
                     <RiMore2Fill />
                   </div>
                 </div>
               </div>
               {(menuRequest === task.key)?
-                <div className={styles.modalBox}>
-                  <div className={styles.dialogBox}>
-                    <h3 className={styles.boxText}>Please select one of the options: </h3>
+                <div className='modalBox'>
+                  <div className='dialogBox'>
+                    <h3>Please select one of the options: </h3>
                     <div>
-                      <input className={styles.okButton} type="button" value='Edit task' onClick={()=>editingTask(task)} />
-                      <input className={styles.okButton} type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
-                      <input className={styles.okButton} type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
+                      <input className='dialogBoxButton' type="button" value='Edit task' onClick={()=>editingTask(task)} />
+                      <input className='dialogBoxButton' type="button" value='Delete task' onClick={()=>deleteTask(task.key)} />
+                      <input className='dialogBoxButton' type="button" value='Cancel' onClick={()=>setMenuRequest(-1)} />
                     </div>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
         :
         null
       }
-      <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} />
+      {/* <NewTaskBar nextTaskKey={nextTaskKey} setNextTaskKey={setNextTaskKey} setTaskList={setTaskList} /> */}
       {cycleComplete && 
         <TaskCompletion
           taskList={taskList}
@@ -118,8 +118,8 @@ function TaskManager({cycleComplete, setCycleComplete, openMenu}){
           setTaskList={setTaskList} 
           setEditTask={setEditTask} 
       />}
-      </div>
     </div>
+    // </div>
   ) 
 }
 

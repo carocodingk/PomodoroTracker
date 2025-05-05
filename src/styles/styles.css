@@ -11,9 +11,9 @@
 }
 
 #trackerTitle {
-  padding-top: 2rem;
+  padding-top: 1.5em;
   color: #B32800;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: bold;
   font-family: Papyrus, Fantasy;
   text-align: center;
@@ -25,13 +25,12 @@
   border: 2px solid #FBDD00;
   max-width: 80vw;
   border-radius: 10px;
-  padding: 1rem;
-  margin: 1rem auto;  
+  padding: 1em;
+  margin: 1em auto;  
 }
 
 #currentTask {
-  padding: 0.3rem;
-  font-size: 0.9rem;
+  padding: 0.3em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -41,26 +40,26 @@
 .currentTimeTitle {
   color: #E9A200;
   text-align: center;
-  font-size: 1rem;
+  /* font-size: 1em; */
   font-weight: bold;
-  margin-top: 0.3rem;
+  margin-top: 0.3em;
 }
 
 .currentTime {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.8em;
   font-weight: bold;
 }
 
 #buttonSet {
   display: flex;
   justify-content: center;
-  margin-top: 0.3rem;
+  margin-top: 0.3em;
 }
 
 .timerButton {
-  padding: 0.5rem;
-  margin: 0 0.5rem;
+  padding: 0.5em;
+  margin: 0 0.5em;
   background-color: black;
   border: 1px solid #FBDD00;
   border-radius: 3px;
@@ -71,12 +70,83 @@
 } 
 
 
-
-
 /* *********************************************************** */
-/* ********************** Pomodoro Timer ********************* */
+/* *********************** Task Manager* ********************* */
+/* .taskManager {
+  margin: 0 auto;
+  max-width: 700px;
+  height: 42vh;
+  overflow: auto;
+} */
 
+/* .taskList ul {
+  list-style-type: none;
+} */
 
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px dotted gray;
+  padding: 0.5em;
+}
+
+.taskItem:hover {
+  color: #E9A200;
+}
+
+.taskItemSub {
+  display: flex;
+  align-items: baseline;
+}
+
+.taskItemButton {
+  padding: 0 0.5em;
+}
+
+.taskStats {
+  padding: 0 0.5em;
+  white-space: nowrap;
+}
+
+.modalBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);;
+  width: 100vw;
+  height: 100vh;
+}
+  
+.dialogBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 20vh;
+  max-width: 400px;
+  margin: auto;
+  padding: 1rem;
+  background-color: black;
+  border-radius: 10px;
+  border: 1px solid #FBDD00;
+}
+  
+.dialogBoxButton {
+  border: 1px solid #FBDD00;
+  margin: 1.5em 0.3em;
+  padding: 0.5em 0;
+  min-width: 6em;
+  border-radius: 3px;
+}
+
+.dialogBoxButton:hover {
+  border: 1px solid #FBDD00;
+  color: #E9A200;
+}
 
 
 
