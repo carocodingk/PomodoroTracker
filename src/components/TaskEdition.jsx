@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "@/styles/TaskEdition.module.css"
+// import styles from "@/styles/TaskEdition.module.css"
 
 function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
   let [editedTask, setEditedTask] = useState(taskSelected) 
@@ -16,11 +16,11 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
   }
 
   return(
-    <div className={styles.modalBox}>
-      <div className={styles.dialogBox}>
+    <div className='modalBox'>
+      <div className='dialogBox_med'>
         <div> 
           <p>Description:</p>
-          <input id={styles.input1} type="text" value={editedTask.taskName} onChange={
+          <input id='input1' type="text" value={editedTask.taskName} onChange={
             (e)=>
               setEditedTask((prevState) => ({
                 ...prevState,
@@ -28,9 +28,9 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             }))
           }/>
         </div>
-        <div className={styles.flexBox}>
+        <div className='flexBox'>
           <p>Expected Number of Cycles:</p>
-          <input id={styles.input2} type="number" value={editedTask.expectedCycles} onChange={
+          <input id='input2' type="number" min={'0'} max={'99'}  value={editedTask.expectedCycles} onChange={
             (e)=>(
               setEditedTask((prevState) => ({
                 ...prevState,
@@ -39,10 +39,10 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             )
           }/>
         </div>
-        <div className={styles.flexBox}>
+        <div className='flexBox'>
           <p>Current Time:</p>
           <div>
-            <input className={styles.input3} type="number" min={'0'} max={'99'} value={Math.floor(editedTask.actualTime/3600)} onChange={
+            <input className='input3' type="number" min={'0'} max={'99'} value={Math.floor(editedTask.actualTime/3600)} onChange={
               (e)=>{
                 //total time minus the portion in hours
                 const timeExceptHours = editedTask.actualTime - (Math.floor(editedTask.actualTime/3600)*3600)
@@ -52,7 +52,7 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
                 }))
               }
             }/>:
-            <input className={styles.input3} type="number" min={'0'} value={Math.floor((editedTask.actualTime%3600)/60)} max={'59'} onChange={
+            <input className='input3' type="number" min={'0'} value={Math.floor((editedTask.actualTime%3600)/60)} max={'59'} onChange={
               (e)=>{
                 //total time minus the portion in minutes
                 const timeExceptMinutes = editedTask.actualTime - (Math.floor((editedTask.actualTime % 3600)/60) * 60)
@@ -62,7 +62,7 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
                 }))
               }
             }/>:
-            <input className={styles.input3} type="number" min={'0'} value={(editedTask.actualTime%3600)%60} max={'59'} onChange={
+            <input className='input3' type="number" min={'0'} value={(editedTask.actualTime%3600)%60} max={'59'} onChange={
               (e)=>{
                 const timeExceptSeconds = editedTask.actualTime - ((editedTask.actualTime%3600)%60)
                 setEditedTask((prevState) => ({
@@ -73,7 +73,7 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             }/>
           </div>
         </div>
-        <div className={styles.flexBox}>
+        <div className='flexBox'>
           <p>Finished:</p>
           <input type="checkbox" checked={editedTask.finished} onClick={
             (e) => (
@@ -84,9 +84,9 @@ function TaskEdition({taskSelected, taskList, setTaskList, setEditTask}){
             )
           }/>
         </div>
-        <div className={styles.flexBox1}>      
-          <input className={styles.okButton} type="button" value='Save' onClick={()=>saveChanges()} />
-          <input className={styles.okButton} type="button" value='Cancel' onClick={()=>setEditTask(false)} />
+        <div className='flexBox1'>      
+          <input className='okButton' type="button" value='Save' onClick={()=>saveChanges()} />
+          <input className='okButton' type="button" value='Cancel' onClick={()=>setEditTask(false)} />
         </div>
       </div>
     </div>  
