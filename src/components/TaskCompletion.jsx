@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import TimeContext from "./TimeContext"
-import styles from "@/styles/popUpBox.module.css"
+// import styles from "@/styles/popUpBox.module.css"
 
 function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgress, setCycleComplete}){
   const t = useContext(TimeContext)
@@ -42,12 +42,12 @@ function TaskCompletion({taskList, setTaskList, taskInProgress, setTaskInProgres
 
   return(
     // <div className="posAbsoluteTop flexBox flexColumn flexJustifyCenter modalBox">
-    <div className={styles.modalBox1}>
-      <div className={styles.dialogBox1}>
-        <h3 className={styles.boxText}>Has the task been completed?</h3>
+    <div className='modalBox'>
+      <div className='dialogBox_small'>
+        <h3 className='boxText'>Has the task been completed?</h3>
         <div>
-          <input type='button' className={styles.okButton1} value={'YES!'} onClick={()=>taskCompletion(true)} />
-          <input type='button' className={styles.okButton1} value={'Not yet!'} onClick={()=>taskCompletion(false)} />
+          <input type='button' className='okButton_alt' value={'YES!'} onClick={()=>taskCompletion(true)} />
+          <input type='button' className='okButton_alt' value={'Not yet!'} onClick={()=>taskCompletion(false)} />
         </div>
       </div>
     </div>
