@@ -71,7 +71,7 @@ function PomodoroTimer({setCycleComplete}){
   const minutesB = Math.floor(breakTimer / 60)
 
   return(
-    <div>
+    <div id="pomodoroTimer">
       {timesUp && <AlarmAlert setTimesUp={setTimesUp} />}
       <div id='yellowBox'>
         <div>
