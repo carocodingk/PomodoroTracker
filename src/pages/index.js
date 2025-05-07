@@ -29,7 +29,7 @@ export default function Home() {
       <Head>
         <title>Pomodoro Tracker</title>
         <meta name="description" content="Pomodoro Tracker" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       </Head>
       <div id="main" onClick={()=>closeMenu()}>
         <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
