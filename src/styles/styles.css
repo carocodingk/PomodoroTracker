@@ -4,14 +4,15 @@
 }
 
 #main {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
-  transform: scale(1)
+  /* transform: scale(1); */
   /* color: white; */
   /* overflow: auto; */
   /* overflow: hidden; */
   /* background-color: red; */
     /* border: 3px solid red; */
+  /* height: calc(var(--vh, 1vh) * 100); */
 }
 
 #trackerTitle {
@@ -94,7 +95,7 @@
 } */
 
 #taskList {
-  border: 1px solid greenyellow;
+  border: 1px solid palevioletred;
   /* height: calc(100vh - 340px); */
   height:60vh;
   max-width: 700px;
