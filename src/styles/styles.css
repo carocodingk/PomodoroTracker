@@ -95,7 +95,8 @@
 
 #taskList {
   /* border: 1px solid greenyellow; */
-  height: calc(100vh - 340px);
+  /* height: calc(100vh - 340px); */
+  height:60vh;
   max-width: 700px;
   margin: 0 auto;
   overflow: auto;
