@@ -6,13 +6,6 @@
 #main {
   height: 100dvh;
   width: 100vw;
-  /* transform: scale(1); */
-  /* color: white; */
-  /* overflow: auto; */
-  /* overflow: hidden; */
-  /* background-color: red; */
-    /* border: 3px solid red; */
-  /* height: calc(var(--vh, 1vh) * 100); */
 }
 
 #trackerTitle {
@@ -27,8 +20,6 @@
 /* *********************************************************** */
 /* ********************** Pomodoro Timer ********************* */
 #pomodoroTimer {
-  /* background-color: red; */
-  /* margin-bottom: 0; */
   border: 1px solid black;
 }
 
@@ -51,7 +42,6 @@
 .currentTimeTitle {
   color: #E9A200;
   text-align: center;
-  /* font-size: 1em; */
   font-weight: bold;
   margin-top: 0.3em;
 }
@@ -71,7 +61,6 @@
 .timerButton {
   padding: 0.5em;
   margin: 0 0.5em;
-  /* background-color: black; */
   border: 1px solid #FBDD00;
   border-radius: 3px;
 }
@@ -83,24 +72,16 @@
 
 /* *********************************************************** */
 /* *********************** Task Manager* ********************* */
-/* .taskManager {
-  margin: 0 auto;
-  max-width: 700px;
-  height: 42vh;
-  overflow: auto;
-} */
-
-/* .taskList ul {
-  list-style-type: none;
-} */
-
 #taskList {
   border: 1px solid palevioletred;
-  /* height: calc(100vh - 340px); */
-  height:60vh;
+  height:60dvh;
   max-width: 700px;
   margin: 0 auto;
   overflow: auto;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .taskItem {
@@ -109,7 +90,6 @@
   align-items: baseline;
   border-bottom: 1px dotted gray;
   padding: 0.5em;
-  /* background-color: red; */
 }
 
 .taskItem:hover {
@@ -134,46 +114,6 @@
   height: 60px;
   background-color: black;
 }
-
-/* .modalBox {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.8);;
-  width: 100vw;
-  height: 100vh;
-}
-  
-.dialogBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 20vh;
-  max-width: 400px;
-  margin: auto;
-  padding: 1rem;
-  background-color: black;
-  border-radius: 10px;
-  border: 1px solid #FBDD00;
-}
-  
-.dialogBoxButton {
-  border: 1px solid #FBDD00;
-  margin: 1.5em 0.3em;
-  padding: 0.5em 0;
-  min-width: 6em;
-  border-radius: 3px;
-}
-
-.dialogBoxButton:hover {
-  border: 1px solid #FBDD00;
-  color: #E9A200;
-} */
-
 
 /* *********************************************************** */
 /* ************************ NewTaskBar *********************** */
@@ -255,21 +195,6 @@
   color: #E9A200;
 }
 
-/* .boxText {
-  padding: 0.5rem;
-} */
-
-/* .modalBox1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-} */
-
 .dialogBox_small {
   display: flex;
   flex-direction: column;
@@ -341,9 +266,9 @@
 /* *********************************************************** */
 @media screen and (max-height: 375px) {
   /* # {} */
-  #taskList {
+  /* #taskList {
     height: 100vh;
-  }
+  } */
 }
 
 @media screen and (max-height: 530px ) {
