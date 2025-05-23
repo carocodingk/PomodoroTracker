@@ -164,10 +164,6 @@ ul {
   z-index: 2;
 }
 
-.modalBox1 {
-  background-color: red;
-}
-
 .dialogBox {
   display: flex;
   flex-direction: column;
@@ -226,6 +222,7 @@ ul {
 .dialogBox_med {
   border: 1px solid #FBDD00;
   width: 90vw;
+  max-width: 700px;
   min-height: 200px;
   padding: 1em;
   margin: auto;
@@ -264,13 +261,6 @@ ul {
 
 
 /* *********************************************************** */
-@media screen and (max-height: 375px) {
-  /* # {} */
-  /* #taskList {
-    height: 100vh;
-  } */
-}
-
 @media screen and (max-height: 530px ) {
   .dialogBox {
     padding-top: 13em;
