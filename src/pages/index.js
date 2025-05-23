@@ -15,8 +15,8 @@ export default function Home() {
   const [cycleComplete, setCycleComplete] = useState(false) 
   const [openMenu, setOpenMenu] = useState(false)
 
-  const [workTime, setWorkTime] = useState(5); // 1500 seconds
-  const [breakTime, setBreakTime] = useState(3); // 300 seconds
+  const [workTime, setWorkTime] = useState(1500); // 1500 seconds
+  const [breakTime, setBreakTime] = useState(300); // 300 seconds
 
   const closeMenu = ()=>{
     if (openMenu){
