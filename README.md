@@ -14,7 +14,7 @@ Ensure you have installed:
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:carocodingk/PomodoroTracker.git
+   git clone git@github.com:carocodingk/web-application-pomodoro-timer-to-do-list-nextjs.git
    cd time-management-app
    ```
 
