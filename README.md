@@ -1,6 +1,6 @@
-# PomodoroTracker
+# Pomodoro timer and to-do list
 
-Welcome to the Pomodoro Tracker Web App. This application was built using Next.js for time management. It uses the Pomodoro technique, which was developed by Francesco Cirillo in the 1980's. It was designed to improve productivity by breaking work into manageable intervals, called *Pomodoros*, followed by short breaks. Tipically, a Pomodoro consists of 25 minutes of work and 5 minutes of rest. 
+Welcome to the Pomodoro timer and to-do list Web App. This application was built using Next.js for time management. It uses the Pomodoro technique, which was developed by Francesco Cirillo in the 1980's. It was designed to improve productivity by breaking work into manageable intervals, called *Pomodoros*, followed by short breaks. Tipically, a Pomodoro consists of 25 minutes of work and 5 minutes of rest. 
 
 ## Getting started
 
