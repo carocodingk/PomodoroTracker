@@ -27,12 +27,12 @@ export default function Home() {
   return(
     <div>
       <Head>
-        <title>Pomodoro Tracker</title>
-        <meta name="description" content="Pomodoro Tracker" />
+        <title></title>
+        <meta name="description" content="Pomodoro timer and to-do list" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       </Head>
       <div id="main" onClick={()=>closeMenu()}>
-        <p id="trackerTitle" className="centerText">Pomodoro Tracker</p>
+        <p id="trackerTitle" className="centerText">Pomodoro timer and to-do list</p>
         <TimeContext.Provider value={{workTime, setWorkTime, breakTime, setBreakTime}}>
           {!seenInstructions && <AppInstructions setSeenInstructions={setSeenInstructions} />}
           <UserContext.Provider value={{taskInProgress, setTaskInProgress}}>
