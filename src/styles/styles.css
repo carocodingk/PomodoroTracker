@@ -73,7 +73,6 @@
 /* *********************************************************** */
 /* *********************** Task Manager* ********************* */
 #taskList {
-  /* border: 1px solid palevioletred; */
   height:60dvh;
   max-width: 700px;
   margin: 0 auto;
@@ -157,6 +156,7 @@ ul {
 .modalBox {
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
